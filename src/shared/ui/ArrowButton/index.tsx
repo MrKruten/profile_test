@@ -2,7 +2,7 @@ import React from "react";
 import classnames from "classnames";
 
 import "./style.scss";
-import arrow from "../../images/Arrow.svg";
+import { ReactComponent as Arrow } from "../../images/Arrow.svg";
 
 interface IButton {
   onClick: () => void;
@@ -20,7 +20,7 @@ export const ArrowButton: React.FC<IButton> = ({
       })}
       onClick={onClick}
     >
-      <img src={arrow} alt="Move button" />
+      <Arrow />
     </button>
   );
 };

@@ -1,0 +1,19 @@
+.avatar{
+  width: fit-content;
+  border-radius: 2px;
+
+  img{
+    width: 52px;
+    height: 52px;
+  }
+
+  &__default{
+    border: 1px solid #E0E0E0;
+    background-color: #FFFFFF;
+    padding: 10px;
+    img{
+      width: 26px;
+      height: 26px;
+    }
+  }
+}

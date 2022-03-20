@@ -1,0 +1,35 @@
+{
+  "user": {
+    "name": "Даниил Хазов",
+    "avatar": "https://sun9-8.userapi.com/impf/Ah0pvAhiUgvPPq0dXU73XJN53_9FqNlQcs87Uw/6fjBLIE4BLw.jpg?size=2048x2048&quality=96&sign=6696229bfa0773ab9236472fad62f3c0&type=album",
+    "description": {
+      "city": "Томск",
+      "sex": "Male",
+      "age": 20,
+      "date_of_birth": "27.04.2001",
+      "text": "dsa",
+      "btw": "das",
+      "pet": false
+    }
+  },
+  "comments": [
+    {
+      "name": "Bruh",
+      "avatar": "None",
+      "date": "20.03.2022",
+      "text": "dsa"
+    },
+    {
+      "name": "Bruh 1",
+      "avatar": "None",
+      "date": "20.03.2022",
+      "text": "dsa"
+    },
+    {
+      "name": "Bruh 2",
+      "avatar": "None",
+      "date": "20.03.2022",
+      "text": "dsa"
+    }
+  ]
+}

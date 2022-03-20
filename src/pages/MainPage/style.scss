@@ -1,0 +1,15 @@
+.main-page{
+  main {
+    &:before {
+      content: url("../../shared/images/BodyTattoo.svg");
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+  }
+
+  h1{
+    color: #FFFFFF;
+    margin: 80px 90px;
+  }
+}

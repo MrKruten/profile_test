@@ -1,0 +1,68 @@
+.profile{
+  height: 380px;
+  margin-left: 80px;
+  margin-bottom: 152px;
+  display: flex;
+
+  .avatar{
+    margin-top: 37px;
+    img{
+      height: 380px;
+      width: 520px;
+    }
+    &__default{
+      height: 380px;
+      width: 520px;
+      img{
+        width: 50%;
+        height: 50%;
+      }
+    }
+  }
+
+  &__description{
+    font-size: 18px;
+    line-height: 24px;
+    width: 760px;
+    padding: 40px;
+    background-color: #FFFFFF;
+    border-radius: 2px;
+
+    &__name-date{
+      display: flex;
+      justify-content: space-between;
+      h3{
+        color: #585CC6;
+      }
+      margin-bottom: 18px;
+    }
+
+    &__info{
+      display: flex;
+      justify-content: flex-start;
+      margin-bottom: 20px;
+
+      &__item:not(:first-child){
+        margin-left: 40px;
+      }
+    }
+
+    &__text{
+      p:last-child{
+        margin-top: 30px;
+      }
+    }
+
+    &__pet{
+      margin-top: 32px;
+
+      img{
+        margin-right: 12px;
+      }
+    }
+  }
+}
+
+.date{
+  color: #8A8A8A;
+}
