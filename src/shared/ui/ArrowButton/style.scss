@@ -1,0 +1,22 @@
+.button-arrow{
+  padding: 16px;
+  background: #FFFFFF;
+  border-radius: 2px;
+
+  &__rotated{
+    transform: rotate(180deg);
+  }
+
+  &:hover{
+   svg path{
+      stroke: #585CC6;
+    }
+  }
+
+  &:disabled{
+    background: #E0E0E0;
+    svg path{
+      stroke: #ADADAD;
+    }
+  }
+}

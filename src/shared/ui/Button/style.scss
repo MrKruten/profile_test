@@ -1,0 +1,22 @@
+.button-purple{
+  background-color: #585CC6;
+  color: #FFFFFF;
+  font-family: 'Gilroy', serif;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 18px;
+  padding: 17px 28px;
+  border-radius: 2px;
+
+  &:hover{
+    background: #696DC8;
+  }
+
+  &:active{
+    background: #797DDF;
+  }
+
+  &:disabled{
+    background: #8A8A8A;
+  }
+}

@@ -32,6 +32,6 @@ yarn start
 * [React](https://ru.reactjs.org/) - main UI library
 * [TypeScript](https://www.typescriptlang.org/) - programming language
 * [Effector](https://effector.dev/) - state manager
-* [SCSS](https://sass-scss.ru/) - css preprocessor
+* [SCSS](https://sass-scss.ru/) - CSS preprocessor
 * [Feature-Sliced Design](https://feature-sliced.design/en/) - Architectural methodology for frontend projects
 

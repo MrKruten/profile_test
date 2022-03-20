@@ -29,7 +29,6 @@
     "effector"
   ],
   "rules": {
-    "semi": 0,
     "effector/no-forward": "off",
     "effector/no-guard": "off",
     "react/require-default-props": "off",
