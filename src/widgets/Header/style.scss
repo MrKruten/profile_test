@@ -1,0 +1,33 @@
+.header{
+  background-color: #FFFFFF;
+  min-width: 100%;
+  display: flex;
+  min-height: 116px;
+  padding: 32px 80px;
+  justify-content: space-between;
+
+  &__user{
+    display: flex;
+    align-items: center;
+
+    &__name{
+      margin-left: 20px;
+      font-family: 'Gilroy', serif;
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 18px;
+    }
+
+    img {
+      width: 52px;
+      height: 52px;
+    }
+
+    .default-avatar{
+      img{
+        width: 32px;
+        height: 32px;
+      }
+    }
+  }
+}
