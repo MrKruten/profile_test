@@ -1,9 +1,6 @@
 import React from "react";
 
-import { Button } from "shared/ui/Button";
-import { Input } from "shared/ui/Input";
-import { ArrowButton } from "shared/ui/ArrowButton";
-import { DefaultAvatar } from "shared/ui/DefaultAvatar";
+import { Button, ArrowButton, DefaultAvatar, Input } from "shared/ui";
 
 const App = () => {
   return (
