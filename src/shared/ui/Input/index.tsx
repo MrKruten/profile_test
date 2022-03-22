@@ -1,13 +1,21 @@
 import React from "react";
 import classnames from "classnames";
+import { Path, UseFormRegister } from "react-hook-form";
 
 import "./style.scss";
+import { IFormInputs } from "shared/lib/types";
+import { ReactComponent as Cross } from "shared/images/Cross.svg";
 
-interface IInput {
+export interface IInput {
   name: string;
   placeholder: string;
   label: string;
   error?: boolean;
+  errorMessage?: string;
+  maxlength?: number;
+  required?: boolean;
+  id: Path<IFormInputs>;
+  register: UseFormRegister<IFormInputs>;
 }
 
 export const Input: React.FC<IInput> = ({
@@ -15,6 +23,11 @@ export const Input: React.FC<IInput> = ({
   label,
   name,
   error = false,
+  maxlength,
+  register,
+  required = false,
+  id,
+  errorMessage = "Ошибка",
 }) => {
   return (
     <div className="input-block">
@@ -22,12 +35,20 @@ export const Input: React.FC<IInput> = ({
         {label}
       </label>
       <input
-        name={name}
+        id={name}
         className={classnames("input-block__input", {
-          "input-block__input__error": error,
+          "input-block__input_error": error,
         })}
         placeholder={placeholder}
+        maxLength={maxlength}
+        {...register(id, { required })}
       />
+      {error && (
+        <span className="error">
+          <Cross />
+          <span>{errorMessage}</span>
+        </span>
+      )}
     </div>
   );
 };

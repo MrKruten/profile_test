@@ -1,12 +1,51 @@
 .comment-list{
-  background-color: #FFFFFF;
-  padding: 56px 56px 38px 80px;
-  width: 1200px;
-  height: 525px;
+  display: flex;
+
+  &__arrow-buttons{
+    margin-left: 34px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    div{
+      flex-direction: row;
+
+      button:first-child{
+        margin-right: 16px;
+      }
+    }
+  }
+
+  &__container{
+    background-color: #FFFFFF;
+    padding: 56px 56px 38px 80px;
+    width: 1200px;
+    max-width: 90%;
+    height: 525px;
+  }
 
   &__header{
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+
+  &__swiper{
+    margin-top: 38px;
+  }
+}
+
+.dots{
+  width: 12px;
+  height: 4px;
+  border: 4px solid #585CC6;
+  margin-top: 32px;
+  opacity: 0.3;
+}
+
+.slick-active{
+  .dots{
+    opacity: 1;
+    width: 24px;
   }
 }

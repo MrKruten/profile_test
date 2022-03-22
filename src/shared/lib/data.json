@@ -7,29 +7,29 @@
       "sex": "Male",
       "age": 20,
       "date_of_birth": "27.04.2001",
-      "text": "dsa",
-      "btw": "das",
+      "text": "Привет от студента! Учусь на программиста в сине-белом стиле \\0-0/\n",
+      "btw": "Больше страху, чем бэкэндер, может навести только дизайнер :)",
       "pet": false
     }
   },
   "comments": [
     {
-      "name": "Bruh",
-      "avatar": "None",
+      "name": "Денис Мигунов",
+      "avatar": "https://sun9-43.userapi.com/impf/T0napMGt-siBScXsMCAlIhEFrzaGbyLzb0HAUg/sU24RSXjIks.jpg?size=658x658&quality=95&sign=53a9ed35e14fed312ecb3e4bbae34cc9&type=album",
       "date": "20.03.2022",
-      "text": "dsa"
+      "text": "Бог создал Адама. Из его ребра создал Еву.\nНоворожденные спрашивают у бога:\n- А это кто?\n- Да чел тут лабу сдать хочет"
     },
     {
-      "name": "Bruh 1",
-      "avatar": "None",
+      "name": "Общажный Дед",
+      "avatar": "https://sun9-39.userapi.com/impf/LZ_UldipCHAMsTIsWK_mG0lwer1xM8ZUq6N0EA/FV84VDdTVPo.jpg?size=308x372&quality=96&sign=938476a2d5d663c91bf0744cdb58f3b9&type=album",
       "date": "20.03.2022",
-      "text": "dsa"
+      "text": "Здоровье: здоров\nВозраст: молодой\nВид: драконид\nПрофессия: программист\nХобби: туризм\nМировоззрение: научное\nkaiq.ru"
     },
     {
-      "name": "Bruh 2",
+      "name": "Bruh Bruh",
       "avatar": "None",
       "date": "20.03.2022",
-      "text": "dsa"
+      "text": "Bruh Bruh Bruh !!! Bruh? Bruh. Bruh - Bruh ? Bruh Bruh Bruh Bruh Bruh Bruh Bruh Bruh Bruh !!! Bruh? Bruh. Bruh - Bruh ? Bruh Bruh Bruh Bruh Bruh Bruh Bruh Bruh Bruh !!! Bruh? Bruh. Bruh - Bruh ? Bruh Bruh Bruh Bruh Bruh Bruh Bruh Bruh Bruh !!! Bruh? Bruh. Bruh - Bruh ? Bruh Bruh Bruh Bruh Bruh Bruh"
     }
   ]
 }

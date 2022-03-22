@@ -16,7 +16,13 @@ export const Header = () => {
         <img src={logo} alt="Logo" />
       </div>
       <div>
-        <Button onClick={() => {}}>Панель управления</Button>
+        <a
+          href="https://www.youtube.com/watch?v=cw9FIeHbdB8"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <Button onClick={() => {}}>Панель управления</Button>
+        </a>
       </div>
     </header>
   );

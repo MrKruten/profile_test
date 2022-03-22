@@ -1,11 +1,15 @@
 .main-page{
+  position: relative;
+  &:before {
+    content: url("../../shared/images/Body_tattoo.svg");
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
   main {
-    &:before {
-      content: url("../../shared/images/BodyTattoo.svg");
-      position: absolute;
-      right: 0;
-      top: 0;
-    }
+    position: relative;
+    z-index: 10;
   }
 
   h1{
