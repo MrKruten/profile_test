@@ -1,5 +1,5 @@
 import React, { useCallback, useRef } from "react";
-import { useList } from "effector-react";
+import { useList, useStore } from "effector-react";
 import Slider from "react-slick";
 
 import "./style.scss";
@@ -11,8 +11,10 @@ import plus from "shared/images/Plus.svg";
 import { ArrowButton, Button } from "shared/ui";
 import { showAddComment } from "features/showAddComment/model";
 import { $comments } from "features/Comments/model";
+import { $isResize } from "features/resize/model";
 
 export const CommentList = () => {
+  const isResize = useStore($isResize);
   const commentList = useList($comments, (comment) => (
     <Comment
       name={comment.name}
@@ -34,12 +36,25 @@ export const CommentList = () => {
   const dots = useCallback(() => <div className="dots" />, []);
 
   const settings = {
+    arrows: false,
     dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 2,
     slidesToScroll: 1,
     customPaging: dots,
+    adaptiveHeight: true,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
+        },
+      },
+    ],
   };
   return (
     <div className="comment-list">
@@ -53,7 +68,7 @@ export const CommentList = () => {
           >
             <>
               <img src={plus} alt="Добавить" />
-              Добавить отзыв
+              {isResize && "Добавить отзыв"}
             </>
           </Button>
         </div>
@@ -63,12 +78,14 @@ export const CommentList = () => {
           </Slider>
         </div>
       </div>
-      <div className="comment-list__arrow-buttons">
-        <div>
-          <ArrowButton onClick={() => previous()} rotated />
-          <ArrowButton onClick={() => next()} />
+      {isResize && (
+        <div className="comment-list__arrow-buttons">
+          <div>
+            <ArrowButton onClick={() => previous()} rotated />
+            <ArrowButton onClick={() => next()} />
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };

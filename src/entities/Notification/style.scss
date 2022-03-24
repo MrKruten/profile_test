@@ -1,0 +1,109 @@
+@import'src/app/styles/variables';
+
+.notification{
+  z-index: 15;
+  position: fixed;
+  right: 3%;
+  bottom: 10%;
+  transition: opacity 1000ms ease-in;
+
+  @media (max-width: $md3) {
+    right: 10%;
+  }
+
+  &__container{
+    width: 438px;
+    padding: 24px 16px 24px;
+    background: #B5FFA2;
+    border-radius: 32px;
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    @media (max-width: $md3) {
+        width: 288px;
+    }
+
+    button{
+      svg path{
+        stroke: #333333;
+        fill: #333333;
+      }
+    }
+
+    &__text{
+      margin-left: 130px;
+      h4{
+        line-height: 38px;
+      }
+      width: 244px;
+
+      @media (max-width: $md3) {
+        width: 170px;
+        margin-left: 90px;
+      }
+    }
+
+    &:before{
+      content: "";
+      position: absolute;
+      top: -34px;
+      left: 30px;
+      width: 78px;
+      height: 78px;
+      background: url("../../shared/images/Message.svg") no-repeat;
+    }
+
+    &:after{
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 84px;
+      height: 70px;
+      border-bottom-left-radius: 32px;
+      background: url("../../shared/images/Green_bubbles.svg") no-repeat;
+    }
+
+    &__message-img{
+      &:after{
+        content: "";
+        position: absolute;
+        top: -15px;
+        left: 50px;
+        width: 32px;
+        height: 32px;
+        background: url("../../shared/images/Check.svg") no-repeat;
+      }
+    }
+
+    &_error{
+      color: #FFFFFF;
+      background: #F64B3C;
+
+      button{
+        svg path{
+          stroke: #FFFFFF;
+          fill: #FFFFFF;
+        }
+      }
+
+      &:before{
+        background: url("../../shared/images/Error_Message.svg") no-repeat;
+      }
+
+      &:after{
+        width: 93px;
+        height: 82px;
+        background: url("../../shared/images/Red_bubbles.svg") no-repeat;
+      }
+
+      .notification__container__message-img{
+        &:after{
+          background: url("../../shared/images/Error_Cross.svg") no-repeat;
+        }
+      }
+    }
+  }
+}

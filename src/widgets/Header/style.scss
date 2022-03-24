@@ -1,10 +1,23 @@
+@import'src/app/styles/variables';
+
 .header{
+  @media (max-width: $md3) {
+    height: 77px;
+    padding: 20px 16px;
+    &__logo{
+      img{
+        width: 60px;
+        height: 36px;
+      }
+    }
+  }
   position: relative;
   z-index: 10;
   background-color: #FFFFFF;
   min-width: 100%;
   display: flex;
-  min-height: 116px;
+  align-items: center;
+  height: 116px;
   padding: 32px 80px;
   justify-content: space-between;
 
@@ -18,11 +31,23 @@
       font-weight: 700;
       font-size: 18px;
       line-height: 18px;
+
+      @media (max-width: $md3) {
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 14px;
+        margin-left: 8px;
+      }
     }
 
     img {
       width: 52px;
       height: 52px;
+
+      @media (max-width: $md3) {
+        width: 36px;
+        height: 36px;
+      }
     }
 
     .default-avatar{

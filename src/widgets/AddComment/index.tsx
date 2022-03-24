@@ -19,6 +19,7 @@ import {
 } from "features/showAddComment/model";
 import { addComment } from "features/Comments/model";
 import { IFormInputs } from "shared/lib/types";
+import { showNotification } from "entities/Notification/model";
 
 const schema = yup
   .object({
@@ -54,6 +55,7 @@ export const AddComment = () => {
     const today = new Date().toLocaleDateString().replaceAll("/", ".");
     addComment({ ...data, avatar, date: today });
     showAddComment(false);
+    showNotification(true);
     formRef?.current?.reset();
     deleteFile();
   };

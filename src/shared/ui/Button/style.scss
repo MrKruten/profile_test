@@ -1,3 +1,5 @@
+@import'src/app/styles/variables';
+
 .button-purple{
   background-color: #585CC6;
   color: #FFFFFF;
@@ -7,7 +9,18 @@
   line-height: 18px;
   padding: 17px 28px;
   border-radius: 2px;
-  height: 52px;
+  //height: 52px;
+
+  @media (max-width: $md3) {
+    width: 42px;
+    //height: 42px;
+    padding: 12px;
+    font-size: 14px;
+
+    img{
+      margin: 0;
+    }
+  }
 
   img{
     margin-right: 10px;

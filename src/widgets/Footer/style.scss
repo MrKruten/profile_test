@@ -1,11 +1,21 @@
+@import'src/app/styles/variables';
+
 .footer{
   margin-top: 105px;
   background-color: #FFFFFF;
   min-width: 100%;
-  min-height: 64px;
+  height: 64px;
   padding: 20px 80px;
   display: flex;
   justify-content: space-between;
+
+  @media (max-width: $md3) {
+    margin-top: 82px;
+    height: 84px;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px 24px 16px;
+  }
 
   &__company{
     font-family: 'Gilroy', sans-serif;
@@ -13,6 +23,16 @@
     font-size: 16px;
     line-height: 20px;
     color: #8A8A8A;
+
+    @media (max-width: $md3) {
+      margin-bottom: 12px;
+      font-family: 'Factor A TRIAL', sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 20px;
+      color: $textColor;
+    }
   }
 
   &__references{
