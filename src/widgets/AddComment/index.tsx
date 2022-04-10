@@ -70,7 +70,7 @@ export const AddComment = () => {
 
     readerURL.onload = () => {
       setAvatar(readerURL.result as string);
-      if (file.size / 1024 / 1024 > 1.5) {
+      if (file.size / 1024 / 1024 > 6) {
         setIsFileError(true);
       }
     };
@@ -141,25 +141,19 @@ export const AddComment = () => {
           {fileName === "" ? null : (
             <div className="add-comment__file">
               <img src={fileImg} alt="Файл" />
-              <div className="add-comment__file__name-load">
+              <div className="add-comment__name-load">
                 {/* Всё на русском, а ошибка на английском) Ошибка при файле больше 1.5 мб */}
                 <p
-                  className={
-                    isFileError ? "add-comment__file__name-load_error" : ""
-                  }
+                  className={isFileError ? "add-comment__name-load_error" : ""}
                 >
                   {isFileError ? "Your file is too big!" : fileName}
                 </p>
-                <div className="add-comment__file__name-load__stripe">
-                  <div className="add-comment__file__name-load__stripe__bar" />
+                <div className="add-comment__stripe">
+                  <div className="add-comment__bar" />
                   <div
-                    className={classnames(
-                      "add-comment__file__name-load__stripe__load",
-                      {
-                        "add-comment__file__name-load__stripe__load_error":
-                          isFileError,
-                      }
-                    )}
+                    className={classnames("add-comment__load", {
+                      "add-comment__load_error": isFileError,
+                    })}
                   />
                 </div>
               </div>
@@ -183,7 +177,7 @@ export const AddComment = () => {
             <Button onClick={() => {}} type="submit" disabled={isFileError}>
               Отправить отзыв
             </Button>
-            <div className="add-comment__submit__info">
+            <div className="add-comment__info">
               <img src={infoImg} alt="Информация" />
               <span>Все отзывы проходят модерацию в течение 2 часов</span>
             </div>

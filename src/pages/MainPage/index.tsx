@@ -3,9 +3,10 @@ import { useGate } from "effector-react";
 import "./style.scss";
 
 import { Profile } from "entities/Profile";
-import { Header, Footer, CommentList, AddComment } from "widgets";
+import { Header, CommentList, AddComment } from "widgets";
 import { ResizeGate } from "features/resize/model";
 import { Notification } from "entities/Notification";
+import { Footer } from "shared/ui";
 
 export const MainPage = () => {
   useGate(ResizeGate);

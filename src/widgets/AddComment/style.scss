@@ -106,57 +106,57 @@
           margin-left: 0;
       }
     }
+  }
 
-    &__name-load {
-      width: 100%;
-      max-width: 300px;
-      margin-left: 12px;
-      margin-right: 20px;
+  &__name-load {
+    width: 100%;
+    max-width: 300px;
+    margin-left: 12px;
+    margin-right: 20px;
 
-      p {
-        font-family: 'Gilroy', sans-serif;
-        font-style: normal;
-        font-weight: 600;
+    p {
+      font-family: 'Gilroy', sans-serif;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 130%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      @media (max-width: $md3) {
         font-size: 14px;
         line-height: 130%;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-
-        @media (max-width: $md3) {
-          font-size: 14px;
-          line-height: 130%;
-        }
       }
+    }
 
-      &_error {
-        color: #EB5757;
-      }
+    &_error {
+      color: #EB5757;
+    }
+  }
 
-      &__stripe {
-        margin-top: 4px;
-        position: relative;
+  &__stripe {
+    margin-top: 4px;
+    position: relative;
+  }
 
-        &__bar {
-          width: 110%;
-          border: 4px solid #C2C4FF;
-          border-radius: 4px;
-        }
+  &__bar {
+    width: 110%;
+    border: 4px solid #C2C4FF;
+    border-radius: 4px;
+  }
 
-        &__load {
-          position: absolute;
-          top: 0;
-          width: 110%;
-          border: 4px solid #585CC6;
-          border-radius: 4px;
+  &__load {
+    position: absolute;
+    top: 0;
+    width: 110%;
+    border: 4px solid #585CC6;
+    border-radius: 4px;
 
-          &_error {
-            width: 110%;
-            border: 4px solid #EB5757;
-            border-radius: 4px;
-          }
-        }
-      }
+    &_error {
+      width: 110%;
+      border: 4px solid #EB5757;
+      border-radius: 4px;
     }
   }
 
@@ -172,27 +172,27 @@
         order: 2;
       }
     }
+  }
 
-    &__info {
-      margin-left: 16px;
-      align-items: center;
+  &__info {
+    margin-left: 16px;
+    align-items: center;
 
-      span {
-        margin-left: 8px;
-        color: #8A8A8A;
-      }
+    span {
+      margin-left: 8px;
+      color: #8A8A8A;
+    }
 
-      @media (max-width: $md3) {
-        order: 1;
-        margin-left: 0;
-        margin-bottom: 12px;
-        font-size: 10px;
-        line-height: 12px;
+    @media (max-width: $md3) {
+      order: 1;
+      margin-left: 0;
+      margin-bottom: 12px;
+      font-size: 10px;
+      line-height: 12px;
 
-        img{
-          width: 8px;
-          height: 8px;
-        }
+      img{
+        width: 8px;
+        height: 8px;
       }
     }
   }

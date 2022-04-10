@@ -1,6 +1,8 @@
 @import'src/app/styles/variables';
 
 .main-page{
+  display: flex;
+  flex-direction: column;
   position: relative;
   &:before {
     content: url("../../shared/images/Body_tattoo.svg");
@@ -16,6 +18,7 @@
   main {
     position: relative;
     z-index: 10;
+    flex: 1 1 auto;
   }
 
   h1{

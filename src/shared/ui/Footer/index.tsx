@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./style.scss";
+import "shared/ui/Footer/style.scss";
 import vk from "shared/images/Vk.svg";
 import telegram from "shared/images/Telegram.svg";
 import reddit from "shared/images/Reddit.svg";
