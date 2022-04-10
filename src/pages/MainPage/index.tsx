@@ -8,7 +8,7 @@ import { ResizeGate } from "features/resize/model";
 import { Notification } from "entities/Notification";
 import { Footer } from "shared/ui";
 
-export const MainPage = () => {
+const MainPage = () => {
   useGate(ResizeGate);
 
   return (
@@ -29,3 +29,5 @@ export const MainPage = () => {
     </>
   );
 };
+
+export default MainPage;

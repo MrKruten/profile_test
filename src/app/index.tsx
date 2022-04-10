@@ -1,9 +1,11 @@
 import React from "react";
 
-import { MainPage } from "pages";
+import { Router } from "pages";
+
+import { withProviders } from "./providers";
 
 const App = () => {
-  return <MainPage />;
+  return <Router />;
 };
 
-export default App;
+export default withProviders(App);
