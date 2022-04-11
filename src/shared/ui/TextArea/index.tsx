@@ -2,19 +2,19 @@ import React, { useState } from "react";
 import classnames from "classnames";
 
 import "./style.scss";
-import { IInput } from "shared/ui/Input";
+import { IInputField } from "shared/ui/Input";
 import { ReactComponent as Cross } from "shared/images/Cross.svg";
 
-export const TextArea: React.FC<IInput> = ({
+export const TextArea: React.FC<IInputField> = ({
   name,
   placeholder,
   label,
   maxlength,
   error,
-  id,
   required,
-  register,
   errorMessage,
+  id,
+  register,
 }) => {
   const [symbols, setSymbols] = useState(0);
 

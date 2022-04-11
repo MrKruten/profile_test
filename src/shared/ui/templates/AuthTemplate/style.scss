@@ -1,0 +1,38 @@
+@import'src/app/styles/variables';
+
+.auth-page{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-height: 100%;
+  overflow: hidden;
+
+  &:after {
+    content: url("../../../images/Auth_tatto.svg");
+    position: absolute;
+    left: 0;
+    top: 100px;
+  }
+
+  &__header{
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    svg{
+      stroke: #FFFFFF;
+      fill: #FFFFFF;
+
+      path{
+        fill: #FFFFFF;
+      }
+    }
+  }
+
+  &__main{
+    background: #FFFFFF;
+    flex: 1 1 auto;
+    z-index: 10;
+  }
+}
