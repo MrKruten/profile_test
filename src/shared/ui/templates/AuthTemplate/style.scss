@@ -10,7 +10,8 @@
   &:after {
     content: url("../../../images/Auth_tatto.svg");
     position: absolute;
-    left: 0;
+    left: 50%;
+    transform: translateX(-50%);
     top: 100px;
   }
 
