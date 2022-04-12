@@ -1,0 +1,13 @@
+.hyperlink{
+  font-family: 'Gilroy', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 133%;
+  color: #585CC6;
+
+  &:hover{
+    text-decoration-line: underline;
+    color: #797DDF;
+  }
+}
