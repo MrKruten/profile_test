@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 import "./style.scss";
 
-// mock date
+// mock datess
 import dataTest from "shared/lib/data.json";
 import { IFormInputs } from "shared/lib/types";
 import { Button, Hyperlink, Input } from "shared/ui";
