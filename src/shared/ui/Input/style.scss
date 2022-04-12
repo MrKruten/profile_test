@@ -66,6 +66,24 @@
       margin-right: 12px;
     }
   }
+
+  &__password{
+    svg path{
+      stroke: #8A8A8A;
+    }
+
+    &_active{
+      svg path{
+        stroke: #585CC6;
+      }
+    }
+
+    &:hover{
+      svg path{
+        stroke: #797DDF;
+      }
+    }
+  }
 }
 
 .error{
