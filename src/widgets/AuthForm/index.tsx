@@ -59,6 +59,10 @@ export const AuthForm: React.FC = () => {
     }
   };
 
+  const navigatePasswordRecovery = () => {
+    navigate("/password-recovery");
+  };
+
   return (
     <div className="auth-form">
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -93,7 +97,9 @@ export const AuthForm: React.FC = () => {
           Войти
         </Button>
         <div>
-          <Hyperlink href="/password-recovery">Забыли пароль?</Hyperlink>
+          <button type="button" onClick={navigatePasswordRecovery}>
+            <Hyperlink text="Забыли пароль?" />
+          </button>
         </div>
       </form>
     </div>

@@ -3,13 +3,9 @@ import React from "react";
 import "./style.scss";
 
 interface IHyperlink {
-  href: string;
+  text: String;
 }
 
-export const Hyperlink: React.FC<IHyperlink> = ({ children, href }) => {
-  return (
-    <a href={href} className="hyperlink">
-      {children}
-    </a>
-  );
+export const Hyperlink: React.FC<IHyperlink> = ({ text }) => {
+  return <span className="hyperlink">{text}</span>;
 };
