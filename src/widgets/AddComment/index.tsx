@@ -27,12 +27,12 @@ const schema = yup
       .string()
       .min(4, "Поле должно содержать не менее 4 символов")
       .max(64, "Поле должно содержать не более 64 символов")
-      .required(),
+      .required("Это обязательно поле"),
     text: yup
       .string()
       .min(6, "Поле должно содержать не менее 6 символов")
       .max(200, "Поле должно содержать не более 200 символов")
-      .required(),
+      .required("Это обязательно поле"),
   })
   .required();
 
@@ -40,7 +40,6 @@ export const AddComment = () => {
   const [avatar, setAvatar] = useState("None");
   const [fileName, setFileName] = useState("");
   const [isFileError, setIsFileError] = useState(false);
-  const formRef = useRef<HTMLFormElement>(null);
   const inputFileRef = useRef<HTMLInputElement>(null);
   const isShowAddComment = useStore($isShowAddComment);
   const {
@@ -51,15 +50,6 @@ export const AddComment = () => {
   } = useForm<IFormInputs>({
     resolver: yupResolver(schema),
   });
-
-  const onSubmit: SubmitHandler<IFormInputs> = (data) => {
-    const today = new Date().toLocaleDateString().replaceAll("/", ".");
-    addComment({ ...data, avatar, date: today });
-    showAddComment(false);
-    showNotification(true);
-    reset();
-    deleteFile();
-  };
 
   const readFile = (input: FileList | null) => {
     if (!input) return;
@@ -98,6 +88,15 @@ export const AddComment = () => {
 
   const onDeleteFile = () => {
     deleteFile();
+  };
+
+  const onSubmit: SubmitHandler<IFormInputs> = (data) => {
+    const today = new Date().toLocaleDateString().replaceAll("/", ".");
+    addComment({ ...data, avatar, date: today });
+    showAddComment(false);
+    showNotification(true);
+    deleteFile();
+    reset();
   };
 
   return (

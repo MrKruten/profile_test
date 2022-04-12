@@ -31,5 +31,19 @@
       "date": "20.03.2022",
       "text": "Bruh Bruh Bruh !!! Bruh? Bruh. Bruh - Bruh ? Bruh Bruh Bruh Bruh Bruh Bruh Bruh Bruh Bruh !!! Bruh? Bruh. Bruh - Bruh ? Bruh Bruh Bruh Bruh Bruh Bruh Bruh Bruh Bruh !!! Bruh? Bruh. Bruh - Bruh ? Bruh Bruh Bruh Bruh Bruh Bruh Bruh Bruh Bruh !!! Bruh? Bruh. Bruh - Bruh ? Bruh Bruh Bruh Bruh Bruh Bruh"
     }
+  ],
+  "users": [
+    {
+      "login": "test1@td.ru",
+      "password": "testA-11"
+    },
+    {
+      "login": "test2@td.ru",
+      "password": "testA-22"
+    },
+    {
+      "login": "test3@td.ru",
+      "password": "testA-33"
+    }
   ]
 }

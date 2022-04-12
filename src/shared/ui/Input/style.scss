@@ -1,12 +1,14 @@
 .input-block{
   position: relative;
   &__label{
-    font-family: 'Gilroy', sans-serif;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 20px;
+    font-family: 'Factor A TRIAL', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 143%;
     display: block;
     margin-bottom: 14px;
+    text-align: initial;
+    letter-spacing: -0.0124em;
   }
 
   &__input{
@@ -17,27 +19,33 @@
     font-family: 'Gilroy', sans-serif;
     font-weight: 400;
     font-size: 14px;
-    line-height: 22px;
+    line-height: 157%;
 
     &:focus{
       border: 1px solid #585CC6;
     }
 
-    &_error{
-      border: 1px solid #EB5757;
+    &_password{
+      font-weight: 600;
+      letter-spacing: 0.2em;
     }
 
-    &_password{
+    &::placeholder{
       font-family: 'Gilroy', sans-serif;
       font-style: normal;
-      font-weight: 600;
+      font-weight: 400;
       font-size: 14px;
-      line-height: 157%;
-      letter-spacing: 0.2em;
+      line-height: 22px;
+      letter-spacing: normal;
+      color: #8A8A8A;
     }
 
     &_active{
       border: 1px solid #585CC6;
+    }
+
+    &_error{
+      border: 1px solid #EB5757;
     }
   }
 
@@ -77,6 +85,7 @@
 .info-error{
   align-self: center;
   position: relative;
+  padding-top: 4px;
 
   &:hover p{
     opacity: 1;

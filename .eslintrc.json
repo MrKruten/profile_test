@@ -29,6 +29,18 @@
     "effector"
   ],
   "rules": {
+    "react/required-default-props": "off",
+    "react/react-in-jsx-scope": 0,
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": true,
+        "optionalDependencies": false,
+        "peerDependencies": false
+      }
+    ],
+    "@typescript-eslint/no-use-before-define": ["error"],
+    "no-useless-escape": "off",
     "effector/no-forward": "off",
     "effector/no-guard": "off",
     "react/require-default-props": "off",
@@ -37,12 +49,7 @@
     "no-unused-vars": "off",
     "react/button-has-type": "off",
     "arrow-body-style": 0,
-    "no-plusplus": [
-      "error",
-      {
-        "allowForLoopAfterthoughts": true
-      }
-    ],
+    "no-plusplus": "off",
     "no-shadow": "off",
     "no-nested-ternary": 0,
     "no-return-await": 0,

@@ -70,6 +70,7 @@ export const Input: React.FC<IInput> = ({
           })}
           placeholder={placeholder}
           maxLength={maxlength}
+          autoComplete={typeInput === "password" ? "on" : "off"}
           {...register(id, { required })}
           onChange={onChange}
         />

@@ -2,12 +2,13 @@ import React from "react";
 import { useStore } from "effector-react";
 import classnames from "classnames";
 
+import { ReactComponent as Cross } from "shared/images/Cross.svg";
+
 import {
   $isShowNotification,
   $isSuccessNotification,
   showNotification,
-} from "entities/Notification/model";
-import { ReactComponent as Cross } from "shared/images/Cross.svg";
+} from "./model";
 import "./style.scss";
 
 // Т.к есть валидация формы и нет сервера, то уведомление всегда будет успешным

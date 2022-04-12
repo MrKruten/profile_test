@@ -21,6 +21,10 @@
     align-items: center;
 
     svg{
+      @media (max-width: $md3) {
+        width: 60px;
+        height: 36px;
+      }
       stroke: #FFFFFF;
       fill: #FFFFFF;
 
@@ -33,5 +37,6 @@
   &__main{
     flex: 1 1 auto;
     z-index: 10;
+    margin: 0 auto 2% auto;
   }
 }

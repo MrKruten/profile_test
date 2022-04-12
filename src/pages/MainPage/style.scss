@@ -32,5 +32,9 @@
 
   .footer{
     margin-top: 105px;
+
+    @media (max-width: $md3) {
+      margin-top: 82px;
+    }
   }
 }
