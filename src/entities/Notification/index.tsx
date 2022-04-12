@@ -11,8 +11,18 @@ import {
 } from "./model";
 import "./style.scss";
 
+interface INotification {
+  textError: string;
+  titleSuccess: string;
+  textSuccess: string;
+}
+
 // Т.к есть валидация формы и нет сервера, то уведомление всегда будет успешным
-export const Notification = () => {
+export const Notification: React.FC<INotification> = ({
+  textError,
+  textSuccess,
+  titleSuccess,
+}) => {
   const isShowNotification = useStore($isShowNotification);
   const isSuccessNotification = useStore($isSuccessNotification);
 
@@ -33,12 +43,8 @@ export const Notification = () => {
       >
         <div className="notification__container__message-img" />
         <div className="notification__container__text">
-          <h4>{isSuccessNotification ? "Успешно!" : "Что-то не так..."}</h4>
-          <p>
-            {isSuccessNotification
-              ? "Спасибо за отзыв о нашей компании :)"
-              : "Не получилось отправить отзыв. Попробуйте еще раз!"}
-          </p>
+          <h4>{isSuccessNotification ? titleSuccess : "Что-то не так..."}</h4>
+          <p>{isSuccessNotification ? textSuccess : textError}</p>
         </div>
         <button onClick={onClose}>
           <Cross />
