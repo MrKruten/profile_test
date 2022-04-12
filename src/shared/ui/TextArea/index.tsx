@@ -18,6 +18,10 @@ export const TextArea: React.FC<IInputField> = ({
 }) => {
   const [symbols, setSymbols] = useState(0);
 
+  const onChangeSymbols = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setSymbols(e.target.value.length);
+  };
+
   return (
     <div className="textarea-block">
       <label
@@ -39,7 +43,7 @@ export const TextArea: React.FC<IInputField> = ({
           placeholder={placeholder}
           maxLength={maxlength}
           {...register(id, { required })}
-          onChange={(e) => setSymbols(e.target.value.length)}
+          onChange={onChangeSymbols}
         />
         <p>
           {symbols}/{maxlength}

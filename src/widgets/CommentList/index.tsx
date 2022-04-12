@@ -56,16 +56,25 @@ export const CommentList = () => {
       },
     ],
   };
+
+  const showModal = () => {
+    showAddComment(true);
+  };
+
+  const onPrevious = () => {
+    previous();
+  };
+
+  const onNext = () => {
+    next();
+  };
+
   return (
     <div className="comment-list">
       <div className="comment-list__container">
         <div className="comment-list__header">
           <h2>Отзывы</h2>
-          <Button
-            onClick={() => {
-              showAddComment(true);
-            }}
-          >
+          <Button onClick={showModal}>
             <>
               <img src={plus} alt="Добавить" />
               {isResize && "Добавить отзыв"}
@@ -81,8 +90,8 @@ export const CommentList = () => {
       {isResize && (
         <div className="comment-list__arrow-buttons">
           <div>
-            <ArrowButton onClick={() => previous()} rotated />
-            <ArrowButton onClick={() => next()} />
+            <ArrowButton onClick={onPrevious} rotated />
+            <ArrowButton onClick={onNext} />
           </div>
         </div>
       )}

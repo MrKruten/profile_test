@@ -22,7 +22,6 @@ export interface IInputField {
 }
 
 interface IInput extends IInputField {
-  onChangeHandler?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   typeInput?: "text" | "password";
 }
 
@@ -35,7 +34,6 @@ export const Input: React.FC<IInput> = ({
   typeInput = "text",
   required = false,
   errorMessage = "Ошибка",
-  onChangeHandler,
   id,
   register,
 }) => {
@@ -51,9 +49,6 @@ export const Input: React.FC<IInput> = ({
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.value) {
       setIsActive(true);
-      if (onChangeHandler) {
-        onChangeHandler(event);
-      }
     } else {
       setIsActive(false);
     }

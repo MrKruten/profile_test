@@ -15,6 +15,10 @@ export const Notification = () => {
   const isShowNotification = useStore($isShowNotification);
   const isSuccessNotification = useStore($isSuccessNotification);
 
+  const onClose = () => {
+    showNotification(false);
+  };
+
   if (!isShowNotification) {
     return null;
   }
@@ -35,7 +39,7 @@ export const Notification = () => {
               : "Не получилось отправить отзыв. Попробуйте еще раз!"}
           </p>
         </div>
-        <button onClick={() => showNotification(false)}>
+        <button onClick={onClose}>
           <Cross />
         </button>
       </div>

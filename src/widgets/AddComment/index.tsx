@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import classnames from "classnames";
 import { useStore } from "effector-react";
-import { useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
@@ -46,17 +46,18 @@ export const AddComment = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<IFormInputs>({
     resolver: yupResolver(schema),
   });
 
-  const onSubmit = (data: IFormInputs) => {
+  const onSubmit: SubmitHandler<IFormInputs> = (data) => {
     const today = new Date().toLocaleDateString().replaceAll("/", ".");
     addComment({ ...data, avatar, date: today });
     showAddComment(false);
     showNotification(true);
-    formRef?.current?.reset();
+    reset();
     deleteFile();
   };
 
@@ -85,6 +86,20 @@ export const AddComment = () => {
     setIsFileError(false);
   };
 
+  const closeWindow = () => {
+    showAddComment(false);
+  };
+
+  const onChangeFile = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files) {
+      readFile(e.target.files);
+    }
+  };
+
+  const onDeleteFile = () => {
+    deleteFile();
+  };
+
   return (
     <div
       className={classnames("add-comment", {
@@ -94,15 +109,11 @@ export const AddComment = () => {
       <div className="add-comment__content">
         <div className="add-comment__header">
           <h4>Отзыв</h4>
-          <button
-            onClick={() => {
-              showAddComment(false);
-            }}
-          >
+          <button onClick={closeWindow}>
             <img src={crossImg} alt="Закрыть" />
           </button>
         </div>
-        <form onSubmit={handleSubmit(onSubmit)} ref={formRef}>
+        <form onSubmit={handleSubmit(onSubmit)}>
           <div className="add-comment__name-file">
             <Input
               name="name"
@@ -125,7 +136,7 @@ export const AddComment = () => {
                   id="avatar"
                   accept="image/*"
                   ref={inputFileRef}
-                  onChange={(e) => e.target.files && readFile(e.target.files)}
+                  onChange={onChangeFile}
                 />
                 <span className="input__file-icon-wrapper">
                   <img
@@ -142,7 +153,6 @@ export const AddComment = () => {
             <div className="add-comment__file">
               <img src={fileImg} alt="Файл" />
               <div className="add-comment__name-load">
-                {/* Всё на русском, а ошибка на английском) Ошибка при файле больше 1.5 мб */}
                 <p
                   className={isFileError ? "add-comment__name-load_error" : ""}
                 >
@@ -157,7 +167,7 @@ export const AddComment = () => {
                   />
                 </div>
               </div>
-              <button onClick={() => deleteFile()}>
+              <button onClick={onDeleteFile}>
                 <DeleteImg />
               </button>
             </div>
