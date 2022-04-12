@@ -33,7 +33,7 @@ const schema = yup
   })
   .required();
 
-export const AuthForm = () => {
+export const AuthForm: React.FC = () => {
   const navigate = useNavigate();
   const {
     register,
@@ -93,7 +93,7 @@ export const AuthForm = () => {
           Войти
         </Button>
         <div>
-          <Hyperlink href="#">Забыли пароль?</Hyperlink>
+          <Hyperlink href="/password-recovery">Забыли пароль?</Hyperlink>
         </div>
       </form>
     </div>

@@ -1,6 +1,5 @@
 import React from "react";
 
-import "./style.scss";
 import { AuthTemplate } from "shared/ui/templates";
 import { AuthForm } from "widgets";
 import { BottomNotification } from "entities/BottomNotification";

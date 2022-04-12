@@ -21,7 +21,11 @@ const MainPage = () => {
           <div className="main-page__comment-list">
             <CommentList />
           </div>
-          <Notification />
+          <Notification
+            textSuccess="Спасибо за отзыв о нашей компании :)"
+            textError="Не получилось отправить отзыв. Попробуйте еще раз!"
+            titleSuccess="Успешно!"
+          />
         </main>
         <Footer />
       </div>

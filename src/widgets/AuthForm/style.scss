@@ -31,8 +31,9 @@
 
   h3{
     margin-bottom: 32px;
-  }
 
-  @media (max-width: $md3) {
+    @media (max-width: $md3) {
+      margin-bottom: 24px;
+    }
   }
 }
