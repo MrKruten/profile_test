@@ -1,7 +1,16 @@
 {
   "files": {
-    "main.css": "/profile_test/static/css/main.8b10def8.css",
-    "main.js": "/profile_test/static/js/main.d677593a.js",
+    "main.css": "/profile_test/static/css/main.63aa40a8.css",
+    "main.js": "/profile_test/static/js/main.e40f60f7.js",
+    "static/css/439.6aec51d4.chunk.css": "/profile_test/static/css/439.6aec51d4.chunk.css",
+    "static/js/439.f181e4fd.chunk.js": "/profile_test/static/js/439.f181e4fd.chunk.js",
+    "static/css/359.b5034551.chunk.css": "/profile_test/static/css/359.b5034551.chunk.css",
+    "static/js/359.1ff27ef7.chunk.js": "/profile_test/static/js/359.1ff27ef7.chunk.js",
+    "static/css/881.47654ddd.chunk.css": "/profile_test/static/css/881.47654ddd.chunk.css",
+    "static/js/881.d02b4697.chunk.js": "/profile_test/static/js/881.d02b4697.chunk.js",
+    "static/js/363.0a2dc597.chunk.js": "/profile_test/static/js/363.0a2dc597.chunk.js",
+    "static/css/666.8a915b71.chunk.css": "/profile_test/static/css/666.8a915b71.chunk.css",
+    "static/js/666.ebda622a.chunk.js": "/profile_test/static/js/666.ebda622a.chunk.js",
     "static/media/Gilroy-Bold.woff2": "/profile_test/static/media/Gilroy-Bold.ef7c40ff1efeaaa4c7c6.woff2",
     "static/media/Gilroy-Semibold.woff2": "/profile_test/static/media/Gilroy-Semibold.7726b19d33f1b7f4135a.woff2",
     "static/media/Gilroy-Regular.woff2": "/profile_test/static/media/Gilroy-Regular.f6c9931fabe5a6eb3307.woff2",
@@ -15,13 +24,16 @@
     "static/media/slick.eot": "/profile_test/static/media/slick.a4e97f5a2a64f0ab1323.eot",
     "static/media/Vk.svg": "/profile_test/static/media/Vk.94b4606fc4b909990f05dc036436a786.svg",
     "static/media/slick.ttf": "/profile_test/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/Auth_tatto.svg": "/profile_test/static/media/Auth_tatto.f86995ef5715e8d9dba5.svg",
     "static/media/Camera.svg": "/profile_test/static/media/Camera.a7a853a5879344ae98f3036c5631f89c.svg",
     "static/media/Body_tattoo.svg": "/profile_test/static/media/Body_tattoo.36d19b0d5ce39746ea8a.svg",
     "static/media/Telegram.svg": "/profile_test/static/media/Telegram.a9fba5aba6b5d2eb35173b0bc96f5004.svg",
     "static/media/slick.woff": "/profile_test/static/media/slick.295183786cd8a1389865.woff",
+    "static/media/Hide.svg": "/profile_test/static/media/Hide.a52605655b84e31b9bedbbd022197a7c.svg",
     "static/media/Delete.svg": "/profile_test/static/media/Delete.1902408d117bb180ca561367bae76bd4.svg",
     "static/media/Green_bubbles.svg": "/profile_test/static/media/Green_bubbles.88be6ad0baef5d660545.svg",
     "static/media/Red_bubbles.svg": "/profile_test/static/media/Red_bubbles.31f1c0662d7cbb06b73e.svg",
+    "static/media/Show.svg": "/profile_test/static/media/Show.fb2c788ad8ef1da3df72f2ba8eba824f.svg",
     "static/media/Male.svg": "/profile_test/static/media/Male.fc520691ef3388446481c4318341ad43.svg",
     "static/media/Info_Square.svg": "/profile_test/static/media/Info_Square.1b35efe34ae7ba17871a2034b4870cbb.svg",
     "index.html": "/profile_test/index.html",
@@ -34,11 +46,20 @@
     "static/media/Cross.svg": "/profile_test/static/media/Cross.aa6d5926217ce6c977b6cfcc07bf9432.svg",
     "static/media/Arrow.svg": "/profile_test/static/media/Arrow.026bc8cb56a31fd3257c75a518dd51bc.svg",
     "static/media/Plus.svg": "/profile_test/static/media/Plus.0ad3f717b002db5b2489c4ffb3012c12.svg",
-    "main.8b10def8.css.map": "/profile_test/static/css/main.8b10def8.css.map",
-    "main.d677593a.js.map": "/profile_test/static/js/main.d677593a.js.map"
+    "main.63aa40a8.css.map": "/profile_test/static/css/main.63aa40a8.css.map",
+    "main.e40f60f7.js.map": "/profile_test/static/js/main.e40f60f7.js.map",
+    "439.6aec51d4.chunk.css.map": "/profile_test/static/css/439.6aec51d4.chunk.css.map",
+    "439.f181e4fd.chunk.js.map": "/profile_test/static/js/439.f181e4fd.chunk.js.map",
+    "359.b5034551.chunk.css.map": "/profile_test/static/css/359.b5034551.chunk.css.map",
+    "359.1ff27ef7.chunk.js.map": "/profile_test/static/js/359.1ff27ef7.chunk.js.map",
+    "881.47654ddd.chunk.css.map": "/profile_test/static/css/881.47654ddd.chunk.css.map",
+    "881.d02b4697.chunk.js.map": "/profile_test/static/js/881.d02b4697.chunk.js.map",
+    "363.0a2dc597.chunk.js.map": "/profile_test/static/js/363.0a2dc597.chunk.js.map",
+    "666.8a915b71.chunk.css.map": "/profile_test/static/css/666.8a915b71.chunk.css.map",
+    "666.ebda622a.chunk.js.map": "/profile_test/static/js/666.ebda622a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.8b10def8.css",
-    "static/js/main.d677593a.js"
+    "static/css/main.63aa40a8.css",
+    "static/js/main.e40f60f7.js"
   ]
 }
