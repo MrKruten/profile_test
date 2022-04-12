@@ -77,6 +77,7 @@ export const Input: React.FC<IInput> = ({
         <div className="input-block__icons">
           {typeInput === "password" && (
             <button
+              type="button"
               className="input-block__password"
               onClick={updateShowPassword}
             >

@@ -9,9 +9,9 @@ export const Router = () => {
   return (
     <Routes>
       <Route path="/main" element={<MainPage />} />
+      <Route path="/password-recovery" element={<PasswordRecoveryPage />} />
       <Route path="/" element={<AuthPage />} />
       <Route path="*" element={<AuthPage />} />
-      <Route path="/password-recovery" element={<PasswordRecoveryPage />} />
     </Routes>
   );
 };
