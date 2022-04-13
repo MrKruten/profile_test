@@ -1,6 +1,7 @@
 @import'src/app/styles/variables';
 
 .button-purple{
+  position: relative;
   background-color: #585CC6;
   color: #FFFFFF;
   font-family: 'Gilroy', serif;
@@ -9,7 +10,7 @@
   line-height: 18px;
   padding: 17px 28px;
   border-radius: 2px;
-  //height: 52px;
+  z-index: 1;
 
   @media (max-width: $md3) {
     width: 42px;
@@ -25,16 +26,37 @@
     margin-right: 10px;
   }
 
-  &:hover{
-    background: #696DC8;
-  }
-
-  &:active{
-    background: #797DDF;
-  }
-
   &:disabled{
     background: #8A8A8A;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 0;
+    left: 0;
+    top: 0;
+    background: #696DC8;
+    transition: all .4s ease;
+    z-index: -1;
+  }
+
+  @media (any-hover: hover) {
+    &:enabled:hover:after {
+      width: 60%;
+      z-index: -1;
+    }
+  }
+
+  &:active:not([disabled]) {
+    background: #696DC8;
+
+    &:hover:after {
+      width: 100%;
+      z-index: -2;
+      transition: all 0s ease;
+    }
   }
 }
 
@@ -44,11 +66,11 @@
   background: #FFFFFF;
   color: #585CC6;
 
-  &:hover{
+  &:after {
     background: #EEEFF9;
   }
 
-  &:active{
+  &:active:not([disabled]) {
     background: #C2C4FF;
   }
 
