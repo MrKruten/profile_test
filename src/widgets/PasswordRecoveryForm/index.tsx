@@ -36,9 +36,8 @@ export const PasswordRecoveryForm: React.FC = () => {
     formState: { errors },
   } = useForm<IFormInputs>({
     resolver: yupResolver(schema),
-    mode: "onTouched",
+    mode: "onChange",
   });
-  // isValid и mode:"onChanged" не работают. Мб инпуты виноваты (onChange)
 
   const previousPage = () => {
     navigate("/");

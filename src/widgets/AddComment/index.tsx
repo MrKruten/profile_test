@@ -49,6 +49,7 @@ export const AddComment = () => {
     formState: { errors },
   } = useForm<IFormInputs>({
     resolver: yupResolver(schema),
+    mode: "onChange",
   });
 
   const readFile = (input: FileList | null) => {
@@ -78,6 +79,7 @@ export const AddComment = () => {
 
   const closeWindow = () => {
     showAddComment(false);
+    reset();
   };
 
   const onChangeFile = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -183,7 +185,11 @@ export const AddComment = () => {
             errorMessage={errors.text?.message}
           />
           <div className="add-comment__submit">
-            <Button onClick={() => {}} type="submit" disabled={isFileError}>
+            <Button
+              onClick={() => {}}
+              type="submit"
+              disabled={isFileError || !!(errors.text || errors.name)}
+            >
               Отправить отзыв
             </Button>
             <div className="add-comment__info">

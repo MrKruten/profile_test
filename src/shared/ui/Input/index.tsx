@@ -46,8 +46,8 @@ export const Input: React.FC<IInput> = ({
     setIsShowPassword(!isShowPassword);
   };
 
-  const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (event.target.value) {
+  const onChangeValue = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.currentTarget.value) {
       setIsActive(true);
     } else {
       setIsActive(false);
@@ -72,7 +72,7 @@ export const Input: React.FC<IInput> = ({
           maxLength={maxlength}
           autoComplete={typeInput === "password" ? "on" : "off"}
           {...register(id, { required })}
-          onChange={onChange}
+          onInput={onChangeValue}
         />
         <div className="input-block__icons">
           {typeInput === "password" && (
