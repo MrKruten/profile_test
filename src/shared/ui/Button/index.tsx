@@ -4,14 +4,14 @@ import classnames from "classnames";
 import "./style.scss";
 
 interface IButton {
-  onClick: () => void;
+  onClick?: () => void;
   type?: "submit" | "button";
   disabled?: boolean;
   isWhite?: boolean;
 }
 
 export const Button: React.FC<IButton> = ({
-  onClick,
+  onClick = () => {},
   type = "button",
   children,
   disabled = false,
