@@ -1,9 +1,9 @@
 import React from "react";
 
+import { ReactComponent as Vk } from "shared/images/Vk.svg";
+import { ReactComponent as Telegram } from "shared/images/Telegram.svg";
+import { ReactComponent as Reddit } from "shared/images/Reddit.svg";
 import "./style.scss";
-import vk from "shared/images/Vk.svg";
-import telegram from "shared/images/Telegram.svg";
-import reddit from "shared/images/Reddit.svg";
 
 export const Footer = () => {
   return (
@@ -12,14 +12,14 @@ export const Footer = () => {
         © iLINK ACADEMY. ALL RIGHTS RESERVED. 2022
       </div>
       <div className="footer__references">
-        <a href="/#">
-          <img src={vk} alt="Vk" />
+        <a href="##" target="_blank">
+          <Vk />
         </a>
-        <a href="/#">
-          <img src={reddit} alt="Reddit" />
+        <a href="##" target="_blank">
+          <Reddit />
         </a>
-        <a href="/#">
-          <img src={telegram} alt="Telegram" />
+        <a href="##" target="_blank">
+          <Telegram />
         </a>
       </div>
     </footer>
