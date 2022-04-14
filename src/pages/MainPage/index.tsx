@@ -4,7 +4,7 @@ import "./style.scss";
 
 import { Profile } from "entities/Profile";
 import { Header, CommentList, AddComment } from "widgets";
-import { ResizeGate } from "features/resize/model";
+import { ResizeGate } from "shared/lib";
 import { Notification } from "entities/Notification";
 import { Footer } from "shared/ui";
 

@@ -1,7 +1,7 @@
 import React from "react";
 import classnames from "classnames";
 
-import camera from "../../images/Camera.svg";
+import camera from "shared/images/Camera.svg";
 import "./style.scss";
 
 interface IAvatar {

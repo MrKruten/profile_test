@@ -4,7 +4,7 @@ import { Path, UseFormRegister } from "react-hook-form";
 
 import "./style.scss";
 
-import { IFormInputs } from "shared/lib/types";
+import { Types } from "shared/lib";
 import { ReactComponent as Info } from "shared/images/Info_Square.svg";
 import { ReactComponent as Show } from "shared/images/Show.svg";
 import { ReactComponent as Hide } from "shared/images/Hide.svg";
@@ -17,8 +17,8 @@ export interface IInputField {
   errorMessage?: string;
   maxlength?: number;
   required?: boolean;
-  id: Path<IFormInputs>;
-  register: UseFormRegister<IFormInputs>;
+  id: Path<Types.IFormInputs>;
+  register: UseFormRegister<Types.IFormInputs>;
 }
 
 interface IInput extends IInputField {

@@ -3,15 +3,15 @@ import { useGate } from "effector-react";
 
 import { Notification } from "entities/Notification";
 import { AuthTemplate } from "shared/ui/templates";
-import { PasswordRecoveryForm } from "widgets";
-import { ResizeGate } from "features/resize/model";
+import { PasswordRecovery } from "widgets";
+import { ResizeGate } from "shared/lib";
 
 const PasswordRecoveryPage = () => {
   useGate(ResizeGate);
 
   return (
     <AuthTemplate
-      mainBlock={<PasswordRecoveryForm />}
+      mainBlock={<PasswordRecovery />}
       Notification={
         <Notification
           titleSuccess="Код отправлен"

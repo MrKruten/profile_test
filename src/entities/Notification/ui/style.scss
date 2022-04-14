@@ -1,4 +1,4 @@
-@import'src/app/styles/variables';
+@import '../../../app/styles/variables';
 
 .notification{
   z-index: 15;
@@ -52,7 +52,7 @@
       left: 30px;
       width: 78px;
       height: 78px;
-      background: url("../../shared/images/Message.svg") no-repeat;
+      background: url("../../../shared/images/Message.svg") no-repeat;
     }
 
     &:after{
@@ -63,7 +63,7 @@
       width: 84px;
       height: 70px;
       border-bottom-left-radius: 32px;
-      background: url("../../shared/images/Green_bubbles.svg") no-repeat;
+      background: url("../../../shared/images/Green_bubbles.svg") no-repeat;
     }
 
     &__message-img{
@@ -74,7 +74,7 @@
         left: 50px;
         width: 32px;
         height: 32px;
-        background: url("../../shared/images/Check.svg") no-repeat;
+        background: url("../../../shared/images/Check.svg") no-repeat;
       }
     }
 
@@ -90,18 +90,18 @@
       }
 
       &:before{
-        background: url("../../shared/images/Error_Message.svg") no-repeat;
+        background: url("../../../shared/images/Error_Message.svg") no-repeat;
       }
 
       &:after{
         width: 93px;
         height: 82px;
-        background: url("../../shared/images/Red_bubbles.svg") no-repeat;
+        background: url("../../../shared/images/Red_bubbles.svg") no-repeat;
       }
 
       .notification__container__message-img{
         &:after{
-          background: url("../../shared/images/Error_Cross.svg") no-repeat;
+          background: url("../../../shared/images/Error_Cross.svg") no-repeat;
         }
       }
     }

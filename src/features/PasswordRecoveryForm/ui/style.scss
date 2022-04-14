@@ -1,12 +1,6 @@
 @import'src/app/styles/variables';
 
-.password-recovery{
-  background: #FFFFFF;
-  padding: 40px 40px 24px 40px;
-
-  @media (max-width: $md3) {
-    padding: 16px;
-  }
+.password-recovery-form{
 
   &__header{
     margin-bottom: 32px;

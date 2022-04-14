@@ -7,7 +7,7 @@ import { Button, Avatar } from "shared/ui";
 import logo from "shared/images/Logo.svg";
 import data from "shared/lib/data.json";
 import profile from "shared/images/Profile.svg";
-import { $isResize } from "features/resize/model";
+import { $isResize } from "shared/lib";
 
 export const Header = () => {
   const isResize = useStore($isResize);
@@ -23,7 +23,7 @@ export const Header = () => {
         <img src={logo} alt="Logo" />
       </div>
       <div>
-        <Button onClick={() => {}}>
+        <Button>
           {isResize ? (
             "Панель управления"
           ) : (

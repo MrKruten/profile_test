@@ -1,13 +1,13 @@
 import React from "react";
 
-import { AuthTemplate } from "shared/ui/templates";
-import { AuthForm } from "widgets";
 import { BottomNotification } from "entities/BottomNotification";
+import { AuthTemplate } from "shared/ui/templates";
+import { Auth } from "widgets";
 
 const AuthPage = () => {
   return (
     <AuthTemplate
-      mainBlock={<AuthForm />}
+      mainBlock={<Auth />}
       Notification={
         <BottomNotification text="Такого пользователя не существует" />
       }

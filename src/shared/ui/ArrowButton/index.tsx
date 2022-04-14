@@ -2,7 +2,7 @@ import React from "react";
 import classnames from "classnames";
 
 import "./style.scss";
-import { ReactComponent as Arrow } from "../../images/Arrow.svg";
+import { ReactComponent as Arrow } from "shared/images/Arrow.svg";
 
 interface IButton {
   onClick: () => void;

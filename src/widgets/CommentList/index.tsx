@@ -9,9 +9,9 @@ import "slick-carousel/slick/slick-theme.css";
 import { Comment } from "entities/Comment";
 import plus from "shared/images/Plus.svg";
 import { ArrowButton, Button } from "shared/ui";
-import { showAddComment } from "features/showAddComment/model";
-import { $comments } from "features/Comments/model";
-import { $isResize } from "features/resize/model";
+import { AddCommentModel } from "features/AddCommentForm";
+import { $comments } from "shared/lib/comments";
+import { $isResize } from "shared/lib";
 
 export const CommentList = () => {
   const isResize = useStore($isResize);
@@ -58,7 +58,7 @@ export const CommentList = () => {
   };
 
   const showModal = () => {
-    showAddComment(true);
+    AddCommentModel.showAddComment(true);
   };
 
   const onPrevious = () => {
