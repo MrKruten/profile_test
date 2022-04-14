@@ -49,7 +49,7 @@ export const PasswordRecoveryForm: React.FC = () => {
     <form onSubmit={handleSubmit(onSubmit)} className="password-recovery-form">
       <div className="password-recovery-form__header">
         <ArrowButton onClick={previousPage} rotated />
-        <h3>Изменение пароля</h3>
+        <h3>Сброс пароля</h3>
       </div>
       <Input
         name="login"
