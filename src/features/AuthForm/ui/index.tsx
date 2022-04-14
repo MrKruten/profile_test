@@ -2,6 +2,7 @@ import React from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useNavigate } from "react-router-dom";
+import { useStore } from "effector-react";
 
 // mock date
 import dataTest from "shared/lib/data.json";
@@ -15,6 +16,9 @@ import "./style.scss";
 
 export const AuthForm: React.FC = () => {
   const navigate = useNavigate();
+  const isErrorNullUser = useStore(
+    BottomNotificationModel.$isShowBottomNotification
+  );
   const {
     register,
     handleSubmit,
@@ -47,7 +51,7 @@ export const AuthForm: React.FC = () => {
         register={register}
         id="login"
         required
-        error={!!errors.login}
+        error={!!errors.login || isErrorNullUser}
         errorMessage={errors.login?.message}
       />
       <Input
@@ -59,7 +63,7 @@ export const AuthForm: React.FC = () => {
         register={register}
         id="password"
         required
-        error={!!errors.password}
+        error={!!errors.password || isErrorNullUser}
         errorMessage={errors.password?.message}
       />
       <Button type="submit" disabled={!!(errors?.password || errors?.login)}>
