@@ -7,7 +7,7 @@ interface IButton {
   onClick?: () => void;
   type?: "submit" | "button";
   disabled?: boolean;
-  isWhite?: boolean;
+  color?: "" | "white" | "red";
 }
 
 export const Button: React.FC<IButton> = ({
@@ -15,11 +15,14 @@ export const Button: React.FC<IButton> = ({
   type = "button",
   children,
   disabled = false,
-  isWhite = false,
+  color = "",
 }) => {
   return (
     <button
-      className={classnames("button-purple", { "button-white": isWhite })}
+      className={classnames("btn", {
+        btn_white: color === "white",
+        btn_red: color === "red",
+      })}
       type={type}
       onClick={onClick}
       disabled={disabled}

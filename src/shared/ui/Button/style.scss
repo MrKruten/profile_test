@@ -1,6 +1,6 @@
 @import'src/app/styles/variables';
 
-.button-purple{
+.btn{
   position: relative;
   background-color: #585CC6;
   color: #FFFFFF;
@@ -58,23 +58,35 @@
       transition: all 0s ease;
     }
   }
+
+  &_white{
+    border: 1px solid #585CC6;
+    background: #FFFFFF;
+    color: #585CC6;
+
+    &:after {
+      background: #EEEFF9;
+    }
+
+    &:active:not([disabled]) {
+      background: #C2C4FF;
+    }
+
+    &:disabled{
+      background: #E0E0E0;
+    }
+  }
+
+  &_red{
+    background: #EB5757;
+
+    &:after {
+      background: #F96D6D;
+    }
+
+    &:active:not([disabled]) {
+      background: #FF7171;
+    }
+  }
 }
 
-.button-white{
-  border: 1px solid #585CC6;
-  border-radius: 2px;
-  background: #FFFFFF;
-  color: #585CC6;
-
-  &:after {
-    background: #EEEFF9;
-  }
-
-  &:active:not([disabled]) {
-    background: #C2C4FF;
-  }
-
-  &:disabled{
-    background: #E0E0E0;
-  }
-}
