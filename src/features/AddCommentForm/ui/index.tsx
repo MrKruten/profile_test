@@ -103,10 +103,7 @@ export const AddCommentForm = () => {
             errorMessage={errors.name?.message}
           />
           <div className="name-file input__wrapper">
-            <label
-              htmlFor="avatar"
-              className="input__file-button button-purple"
-            >
+            <label htmlFor="avatar" className="input__file-button btn">
               <input
                 type="file"
                 className="input input__file"

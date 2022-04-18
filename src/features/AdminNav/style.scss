@@ -1,0 +1,15 @@
+@import'src/app/styles/variables';
+
+.admin-nav{
+  & a:not(:first-child){
+    margin-top: 16px;
+  }
+
+  @media (max-width: $md3) {
+    display: flex;
+
+    & a:not(:first-child){
+      margin-top: 0;
+    }
+  }
+}

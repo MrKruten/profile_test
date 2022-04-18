@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useStore } from "effector-react";
 
 import { NotificationModel } from "entities/Notification";
-import { Types, $isResize } from "shared/lib";
+import { Types, $isResize, SCREENS } from "shared/lib";
 import { ArrowButton, Button, Input } from "shared/ui";
 // mock date
 import dataTest from "shared/lib/data.json";
@@ -27,7 +27,7 @@ export const PasswordRecoveryForm: React.FC = () => {
   });
 
   const previousPage = () => {
-    navigate(-1);
+    navigate(SCREENS.AUTH);
     reset();
     NotificationModel.showNotification(false);
   };
@@ -66,7 +66,7 @@ export const PasswordRecoveryForm: React.FC = () => {
           Отправить код
         </Button>
         {isResize && (
-          <Button onClick={previousPage} isWhite>
+          <Button onClick={previousPage} color="white">
             Отмена
           </Button>
         )}

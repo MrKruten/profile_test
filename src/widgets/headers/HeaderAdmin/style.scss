@@ -1,0 +1,51 @@
+@import'src/app/styles/variables';
+
+.header_admin{
+  @media (max-width: $md3) {
+    padding: 16px 17px 16px 18px;
+    .logo{
+      svg{
+        width: 50px;
+        height: 31px;
+      }
+    }
+  }
+  background: #585CC6;
+  padding: 26px 80px;
+  color: #FFFFFF;
+
+  &__left{
+    display: flex;
+    width: 60%;
+    justify-content: space-between;
+    align-items: center;
+
+    @media (max-width: $md3) {
+      flex-direction: column;
+      align-items: flex-start;
+      .header__user{
+        order: 2;
+        margin-top: 8px;
+
+        .avatar img{
+          width: 20px;
+          height: 20px;
+        }
+      }
+
+      h3{
+        order: 1;
+        font-weight: 800;
+        font-size: 16px;
+        line-height: 14px;
+      }
+    }
+  }
+
+  .logo{
+    svg{
+      width: 54px;
+      height: 33px;
+    }
+  }
+}

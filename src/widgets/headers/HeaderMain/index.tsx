@@ -8,7 +8,7 @@ import data from "shared/lib/data.json";
 import profile from "shared/images/Profile.svg";
 import { $isResize } from "shared/lib";
 
-export const Header = () => {
+export const HeaderMain = () => {
   const isResize = useStore($isResize);
   return (
     <header className="header">

@@ -1,0 +1,33 @@
+@import'src/app/styles/variables';
+
+.admin-page{
+  background: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-height: 100%;
+  overflow: hidden;
+
+  &__content{
+    display: flex;
+    flex: 1 1 auto;
+    z-index: 10;
+
+    @media (max-width: $md3) {
+      flex-direction: column;
+    }
+  }
+
+  &__nav{
+    padding-top: 45px;
+    border-right: 1px solid #E0E0E0;
+
+    @media (max-width: $md3) {
+      padding: 0;
+    }
+  }
+
+  .footer{
+    background: #F5F5F5;
+  }
+}

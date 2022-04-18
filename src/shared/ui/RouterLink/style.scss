@@ -1,0 +1,46 @@
+@import'src/app/styles/variables';
+
+.router-link{
+  width: 100%;
+  padding: 12px 80px;
+  display: flex;
+  font-family: 'Factor A TRIAL', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 125%;
+  letter-spacing: 0.01em;
+  color: #8A8A8A;
+
+  @media (max-width: $md3) {
+    padding: 24px 7px 8px 16px;
+    justify-content: center;
+  }
+
+  svg{
+    margin-right: 12px;
+  }
+
+  &:hover{
+    color: #797DDF;
+
+    svg path{
+      fill: #797DDF;
+      stroke: #797DDF;
+    }
+  }
+}
+
+.active{
+  color: #585CC6;
+  border-right: 4px solid #585CC6;
+
+  svg path{
+    fill: #585CC6;
+    stroke: #585CC6;
+  }
+
+  @media (max-width: $md3) {
+    border-right: none;
+    border-bottom: 4px solid #585CC6;
+  }
+}

@@ -3,10 +3,11 @@ import { useGate } from "effector-react";
 import "./style.scss";
 
 import { Profile } from "entities/Profile";
-import { Header, CommentList, AddComment } from "widgets";
+import { CommentList, AddComment } from "widgets";
 import { ResizeGate } from "shared/lib";
 import { Notification } from "entities/Notification";
 import { Footer } from "shared/ui";
+import { HeaderMain } from "widgets/headers";
 
 const MainPage = () => {
   useGate(ResizeGate);
@@ -14,7 +15,7 @@ const MainPage = () => {
   return (
     <>
       <div className="main-page">
-        <Header />
+        <HeaderMain />
         <main>
           <h1>Добро пожаловать в академию!</h1>
           <Profile />
