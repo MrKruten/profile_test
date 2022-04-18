@@ -4,8 +4,8 @@
   @media (max-width: $md3) {
     height: 77px;
     padding: 20px 16px;
-    &__logo{
-      img{
+    .logo{
+      svg{
         width: 60px;
         height: 36px;
       }

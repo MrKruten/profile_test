@@ -1,0 +1,20 @@
+@import'src/app/styles/variables';
+
+.logo{
+  &_white{
+    svg{
+      stroke: #FFFFFF;
+      fill: #FFFFFF;
+
+      path{
+        fill: #FFFFFF;
+      }
+    }
+  }
+  @media (max-width: $md3) {
+      svg{
+        width: 60px;
+        height: 36px;
+      }
+  }
+}

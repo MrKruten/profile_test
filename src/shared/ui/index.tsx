@@ -5,3 +5,4 @@ export { Avatar } from "./Avatar";
 export { Footer } from "./Footer";
 export { TextArea } from "./TextArea";
 export { Hyperlink } from "./Hyperlink";
+export { Logo } from "./Logo";

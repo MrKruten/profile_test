@@ -1,8 +1,8 @@
 import React from "react";
 
-import "./style.scss";
-import { ReactComponent as Logo } from "shared/images/Logo.svg";
 import { Footer } from "shared/ui/Footer";
+import "./style.scss";
+import { Logo } from "shared/ui/Logo";
 
 interface IAuthTemplate {
   mainBlock: React.ReactNode;
@@ -16,7 +16,7 @@ export const AuthTemplate: React.FC<IAuthTemplate> = ({
   return (
     <div className="auth-page">
       <header className="auth-page__header">
-        <Logo />
+        <Logo isWhite />
       </header>
       <main className="auth-page__main">{mainBlock}</main>
       {Notification}

@@ -3,8 +3,7 @@ import { useStore } from "effector-react";
 
 import "./style.scss";
 
-import { Button, Avatar } from "shared/ui";
-import logo from "shared/images/Logo.svg";
+import { Button, Avatar, Logo } from "shared/ui";
 import data from "shared/lib/data.json";
 import profile from "shared/images/Profile.svg";
 import { $isResize } from "shared/lib";
@@ -19,9 +18,7 @@ export const Header = () => {
           {isResize ? data.user.name : data.user.name.split(" ")[0]}
         </span>
       </div>
-      <div className="header__logo">
-        <img src={logo} alt="Logo" />
-      </div>
+      <Logo />
       <div>
         <Button>
           {isResize ? (
