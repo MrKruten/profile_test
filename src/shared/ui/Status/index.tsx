@@ -2,10 +2,7 @@ import React from "react";
 import classnames from "classnames";
 
 import "./style.scss";
-
-interface IStatus {
-  status: "study" | "expelled" | "finished";
-}
+import { IStatus } from "shared/lib/types";
 
 export const Status: React.FC<IStatus> = ({ status }) => {
   return (

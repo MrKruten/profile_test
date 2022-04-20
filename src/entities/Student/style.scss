@@ -1,0 +1,57 @@
+@import'src/app/styles/variables';
+
+.student{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px;
+  border-bottom: 1px dashed #E0E0E0;
+
+  @media (max-width: $md3) {
+      padding: 23px 16px;
+  }
+
+  &__avatar-name{
+    display: flex;
+    align-items: center;
+  }
+
+  &__name{
+    margin-left: 12px;
+    font-family: 'Gilroy', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    color: #464E5F;
+
+    @media (max-width: $md3) {
+      font-size: 12px;
+      line-height: 15px;
+    }
+  }
+
+  &__text{
+    line-height: 17px;
+    color: #464E5F;
+
+    @media (max-width: $md3) {
+      font-size: 12px;
+      line-height: 14px;
+    }
+  }
+
+  & .avatar{
+    img{
+      width: 40px;
+      height: 40px;
+    }
+    &_default{
+      padding: 7px;
+      img{
+        width: 26px;
+        height: 26px;
+      }
+    }
+  }
+}

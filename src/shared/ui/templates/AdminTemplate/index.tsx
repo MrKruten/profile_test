@@ -3,18 +3,19 @@ import React from "react";
 import { Footer } from "shared/ui/Footer";
 import { ZeroData } from "shared/ui/ZeroData";
 import "./style.scss";
-import { Status } from "shared/ui/Status";
 
 interface IAdminTemplate {
   header: React.ReactNode;
   navigation: React.ReactNode;
   isZero?: boolean;
+  main?: React.ReactNode;
 }
 
 export const AdminTemplate: React.FC<IAdminTemplate> = ({
   header,
   navigation,
   isZero = false,
+  main,
 }) => {
   return (
     <div className="admin-page">
@@ -28,8 +29,7 @@ export const AdminTemplate: React.FC<IAdminTemplate> = ({
               : "admin-page__main"
           }
         >
-          {isZero && <ZeroData />}
-          <Status status="study" />
+          {isZero ? <ZeroData /> : main}
         </main>
       </div>
       <Footer />
