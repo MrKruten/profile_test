@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { Hyperlink } from "shared/ui";
 import { SCREENS } from "shared/lib";
 import { AuthForm } from "features/AuthForm";
+import { BottomNotificationModel } from "entities/BottomNotification";
+
 import "./style.scss";
 
 export const Auth: React.FC = () => {
@@ -11,6 +13,7 @@ export const Auth: React.FC = () => {
 
   const navigatePasswordRecovery = () => {
     navigate(SCREENS.RECOVERY);
+    BottomNotificationModel.showBottomNotification(false);
   };
 
   return (
