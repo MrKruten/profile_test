@@ -29,6 +29,7 @@ export const AdminTemplate: React.FC<IAdminTemplate> = ({
           }
         >
           {isZero && <ZeroData />}
+          <Status status="study" />
         </main>
       </div>
       <Footer />
