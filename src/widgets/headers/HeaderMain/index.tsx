@@ -14,7 +14,7 @@ export const HeaderMain = () => {
     <header className="header">
       <div className="header__user">
         <Avatar avatar={data.user.avatar} />
-        <span className="header__user__name">
+        <span className="header__user-name">
           {isResize ? data.user.name : data.user.name.split(" ")[0]}
         </span>
       </div>

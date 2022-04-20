@@ -17,17 +17,17 @@ export const HeaderAdmin = () => {
   };
 
   return (
-    <header className="header header_admin">
-      <div className="header_admin__left">
+    <header className="header header-admin">
+      <div className="header-admin__left">
         <div className="header__user">
           <Avatar avatar={data.user.avatar} />
-          <span className="header__user__name">
+          <span className="header__user-name">
             {isResize ? data.user.name : data.user.name.split(" ")[0]}
           </span>
         </div>
         <h3>Панель управления</h3>
       </div>
-      <div className="header_admin__right">
+      <div className="header-admin__right">
         <button onClick={navigateToMain}>
           <Logo isWhite />
         </button>

@@ -11,7 +11,11 @@ import "./style.scss";
 export const AdminNav = () => {
   return (
     <div className="admin-nav">
-      <RouterLink toRoute={SCREENS.USERS} text="Участники" icon={<Users />} />
+      <RouterLink
+        toRoute={SCREENS.STUDENTS}
+        text="Участники"
+        icon={<Users />}
+      />
       <RouterLink toRoute={SCREENS.COMMENTS} text="Отзывы" icon={<Comment />} />
       <RouterLink toRoute={SCREENS.ABOUT} text="Обо мне" icon={<About />} />
     </div>

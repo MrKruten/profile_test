@@ -27,6 +27,17 @@
     }
   }
 
+  &__main{
+    margin: 0 auto;
+    flex: 1 1 auto;
+
+    &-zero{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
   .footer{
     background: #F5F5F5;
   }

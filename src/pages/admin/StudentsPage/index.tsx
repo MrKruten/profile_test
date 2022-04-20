@@ -1,11 +1,11 @@
 import React from "react";
 
-import { AdminTemplate } from "shared/ui/templates/AdminTemplate";
+import { AdminTemplate } from "shared/ui/templates";
 import { HeaderAdmin } from "widgets/headers";
 import { AdminNav } from "features/AdminNav";
 
-const AdminPage = () => {
+const StudentsPage = () => {
   return <AdminTemplate header={<HeaderAdmin />} navigation={<AdminNav />} />;
 };
 
-export default AdminPage;
+export default StudentsPage;

@@ -1,0 +1,24 @@
+.status{
+  padding-top: 8px;
+  padding-bottom: 9px;
+  width: 140px;
+  font-family: 'Gilroy', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  color: #61BF4A;
+  background: #F0F9ED;
+  border-radius: 2px;
+  text-align: center;
+
+  &_expelled{
+    background: #FDEEEE;
+    color: #EB5757;
+  }
+
+  &_finished{
+    background: #F5F5F5;
+    color: #8A8A8A;
+  }
+}
