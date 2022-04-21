@@ -1,0 +1,14 @@
+@import'src/app/styles/variables';
+
+.header-content{
+  display: flex;
+  justify-content: space-between;
+
+  @media (max-width: $md3) {
+      h3{
+        font-size: 22px;
+        margin-bottom: 16px;
+      }
+    flex-direction: column;
+  }
+}

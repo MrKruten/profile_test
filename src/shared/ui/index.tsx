@@ -9,3 +9,4 @@ export { Logo } from "./Logo";
 export { RouterLink } from "./RouterLink";
 export { ZeroData } from "./ZeroData";
 export { Status } from "./Status";
+export { HeaderContentAdmin } from "./HeaderContentAdmin";
