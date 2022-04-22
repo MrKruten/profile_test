@@ -70,7 +70,6 @@ export const AboutUserForm = () => {
       newAgeUser = Helpers.calcAgeUser(data.dateBirth);
     }
 
-    console.log(data);
     editUser({
       firstName: data.firstName || user.firstName,
       secondName: data.secondName || user.secondName,
@@ -98,7 +97,12 @@ export const AboutUserForm = () => {
     <form className="about-form" onSubmit={handleSubmit(onSubmit)}>
       <div className="about-form__head">
         <div className="about-form__avatar">
-          <Avatar avatar={avatar} />
+          <div className="about-form__photo">
+            <Avatar avatar={avatar} />
+            <div className="avatar-big">
+              <Avatar avatar={avatar} />
+            </div>
+          </div>
           <div className="about-form__avatar-info">
             <p className="about-form__photo-text">Фото профиля</p>
             <div className="input__wrapper">
