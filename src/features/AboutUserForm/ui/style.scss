@@ -76,6 +76,10 @@
       top: 80px;
       padding: 12px;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+      @media (max-width: $maxWidth) {
+        left: 0;
+        top:50px;
+      }
       &::after {
         content: '';
         position: absolute;
@@ -83,6 +87,9 @@
         top: -35px;
         border: 20px solid transparent;
         border-bottom: 20px solid white;
+        @media (max-width: $maxWidth) {
+            content: none;
+        }
       }
       img{
         width: 180px;
