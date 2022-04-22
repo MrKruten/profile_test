@@ -4,9 +4,8 @@ import { useNavigate } from "react-router-dom";
 
 import { Button, Avatar, Logo } from "shared/ui";
 import profile from "shared/images/Profile.svg";
-import { $isResize, SCREENS } from "shared/lib";
+import { $isResize, SCREENS, $user } from "shared/lib";
 import "./style.scss";
-import { $user } from "shared/lib/user";
 import { resetNotifications } from "widgets/headers/resetNotifications";
 
 export const HeaderMain = () => {

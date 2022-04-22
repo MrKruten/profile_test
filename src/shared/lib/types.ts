@@ -29,19 +29,19 @@ export interface IFormInputs
     IFormAddCommentInputs,
     IFormAboutUserInputs {}
 
-export interface IStudent {
+export interface IComment {
   name: string;
-  avatar: "None" | string;
-  shortInfo?: string;
-}
-
-export interface IComment extends IStudent {
+  avatar?: "None" | string;
   date: string;
   text: string;
 }
 
-export interface IStatus {
-  status?: "study" | "expelled" | "finished";
+export interface IStudent {
+  firstName: string;
+  secondName: string;
+  avatar?: "None" | string;
+  shortInfo?: string;
+  status: string;
 }
 
 export interface IAvatar {

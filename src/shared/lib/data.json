@@ -49,124 +49,193 @@
   ],
   "students": [
     {
-      "name": "Буба Бубенцов",
+      "firstName": "Буба",
+      "secondName": "Бубенцов",
       "avatar": "None",
-      "shortInfo": "Люблю пепперони и старые серии смешариков. А вы были на Таити?"
+      "shortInfo": "Люблю пепперони и старые серии смешариков. А вы были на Таити?",
+      "status": "expelled"
     },
     {
-      "name": "Даниил Хазов",
+      "firstName": "Даниил",
+      "secondName": "Хазов",
       "avatar": "https://sun9-8.userapi.com/impf/Ah0pvAhiUgvPPq0dXU73XJN53_9FqNlQcs87Uw/6fjBLIE4BLw.jpg?size=2048x2048&quality=96&sign=6696229bfa0773ab9236472fad62f3c0&type=album",
-      "shortInfo": "Изучаю цифровой дизайн, программирование и управление проектами."
+      "shortInfo": "Изучаю цифровой дизайн, программирование и управление проектами.",
+      "status": "study"
     },
     {
-      "name": "Буба Бубенцов",
+      "firstName": "Буба",
+      "secondName": "Бубенцов",
       "avatar": "None",
-      "shortInfo": "Люблю пепперони и старые серии смешариков. А вы были на Таити?"
+      "shortInfo": "Люблю пепперони и старые серии смешариков. А вы были на Таити?",
+      "status": "finished"
     },
     {
-      "name": "Даниил Хазов",
-      "avatar": "https://sun9-8.userapi.com/impf/Ah0pvAhiUgvPPq0dXU73XJN53_9FqNlQcs87Uw/6fjBLIE4BLw.jpg?size=2048x2048&quality=96&sign=6696229bfa0773ab9236472fad62f3c0&type=album",
-      "shortInfo": "Изучаю цифровой дизайн, программирование и управление проектами."
-    },
-    {
-      "name": "Буба Бубенцов",
+      "firstName": "Буба",
+      "secondName": "Бубенцов",
       "avatar": "None",
-      "shortInfo": "Люблю пепперони и старые серии смешариков. А вы были на Таити?"
+      "shortInfo": "Люблю пепперони и старые серии смешариков. А вы были на Таити?",
+      "status": "expelled"
     },
     {
-      "name": "Даниил Хазов",
+      "firstName": "Даниил",
+      "secondName": "Хазов",
       "avatar": "https://sun9-8.userapi.com/impf/Ah0pvAhiUgvPPq0dXU73XJN53_9FqNlQcs87Uw/6fjBLIE4BLw.jpg?size=2048x2048&quality=96&sign=6696229bfa0773ab9236472fad62f3c0&type=album",
-      "shortInfo": "Изучаю цифровой дизайн, программирование и управление проектами."
+      "shortInfo": "Изучаю цифровой дизайн, программирование и управление проектами.",
+      "status": "study"
     },
     {
-      "name": "Буба Бубенцов",
+      "firstName": "Буба",
+      "secondName": "Бубенцов",
       "avatar": "None",
-      "shortInfo": "Люблю пепперони и старые серии смешариков. А вы были на Таити?"
+      "shortInfo": "Люблю пепперони и старые серии смешариков. А вы были на Таити?",
+      "status": "finished"
     },
     {
-      "name": "Даниил Хазов",
-      "avatar": "https://sun9-8.userapi.com/impf/Ah0pvAhiUgvPPq0dXU73XJN53_9FqNlQcs87Uw/6fjBLIE4BLw.jpg?size=2048x2048&quality=96&sign=6696229bfa0773ab9236472fad62f3c0&type=album",
-      "shortInfo": "Изучаю цифровой дизайн, программирование и управление проектами."
-    },
-    {
-      "name": "Буба Бубенцов",
+      "firstName": "Буба",
+      "secondName": "Бубенцов",
       "avatar": "None",
-      "shortInfo": "Люблю пепперони и старые серии смешариков. А вы были на Таити?"
+      "shortInfo": "Люблю пепперони и старые серии смешариков. А вы были на Таити?",
+      "status": "expelled"
     },
     {
-      "name": "Даниил Хазов",
+      "firstName": "Даниил",
+      "secondName": "Хазов",
       "avatar": "https://sun9-8.userapi.com/impf/Ah0pvAhiUgvPPq0dXU73XJN53_9FqNlQcs87Uw/6fjBLIE4BLw.jpg?size=2048x2048&quality=96&sign=6696229bfa0773ab9236472fad62f3c0&type=album",
-      "shortInfo": "Изучаю цифровой дизайн, программирование и управление проектами."
+      "shortInfo": "Изучаю цифровой дизайн, программирование и управление проектами.",
+      "status": "study"
     },
     {
-      "name": "Буба Бубенцов",
+      "firstName": "Буба",
+      "secondName": "Бубенцов",
       "avatar": "None",
-      "shortInfo": "Люблю пепперони и старые серии смешариков. А вы были на Таити?"
+      "shortInfo": "Люблю пепперони и старые серии смешариков. А вы были на Таити?",
+      "status": "finished"
     },
     {
-      "name": "Даниил Хазов",
-      "avatar": "https://sun9-8.userapi.com/impf/Ah0pvAhiUgvPPq0dXU73XJN53_9FqNlQcs87Uw/6fjBLIE4BLw.jpg?size=2048x2048&quality=96&sign=6696229bfa0773ab9236472fad62f3c0&type=album",
-      "shortInfo": "Изучаю цифровой дизайн, программирование и управление проектами."
-    },
-    {
-      "name": "Буба Бубенцов",
+      "firstName": "Буба",
+      "secondName": "Бубенцов",
       "avatar": "None",
-      "shortInfo": "Люблю пепперони и старые серии смешариков. А вы были на Таити?"
+      "shortInfo": "Люблю пепперони и старые серии смешариков. А вы были на Таити?",
+      "status": "expelled"
     },
     {
-      "name": "Даниил Хазов",
+      "firstName": "Даниил",
+      "secondName": "Хазов",
       "avatar": "https://sun9-8.userapi.com/impf/Ah0pvAhiUgvPPq0dXU73XJN53_9FqNlQcs87Uw/6fjBLIE4BLw.jpg?size=2048x2048&quality=96&sign=6696229bfa0773ab9236472fad62f3c0&type=album",
-      "shortInfo": "Изучаю цифровой дизайн, программирование и управление проектами."
+      "shortInfo": "Изучаю цифровой дизайн, программирование и управление проектами.",
+      "status": "study"
     },
     {
-      "name": "Буба Бубенцов",
+      "firstName": "Буба",
+      "secondName": "Бубенцов",
       "avatar": "None",
-      "shortInfo": "Люблю пепперони и старые серии смешариков. А вы были на Таити?"
+      "shortInfo": "Люблю пепперони и старые серии смешариков. А вы были на Таити?",
+      "status": "finished"
     },
     {
-      "name": "Даниил Хазов",
-      "avatar": "https://sun9-8.userapi.com/impf/Ah0pvAhiUgvPPq0dXU73XJN53_9FqNlQcs87Uw/6fjBLIE4BLw.jpg?size=2048x2048&quality=96&sign=6696229bfa0773ab9236472fad62f3c0&type=album",
-      "shortInfo": "Изучаю цифровой дизайн, программирование и управление проектами."
-    },
-    {
-      "name": "Буба Бубенцов",
+      "firstName": "Буба",
+      "secondName": "Бубенцов",
       "avatar": "None",
-      "shortInfo": "Люблю пепперони и старые серии смешариков. А вы были на Таити?"
+      "shortInfo": "Люблю пепперони и старые серии смешариков. А вы были на Таити?",
+      "status": "expelled"
     },
     {
-      "name": "Даниил Хазов",
+      "firstName": "Даниил",
+      "secondName": "Хазов",
       "avatar": "https://sun9-8.userapi.com/impf/Ah0pvAhiUgvPPq0dXU73XJN53_9FqNlQcs87Uw/6fjBLIE4BLw.jpg?size=2048x2048&quality=96&sign=6696229bfa0773ab9236472fad62f3c0&type=album",
-      "shortInfo": "Изучаю цифровой дизайн, программирование и управление проектами."
+      "shortInfo": "Изучаю цифровой дизайн, программирование и управление проектами.",
+      "status": "study"
     },
     {
-      "name": "Буба Бубенцов",
+      "firstName": "Буба",
+      "secondName": "Бубенцов",
       "avatar": "None",
-      "shortInfo": "Люблю пепперони и старые серии смешариков. А вы были на Таити?"
+      "shortInfo": "Люблю пепперони и старые серии смешариков. А вы были на Таити?",
+      "status": "finished"
     },
     {
-      "name": "Даниил Хазов",
-      "avatar": "https://sun9-8.userapi.com/impf/Ah0pvAhiUgvPPq0dXU73XJN53_9FqNlQcs87Uw/6fjBLIE4BLw.jpg?size=2048x2048&quality=96&sign=6696229bfa0773ab9236472fad62f3c0&type=album",
-      "shortInfo": "Изучаю цифровой дизайн, программирование и управление проектами."
-    },
-    {
-      "name": "Буба Бубенцов",
+      "firstName": "Буба",
+      "secondName": "Бубенцов",
       "avatar": "None",
-      "shortInfo": "Люблю пепперони и старые серии смешариков. А вы были на Таити?"
+      "shortInfo": "Люблю пепперони и старые серии смешариков. А вы были на Таити?",
+      "status": "expelled"
     },
     {
-      "name": "Даниил Хазов",
+      "firstName": "Даниил",
+      "secondName": "Хазов",
       "avatar": "https://sun9-8.userapi.com/impf/Ah0pvAhiUgvPPq0dXU73XJN53_9FqNlQcs87Uw/6fjBLIE4BLw.jpg?size=2048x2048&quality=96&sign=6696229bfa0773ab9236472fad62f3c0&type=album",
-      "shortInfo": "Изучаю цифровой дизайн, программирование и управление проектами."
+      "shortInfo": "Изучаю цифровой дизайн, программирование и управление проектами.",
+      "status": "study"
     },
     {
-      "name": "Буба Бубенцов",
+      "firstName": "Буба",
+      "secondName": "Бубенцов",
       "avatar": "None",
-      "shortInfo": "Люблю пепперони и старые серии смешариков. А вы были на Таити?"
+      "shortInfo": "Люблю пепперони и старые серии смешариков. А вы были на Таити?",
+      "status": "finished"
     },
     {
-      "name": "Даниил Хазов",
+      "firstName": "Буба",
+      "secondName": "Бубенцов",
+      "avatar": "None",
+      "shortInfo": "Люблю пепперони и старые серии смешариков. А вы были на Таити?",
+      "status": "expelled"
+    },
+    {
+      "firstName": "Даниил",
+      "secondName": "Хазов",
       "avatar": "https://sun9-8.userapi.com/impf/Ah0pvAhiUgvPPq0dXU73XJN53_9FqNlQcs87Uw/6fjBLIE4BLw.jpg?size=2048x2048&quality=96&sign=6696229bfa0773ab9236472fad62f3c0&type=album",
-      "shortInfo": "Изучаю цифровой дизайн, программирование и управление проектами."
+      "shortInfo": "Изучаю цифровой дизайн, программирование и управление проектами.",
+      "status": "study"
+    },
+    {
+      "firstName": "Буба",
+      "secondName": "Бубенцов",
+      "avatar": "None",
+      "shortInfo": "Люблю пепперони и старые серии смешариков. А вы были на Таити?",
+      "status": "finished"
+    },
+    {
+      "firstName": "Буба",
+      "secondName": "Бубенцов",
+      "avatar": "None",
+      "shortInfo": "Люблю пепперони и старые серии смешариков. А вы были на Таити?",
+      "status": "expelled"
+    },
+    {
+      "firstName": "Даниил",
+      "secondName": "Хазов",
+      "avatar": "https://sun9-8.userapi.com/impf/Ah0pvAhiUgvPPq0dXU73XJN53_9FqNlQcs87Uw/6fjBLIE4BLw.jpg?size=2048x2048&quality=96&sign=6696229bfa0773ab9236472fad62f3c0&type=album",
+      "shortInfo": "Изучаю цифровой дизайн, программирование и управление проектами.",
+      "status": "study"
+    },
+    {
+      "firstName": "Буба",
+      "secondName": "Бубенцов",
+      "avatar": "None",
+      "shortInfo": "Люблю пепперони и старые серии смешариков. А вы были на Таити?",
+      "status": "finished"
+    },
+    {
+      "firstName": "Буба",
+      "secondName": "Бубенцов",
+      "avatar": "None",
+      "shortInfo": "Люблю пепперони и старые серии смешариков. А вы были на Таити?",
+      "status": "expelled"
+    },
+    {
+      "firstName": "Даниил",
+      "secondName": "Хазов",
+      "avatar": "https://sun9-8.userapi.com/impf/Ah0pvAhiUgvPPq0dXU73XJN53_9FqNlQcs87Uw/6fjBLIE4BLw.jpg?size=2048x2048&quality=96&sign=6696229bfa0773ab9236472fad62f3c0&type=album",
+      "shortInfo": "Изучаю цифровой дизайн, программирование и управление проектами.",
+      "status": "study"
+    },
+    {
+      "firstName": "Буба",
+      "secondName": "Бубенцов",
+      "avatar": "None",
+      "shortInfo": "Люблю пепперони и старые серии смешариков. А вы были на Таити?",
+      "status": "finished"
     }
   ]
 }

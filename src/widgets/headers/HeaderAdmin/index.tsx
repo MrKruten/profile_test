@@ -3,8 +3,7 @@ import { useStore } from "effector-react";
 import { useNavigate } from "react-router-dom";
 
 import { Avatar, Logo } from "shared/ui";
-import { $isResize, SCREENS } from "shared/lib";
-import { $user } from "shared/lib/user";
+import { $isResize, SCREENS, $user } from "shared/lib";
 import { resetNotifications } from "widgets/headers/resetNotifications";
 import "./style.scss";
 

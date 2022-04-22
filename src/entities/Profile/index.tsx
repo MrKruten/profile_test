@@ -5,7 +5,7 @@ import { Avatar } from "shared/ui";
 import male from "shared/images/Male.svg";
 import female from "shared/images/Female.svg";
 import food from "shared/images/Dog_food.svg";
-import { $user } from "shared/lib/user";
+import { $user } from "shared/lib";
 import "./style.scss";
 
 export const Profile: React.FC = () => {

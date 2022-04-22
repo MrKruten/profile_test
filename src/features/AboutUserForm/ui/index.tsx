@@ -5,11 +5,10 @@ import { useStore } from "effector-react";
 import Select from "react-select";
 
 import { Avatar, Button, Input, TextArea } from "shared/ui";
-import { Types, Helpers } from "shared/lib";
+import { Types, Helpers, $user, editUser } from "shared/lib";
 import { BottomNotificationModel } from "entities/BottomNotification";
 import { NotificationModel } from "entities/Notification";
 import { ReactComponent as Edit } from "shared/images/Edit.svg";
-import { $user, editUser } from "shared/lib/user";
 
 import { optionsCity, optionsSex, optionsPet } from "../lib/options";
 import { schema } from "../lib/schema";

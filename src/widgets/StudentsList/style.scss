@@ -1,0 +1,95 @@
+@import'src/app/styles/variables';
+
+.students{
+  width: 1060px;
+
+  @media (max-width: $maxWidth) {
+      width: 850px;
+  }
+
+  &__table{
+    margin-top: 30px;
+  }
+
+  &__table-head{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 110px 13px 24px;
+    background: #F5F5F5;
+    border-radius: 6px;
+
+    font-family: 'Gilroy', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: 0.03em;
+    color: #464E5F;
+  }
+
+  &__list{
+    & li:last-child{
+      .student{
+        border-bottom: none;
+      }
+    }
+  }
+
+  &__pagination{
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+  }
+
+  .react-select-container{
+    width: 163px;
+  }
+}
+
+.pagination{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: min-content;
+
+  & .page-item:last-child, .page-item:first-child{
+    color: #8A8A8A;
+    & a[aria-disabled="true"]{
+      color: #E0E0E0;
+    }
+  }
+
+  & .page-item:not(last-child){
+    margin-right: 8px;
+  }
+}
+
+.page-item{
+  border: 1px solid #E0E0E0;
+  border-radius: 4px;
+  font-family: 'Gilroy', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 171%;
+  color: #212B36;
+  cursor: pointer;
+
+  &_disabled{
+    background: #8A8A8A;
+    opacity: 0.5;
+    color: #E0E0E0;
+  }
+
+  &_active{
+    border: 1px solid #585CC6;
+    color: #585CC6;
+  }
+}
+
+.page-link{
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
