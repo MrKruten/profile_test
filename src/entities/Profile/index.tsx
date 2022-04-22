@@ -1,37 +1,40 @@
 import React from "react";
+import { useStore } from "effector-react";
 
-import "./style.scss";
 import { Avatar } from "shared/ui";
-import data from "shared/lib/data.json";
 import male from "shared/images/Male.svg";
 import female from "shared/images/Female.svg";
 import food from "shared/images/Dog_food.svg";
+import { $user } from "shared/lib/user";
+import "./style.scss";
 
-export const Profile = () => {
+export const Profile: React.FC = () => {
+  const user = useStore($user);
+
   return (
     <div className="profile">
-      <Avatar avatar={data.user.avatar} />
+      <Avatar avatar={user.avatar} />
       <div className="profile__description">
         <div className="profile__description__name-date">
-          <h3>{data.user.name}</h3>
+          <h3>{`${user.firstName} ${user.secondName}`}</h3>
           <span className="profile__description__name-date date">
-            {data.user.description.date_of_birth}
+            {user.description.dateBirth}
           </span>
         </div>
         <div className="profile__description__info">
           <span className="profile__description__info__item">
             <b>Город:&nbsp;</b>
-            {data.user.description.city}
+            {user.description.city}
           </span>
           <span className="profile__description__info__item">
             <b>Пол:&nbsp;</b>
-            {data.user.description.sex === "Male" ? (
+            {user.description.sex === "Male" ? (
               <span>
                 мужчина&nbsp;
                 <img src={male} alt="Мужчина" />
               </span>
             ) : (
-              <span className="profile__description__info__item">
+              <span>
                 женщина&nbsp;
                 <img src={female} alt="Женщина" />
               </span>
@@ -39,23 +42,19 @@ export const Profile = () => {
           </span>
           <span className="profile__description__info__item">
             <b>Возраст:&nbsp;</b>
-            {data.user.description.age}
+            {user.description.age}
           </span>
         </div>
         <div className="profile__description__text">
           <p>
             <b>О себе:&nbsp;</b>
-            {data.user.description.text}
-          </p>
-          <p>
-            <i>BTW:&nbsp;</i>
-            {data.user.description.btw}
+            {user.description.text}
           </p>
         </div>
         <div className="profile__description__pet">
           <img src={food} alt="Питомец" />
           <b>Домашнее животное:&nbsp;</b>
-          {data.user.description.pet ? "есть" : "нет"}
+          {user.description.pet ? "есть" : "нет"}
         </div>
       </div>
     </div>

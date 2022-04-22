@@ -114,3 +114,103 @@ body {
 #root{
   height: 100%;
 }
+
+.input__wrapper {
+  width: 100%;
+  position: relative;
+  text-align: center;
+}
+
+.input__file {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+}
+
+.input__file-button {
+  cursor: pointer;
+}
+
+.react-select-container{
+  color: $textColor;
+  width: 403px;
+  @media (max-width: $md3) {
+      width: 100%;
+  }
+}
+
+.react-select{
+  &__input-container{
+    padding-bottom: 12px !important;
+    padding-top: 12px !important;
+  }
+
+  &__control{
+    border: 1px solid #E0E0E0 !important;
+    border-radius: 2px !important;
+
+    &--is-focused{
+      box-shadow: none !important;
+      border-color: #585CC6 !important;
+
+      .react-select__indicator{
+        transition: ease 400ms;
+        transform: rotate(180deg);
+        color: #585CC6 !important;
+      }
+    }
+
+    &--is-disabled{
+      background-color: #FFFFFF !important;
+    }
+  }
+
+  &__single-value{
+    font-family: 'Gilroy', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 157%;
+    color: $textColor !important;
+
+    &--is-disabled{
+      color: #E0E0E0 !important;
+    }
+  }
+
+  &__indicator-separator{
+    display: none;
+  }
+
+  &__indicator{
+    transition: ease 400ms;
+    color: #8A8A8A !important;
+  }
+
+  &__menu{
+    border-radius: 2px !important;
+    box-shadow: 0 4px 7px rgba(0, 0, 0, 0.08) !important;
+    margin-top: 0 !important;
+
+    &-list{
+      max-height: 403px !important;
+      padding: 0 !important;
+    }
+  }
+
+  &__option{
+    padding: 12px !important;
+    font-family: 'Gilroy', sans-serif !important;
+    font-weight: 400 !important;
+    font-size: 14px !important;
+    line-height: 22px !important;
+
+    &--is-selected{
+      color: #585CC6 !important;
+      background: #F5F5F5 !important;
+    }
+
+    &--is-focused{
+      background: #EEEFF9 !important;
+    }
+  }
+}

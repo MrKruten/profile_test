@@ -1,14 +1,15 @@
 {
   "user": {
-    "name": "Даниил Хазов",
+    "firstName": "Даниил",
+    "secondName": "Хазов",
     "avatar": "https://sun9-8.userapi.com/impf/Ah0pvAhiUgvPPq0dXU73XJN53_9FqNlQcs87Uw/6fjBLIE4BLw.jpg?size=2048x2048&quality=96&sign=6696229bfa0773ab9236472fad62f3c0&type=album",
     "description": {
+      "shortInfo": "Изучаю цифровой дизайн, программирование и управление проектами.",
       "city": "Томск",
       "sex": "Male",
       "age": 20,
-      "date_of_birth": "27.04.2001",
-      "text": "Привет от студента! Меня зовут Даниил, мне 20 лет, я студент. Учусь на программиста в сине-белом стиле \\0-0/  Хочу стать крутым специалистом.\nP.S. Прохождение практики в компании мне было мало :)",
-      "btw": "Больше страху, чем бэкэндер, может навести только дизайнер :)",
+      "dateBirth": "27.04.2001",
+      "text": "Привет от студента! Меня зовут Даниил, мне 20 лет, я студент. Учусь на программиста в сине-белом стиле \\0-0/  Хочу стать крутым специалистом.\nP.S. Прохождение практики в компании мне было мало :)\n\nБольше страху, чем бэкэндер, может навести только дизайнер :)",
       "pet": false
     }
   },
@@ -17,21 +18,18 @@
       "name": "Денис Мигунов",
       "avatar": "https://sun9-43.userapi.com/impf/T0napMGt-siBScXsMCAlIhEFrzaGbyLzb0HAUg/sU24RSXjIks.jpg?size=658x658&quality=95&sign=53a9ed35e14fed312ecb3e4bbae34cc9&type=album",
       "date": "20.03.2022",
-      "shortInfo": "Хочу больше спать",
       "text": "Бог создал Адама. Из его ребра создал Еву.\nНоворожденные спрашивают у бога:\n- А это кто?\n- Да чел тут лабу сдать хочет"
     },
     {
       "name": "Общажный Дед",
       "avatar": "https://sun9-39.userapi.com/impf/LZ_UldipCHAMsTIsWK_mG0lwer1xM8ZUq6N0EA/FV84VDdTVPo.jpg?size=308x372&quality=96&sign=938476a2d5d663c91bf0744cdb58f3b9&type=album",
       "date": "20.03.2022",
-      "shortInfo": "Хочу больше спать",
       "text": "Здоровье: здоров\nВозраст: молодой\nВид: драконид\nПрофессия: программист\nХобби: туризм\nМировоззрение: научное\nkaiq.ru"
     },
     {
       "name": "Bruh Bruh",
       "avatar": "None",
       "date": "20.03.2022",
-      "shortInfo": "Хочу больше спать",
       "text": "Bruh Bruh Bruh !!! Bruh? Bruh. Bruh - Bruh ? Bruh Bruh Bruh Bruh Bruh Bruh Bruh Bruh Bruh !!! Bruh? Bruh. Bruh - Bruh ? Bruh Bruh Bruh Bruh Bruh Bruh Bruh Bruh Bruh !!! Bruh? Bruh. Bruh - Bruh ? Bruh Bruh Bruh Bruh Bruh Bruh Bruh Bruh Bruh !!! Bruh? Bruh. Bruh - Bruh ? Bruh Bruh Bruh Bruh Bruh Bruh"
     }
   ],
@@ -47,6 +45,128 @@
     {
       "login": "test3@td.ru",
       "password": "testA-33"
+    }
+  ],
+  "students": [
+    {
+      "name": "Буба Бубенцов",
+      "avatar": "None",
+      "shortInfo": "Люблю пепперони и старые серии смешариков. А вы были на Таити?"
+    },
+    {
+      "name": "Даниил Хазов",
+      "avatar": "https://sun9-8.userapi.com/impf/Ah0pvAhiUgvPPq0dXU73XJN53_9FqNlQcs87Uw/6fjBLIE4BLw.jpg?size=2048x2048&quality=96&sign=6696229bfa0773ab9236472fad62f3c0&type=album",
+      "shortInfo": "Изучаю цифровой дизайн, программирование и управление проектами."
+    },
+    {
+      "name": "Буба Бубенцов",
+      "avatar": "None",
+      "shortInfo": "Люблю пепперони и старые серии смешариков. А вы были на Таити?"
+    },
+    {
+      "name": "Даниил Хазов",
+      "avatar": "https://sun9-8.userapi.com/impf/Ah0pvAhiUgvPPq0dXU73XJN53_9FqNlQcs87Uw/6fjBLIE4BLw.jpg?size=2048x2048&quality=96&sign=6696229bfa0773ab9236472fad62f3c0&type=album",
+      "shortInfo": "Изучаю цифровой дизайн, программирование и управление проектами."
+    },
+    {
+      "name": "Буба Бубенцов",
+      "avatar": "None",
+      "shortInfo": "Люблю пепперони и старые серии смешариков. А вы были на Таити?"
+    },
+    {
+      "name": "Даниил Хазов",
+      "avatar": "https://sun9-8.userapi.com/impf/Ah0pvAhiUgvPPq0dXU73XJN53_9FqNlQcs87Uw/6fjBLIE4BLw.jpg?size=2048x2048&quality=96&sign=6696229bfa0773ab9236472fad62f3c0&type=album",
+      "shortInfo": "Изучаю цифровой дизайн, программирование и управление проектами."
+    },
+    {
+      "name": "Буба Бубенцов",
+      "avatar": "None",
+      "shortInfo": "Люблю пепперони и старые серии смешариков. А вы были на Таити?"
+    },
+    {
+      "name": "Даниил Хазов",
+      "avatar": "https://sun9-8.userapi.com/impf/Ah0pvAhiUgvPPq0dXU73XJN53_9FqNlQcs87Uw/6fjBLIE4BLw.jpg?size=2048x2048&quality=96&sign=6696229bfa0773ab9236472fad62f3c0&type=album",
+      "shortInfo": "Изучаю цифровой дизайн, программирование и управление проектами."
+    },
+    {
+      "name": "Буба Бубенцов",
+      "avatar": "None",
+      "shortInfo": "Люблю пепперони и старые серии смешариков. А вы были на Таити?"
+    },
+    {
+      "name": "Даниил Хазов",
+      "avatar": "https://sun9-8.userapi.com/impf/Ah0pvAhiUgvPPq0dXU73XJN53_9FqNlQcs87Uw/6fjBLIE4BLw.jpg?size=2048x2048&quality=96&sign=6696229bfa0773ab9236472fad62f3c0&type=album",
+      "shortInfo": "Изучаю цифровой дизайн, программирование и управление проектами."
+    },
+    {
+      "name": "Буба Бубенцов",
+      "avatar": "None",
+      "shortInfo": "Люблю пепперони и старые серии смешариков. А вы были на Таити?"
+    },
+    {
+      "name": "Даниил Хазов",
+      "avatar": "https://sun9-8.userapi.com/impf/Ah0pvAhiUgvPPq0dXU73XJN53_9FqNlQcs87Uw/6fjBLIE4BLw.jpg?size=2048x2048&quality=96&sign=6696229bfa0773ab9236472fad62f3c0&type=album",
+      "shortInfo": "Изучаю цифровой дизайн, программирование и управление проектами."
+    },
+    {
+      "name": "Буба Бубенцов",
+      "avatar": "None",
+      "shortInfo": "Люблю пепперони и старые серии смешариков. А вы были на Таити?"
+    },
+    {
+      "name": "Даниил Хазов",
+      "avatar": "https://sun9-8.userapi.com/impf/Ah0pvAhiUgvPPq0dXU73XJN53_9FqNlQcs87Uw/6fjBLIE4BLw.jpg?size=2048x2048&quality=96&sign=6696229bfa0773ab9236472fad62f3c0&type=album",
+      "shortInfo": "Изучаю цифровой дизайн, программирование и управление проектами."
+    },
+    {
+      "name": "Буба Бубенцов",
+      "avatar": "None",
+      "shortInfo": "Люблю пепперони и старые серии смешариков. А вы были на Таити?"
+    },
+    {
+      "name": "Даниил Хазов",
+      "avatar": "https://sun9-8.userapi.com/impf/Ah0pvAhiUgvPPq0dXU73XJN53_9FqNlQcs87Uw/6fjBLIE4BLw.jpg?size=2048x2048&quality=96&sign=6696229bfa0773ab9236472fad62f3c0&type=album",
+      "shortInfo": "Изучаю цифровой дизайн, программирование и управление проектами."
+    },
+    {
+      "name": "Буба Бубенцов",
+      "avatar": "None",
+      "shortInfo": "Люблю пепперони и старые серии смешариков. А вы были на Таити?"
+    },
+    {
+      "name": "Даниил Хазов",
+      "avatar": "https://sun9-8.userapi.com/impf/Ah0pvAhiUgvPPq0dXU73XJN53_9FqNlQcs87Uw/6fjBLIE4BLw.jpg?size=2048x2048&quality=96&sign=6696229bfa0773ab9236472fad62f3c0&type=album",
+      "shortInfo": "Изучаю цифровой дизайн, программирование и управление проектами."
+    },
+    {
+      "name": "Буба Бубенцов",
+      "avatar": "None",
+      "shortInfo": "Люблю пепперони и старые серии смешариков. А вы были на Таити?"
+    },
+    {
+      "name": "Даниил Хазов",
+      "avatar": "https://sun9-8.userapi.com/impf/Ah0pvAhiUgvPPq0dXU73XJN53_9FqNlQcs87Uw/6fjBLIE4BLw.jpg?size=2048x2048&quality=96&sign=6696229bfa0773ab9236472fad62f3c0&type=album",
+      "shortInfo": "Изучаю цифровой дизайн, программирование и управление проектами."
+    },
+    {
+      "name": "Буба Бубенцов",
+      "avatar": "None",
+      "shortInfo": "Люблю пепперони и старые серии смешариков. А вы были на Таити?"
+    },
+    {
+      "name": "Даниил Хазов",
+      "avatar": "https://sun9-8.userapi.com/impf/Ah0pvAhiUgvPPq0dXU73XJN53_9FqNlQcs87Uw/6fjBLIE4BLw.jpg?size=2048x2048&quality=96&sign=6696229bfa0773ab9236472fad62f3c0&type=album",
+      "shortInfo": "Изучаю цифровой дизайн, программирование и управление проектами."
+    },
+    {
+      "name": "Буба Бубенцов",
+      "avatar": "None",
+      "shortInfo": "Люблю пепперони и старые серии смешариков. А вы были на Таити?"
+    },
+    {
+      "name": "Даниил Хазов",
+      "avatar": "https://sun9-8.userapi.com/impf/Ah0pvAhiUgvPPq0dXU73XJN53_9FqNlQcs87Uw/6fjBLIE4BLw.jpg?size=2048x2048&quality=96&sign=6696229bfa0773ab9236472fad62f3c0&type=album",
+      "shortInfo": "Изучаю цифровой дизайн, программирование и управление проектами."
     }
   ]
 }

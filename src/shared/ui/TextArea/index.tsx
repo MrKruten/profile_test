@@ -1,20 +1,22 @@
 import React, { useState } from "react";
 import classnames from "classnames";
 
-import "./style.scss";
 import { IInputField } from "shared/ui/Input";
 import { ReactComponent as Cross } from "shared/images/Cross.svg";
+import "./style.scss";
 
 export const TextArea: React.FC<IInputField> = ({
   name,
   placeholder,
   label,
   maxlength,
-  error,
-  required,
-  errorMessage,
+  error = false,
+  required = false,
+  errorMessage = "Ошибка",
   id,
   register,
+  disabled = false,
+  defaultValue,
 }) => {
   const [symbols, setSymbols] = useState(0);
 
@@ -32,6 +34,8 @@ export const TextArea: React.FC<IInputField> = ({
       </label>
       <div>
         <textarea
+          defaultValue={defaultValue}
+          disabled={disabled}
           id={name}
           className={classnames(
             "textarea-block__textarea",
@@ -45,9 +49,11 @@ export const TextArea: React.FC<IInputField> = ({
           {...register(id, { required })}
           onInput={onChangeSymbols}
         />
-        <p>
-          {symbols}/{maxlength}
-        </p>
+        {!!maxlength && (
+          <p>
+            {symbols}/{maxlength}
+          </p>
+        )}
       </div>
       {error && (
         <span className="error">

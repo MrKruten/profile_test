@@ -34,12 +34,9 @@
 
   .input-block{
     margin-bottom: 32px;
-    &__input{
-      width: 548px;
-
-      @media (max-width: $md3) {
+    width: 548px;
+    @media (max-width: $md3) {
         width: 100%;
-      }
     }
   }
 

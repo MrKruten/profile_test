@@ -2,21 +2,23 @@ import React, { useState } from "react";
 import classnames from "classnames";
 import { Path, UseFormRegister } from "react-hook-form";
 
-import "./style.scss";
-
 import { Types } from "shared/lib";
 import { ReactComponent as Info } from "shared/images/Info_Square.svg";
 import { ReactComponent as Show } from "shared/images/Show.svg";
 import { ReactComponent as Hide } from "shared/images/Hide.svg";
 
+import "./style.scss";
+
 export interface IInputField {
   name: string;
-  placeholder: string;
+  placeholder?: string;
+  defaultValue?: string;
   label: string;
   error?: boolean;
   errorMessage?: string;
   maxlength?: number;
   required?: boolean;
+  disabled?: boolean;
   id: Path<Types.IFormInputs>;
   register: UseFormRegister<Types.IFormInputs>;
 }
@@ -34,8 +36,10 @@ export const Input: React.FC<IInput> = ({
   typeInput = "text",
   required = false,
   errorMessage = "Ошибка",
+  disabled = false,
   id,
   register,
+  defaultValue,
 }) => {
   const [isActive, setIsActive] = useState(false);
   const [isShowPassword, setIsShowPassword] = useState(
@@ -61,6 +65,8 @@ export const Input: React.FC<IInput> = ({
       </label>
       <div className="input-block__content">
         <input
+          defaultValue={defaultValue}
+          disabled={disabled}
           type={isShowPassword ? "password" : "text"}
           id={name}
           className={classnames("input-block__input", {

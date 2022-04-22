@@ -12,12 +12,10 @@ const StudentsPage = () => {
     <AdminTemplate
       header={<HeaderAdmin />}
       navigation={<AdminNav />}
+      textZero="Список участников пуст"
       main={
         <>
-          <HeaderContentAdmin
-            title="Участники"
-            select={<Status status="study" />}
-          />
+          <HeaderContentAdmin title="Участники" />
           <Student
             avatar="None"
             status="study"

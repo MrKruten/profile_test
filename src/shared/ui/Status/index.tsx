@@ -2,9 +2,9 @@ import React from "react";
 import classnames from "classnames";
 
 import "./style.scss";
-import { IStatus } from "shared/lib/types";
+import { Types } from "shared/lib";
 
-export const Status: React.FC<IStatus> = ({ status }) => {
+export const Status: React.FC<Types.IStatus> = ({ status = "study" }) => {
   return (
     <div
       className={classnames("status", {

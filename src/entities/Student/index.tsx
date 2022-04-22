@@ -4,7 +4,7 @@ import { Types } from "shared/lib";
 import { Avatar, Status } from "shared/ui";
 import "./style.scss";
 
-interface IStudent extends Types.IShortComment, Types.IStatus {}
+interface IStudent extends Types.IStudent, Types.IStatus {}
 
 export const Student: React.FC<IStudent> = ({
   status,
@@ -19,9 +19,7 @@ export const Student: React.FC<IStudent> = ({
         <p className="student__name">{name}</p>
       </div>
       <p className="student__text">{shortInfo}</p>
-      <div>
-        <Status status={status} />
-      </div>
+      <Status status={status} />
     </div>
   );
 };

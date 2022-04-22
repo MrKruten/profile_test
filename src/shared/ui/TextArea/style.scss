@@ -1,5 +1,7 @@
 .textarea-block{
+  width: 100%;
   div{
+    width: inherit;
     position: relative;
 
     p{
@@ -14,7 +16,7 @@
     }
   }
   &__textarea{
-    width: 620px;
+    width: inherit;
     height: 105px;
     resize: none;
   }

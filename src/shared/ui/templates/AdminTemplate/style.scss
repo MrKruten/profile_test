@@ -29,13 +29,18 @@
 
   &__main{
     margin: 0 auto;
-    flex: 1 1 auto;
     padding: 48px 80px 48px 24px;
 
-    &-zero{
+    @media (max-width: $md3) {
+        padding: 26px 16px;
+        margin: 0;
+    }
+
+    &_zero{
       display: flex;
       align-items: center;
       justify-content: center;
+      flex: 1 1 auto;
     }
   }
 

@@ -3,27 +3,28 @@ import { useStore } from "effector-react";
 import { useNavigate } from "react-router-dom";
 
 import { Button, Avatar, Logo } from "shared/ui";
-import data from "shared/lib/data.json";
 import profile from "shared/images/Profile.svg";
 import { $isResize, SCREENS } from "shared/lib";
-import { NotificationModel } from "entities/Notification";
 import "./style.scss";
+import { $user } from "shared/lib/user";
+import { resetNotifications } from "widgets/headers/resetNotifications";
 
 export const HeaderMain = () => {
+  const user = useStore($user);
   const isResize = useStore($isResize);
   const navigate = useNavigate();
 
   const goAdmin = () => {
+    resetNotifications();
     navigate(SCREENS.STUDENTS);
-    NotificationModel.showNotification(false);
   };
 
   return (
     <header className="header">
       <div className="header__user">
-        <Avatar avatar={data.user.avatar} />
+        <Avatar avatar={user.avatar} />
         <span className="header__user-name">
-          {isResize ? data.user.name : data.user.name.split(" ")[0]}
+          {isResize ? `${user.firstName} ${user.secondName}` : user.firstName}
         </span>
       </div>
       <Logo />

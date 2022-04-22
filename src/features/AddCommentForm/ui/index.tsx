@@ -43,7 +43,7 @@ export const AddCommentForm = () => {
 
     readerURL.onload = () => {
       setAvatar(readerURL.result as string);
-      if (file.size / 1024 / 1024 > 6) {
+      if (file.size / 1024 / 1024 > 5) {
         setIsFileError(true);
       }
     };
@@ -67,10 +67,6 @@ export const AddCommentForm = () => {
     if (e.target.files) {
       readFile(e.target.files);
     }
-  };
-
-  const onDeleteFile = () => {
-    deleteFile();
   };
 
   const onSubmit: SubmitHandler<Types.IFormInputs> = (data) => {
@@ -139,7 +135,7 @@ export const AddCommentForm = () => {
                 />
               </div>
             </div>
-            <button onClick={onDeleteFile}>
+            <button onClick={deleteFile}>
               <DeleteImg />
             </button>
           </div>
