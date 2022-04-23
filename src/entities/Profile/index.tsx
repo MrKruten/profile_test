@@ -4,7 +4,7 @@ import { useStore } from "effector-react";
 import { Avatar } from "shared/ui";
 import male from "shared/images/Male.svg";
 import female from "shared/images/Female.svg";
-import food from "shared/images/Dog_food.svg";
+import food from "shared/images/Dog_Food.svg";
 import { $user } from "shared/lib";
 import "./style.scss";
 

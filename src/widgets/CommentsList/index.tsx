@@ -10,12 +10,12 @@ import { Comment } from "entities/Comment";
 import plus from "shared/images/Plus.svg";
 import { ArrowButton, Button } from "shared/ui";
 import { AddCommentModel } from "features/AddCommentForm";
-import { $comments } from "shared/lib/comments";
+import {$comments, $publishedComments} from "shared/lib/comments";
 import { $isResize } from "shared/lib";
 
 export const CommentsList = () => {
   const isResize = useStore($isResize);
-  const commentList = useList($comments, (comment) => (
+  const commentList = useList($publishedComments, (comment) => (
     <Comment
       name={comment.name}
       avatar={comment.avatar}
