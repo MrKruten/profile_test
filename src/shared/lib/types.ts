@@ -31,17 +31,18 @@ export interface IFormInputs
 
 export interface IComment {
   name: string;
-  avatar?: "None" | string;
+  avatar: "None" | string;
   date: string;
   text: string;
+  status?: "editable" | "rejected" | "published" | string;
 }
 
 export interface IStudent {
   firstName: string;
   secondName: string;
-  avatar?: "None" | string;
-  shortInfo?: string;
-  status: string;
+  avatar: "None" | string;
+  shortInfo: string;
+  status?: "study" | "expelled" | "finished" | string;
 }
 
 export interface IAvatar {

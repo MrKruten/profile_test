@@ -13,7 +13,7 @@ import { AddCommentModel } from "features/AddCommentForm";
 import { $comments } from "shared/lib/comments";
 import { $isResize } from "shared/lib";
 
-export const CommentList = () => {
+export const CommentsList = () => {
   const isResize = useStore($isResize);
   const commentList = useList($comments, (comment) => (
     <Comment

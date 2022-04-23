@@ -71,7 +71,7 @@ export const AddCommentForm = () => {
 
   const onSubmit: SubmitHandler<Types.IFormInputs> = (data) => {
     const today = new Date().toLocaleDateString().replaceAll("/", ".");
-    addComment({ ...data, avatar, date: today });
+    addComment({ ...data, avatar, date: today, status: "editable" });
     showAddComment(false);
     NotificationModel.showNotification(true);
     deleteFile();

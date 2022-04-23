@@ -3,7 +3,7 @@ import { useGate } from "effector-react";
 import "./style.scss";
 
 import { Profile } from "entities/Profile";
-import { CommentList, AddComment } from "widgets";
+import { CommentsList, AddComment } from "widgets";
 import { ResizeGate } from "shared/lib";
 import { Notification } from "entities/Notification";
 import { Footer } from "shared/ui";
@@ -20,7 +20,7 @@ const MainPage = () => {
           <h1>Добро пожаловать в академию!</h1>
           <Profile />
           <div className="main-page__comment-list">
-            <CommentList />
+            <CommentsList />
           </div>
           <Notification
             textSuccess="Спасибо за отзыв о нашей компании :)"

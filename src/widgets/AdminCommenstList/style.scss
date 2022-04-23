@@ -1,0 +1,49 @@
+@import'src/app/styles/variables';
+
+.admin-comments{
+  width: 1080px;
+
+  .react-select-container{
+    width: 256px;
+
+    @media (max-width: $md3) {
+        width: 100%;
+    }
+  }
+
+  &__list{
+    margin-top: 34px;
+    display: flex;
+    flex-wrap: wrap;
+    height: 760px;
+    overflow: hidden;
+    overflow-y: auto;
+
+    @media (max-width: $maxWidth) {
+      flex-direction: column;
+      height: max-content;
+      align-items: center;
+    }
+  }
+
+  li:nth-child(odd){
+    margin-right: 17px;
+    margin-bottom: 24px;
+
+    @media (max-width: $maxWidth) {
+      margin-right: 0;
+      margin-bottom: 20px
+    }
+  }
+
+  @media (max-width: $maxWidth) {
+    width: 100%;
+    li{
+      width: 100%;
+      margin-bottom: 20px;
+      .comment{
+        width: 100%;
+      }
+    }
+  }
+}

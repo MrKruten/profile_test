@@ -7,5 +7,5 @@ export const editUser = createEvent<IUser>();
 
 export const $user = createStore<IUser>(data.user).on(
   editUser,
-  (prev, next) => next
+  (_, next) => next
 );
