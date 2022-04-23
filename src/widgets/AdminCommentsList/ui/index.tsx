@@ -5,19 +5,12 @@ import { useStore } from "effector-react";
 import { Types } from "shared/lib";
 import { HeaderContentAdmin } from "shared/ui";
 import { Comment } from "entities/Comment";
-import {
-  $sortedComments,
-  filterComments,
-} from "widgets/AdminCommenstList/model";
 import { ButtonsAdminComment } from "features/ButtonsAdminComment";
-import "./style.scss";
 import { EditCommentModel } from "features/EditComment";
 
-const filterOptions = [
-  { value: "editable", label: "Сначала неопубликованные" },
-  { value: "rejected", label: "Сначала отклоненные" },
-  { value: "published", label: "Сначала опубликованные" },
-];
+import { $sortedComments, filterComments } from "../model";
+import "./style.scss";
+import { filterOptions } from "../lib/options";
 
 interface IITems {
   items: Array<Types.IComment>;

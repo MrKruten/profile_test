@@ -1,6 +1,6 @@
 import * as yup from "yup";
 
-const today = new Date();
+import { Regulars } from "shared/lib";
 
 export const schema = yup
   .object({
@@ -9,7 +9,7 @@ export const schema = yup
       .min(2, "Поле должно содержать не менее 2 символов")
       .max(40, "Поле должно содержать не более 40 символов")
       .matches(
-        /^[A-Za-zа-яА-Я]+$/,
+        Regulars.regName,
         "Это поле может содержать только латиницу и кириллицу"
       ),
     secondName: yup
@@ -17,12 +17,12 @@ export const schema = yup
       .min(2, "Поле должно содержать не менее 2 символов")
       .max(40, "Поле должно содержать не более 40 символов")
       .matches(
-        /^[A-Za-zа-яА-Я]+$/,
+        Regulars.regName,
         "Это поле может содержать только латиницу и кириллицу"
       ),
     dateBirth: yup
       .string()
-      .matches(/^\d{2}.\d{2}.\d{4}$/, "Дата должна быть в формате: дд.мм.гггг"),
+      .matches(Regulars.regDate, "Дата должна быть в формате: дд.мм.гггг"),
     city: yup.object({
       label: yup.string(),
       value: yup.string(),

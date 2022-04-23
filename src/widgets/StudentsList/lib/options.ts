@@ -1,5 +1,6 @@
 export const filterOptions = [
-  { value: "editable", label: "Сначала неопубликованные" },
-  { value: "rejected", label: "Сначала отклоненные" },
-  { value: "published", label: "Сначала опубликованные" },
+  { value: "all", label: "Все" },
+  { value: "expelled", label: "Отчислен" },
+  { value: "study", label: "Обучается" },
+  { value: "finished", label: "Закончил" },
 ];

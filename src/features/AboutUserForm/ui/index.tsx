@@ -158,6 +158,7 @@ export const AboutUserForm = () => {
           errorMessage={errors.secondName?.message}
         />
         <Input
+          maxlength={10}
           defaultValue={user.description.dateBirth}
           disabled={!isEdit}
           placeholder="Введите дату рождения"

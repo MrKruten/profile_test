@@ -9,6 +9,8 @@ import { $students } from "shared/lib";
 import "./style.scss";
 import { IStudent } from "shared/lib/types";
 
+import { filterOptions } from "./lib/options";
+
 interface IITems {
   currentItems: Array<IStudent> | null;
 }
@@ -33,13 +35,6 @@ const Items: React.FC<IITems> = ({ currentItems }) => {
     </ul>
   );
 };
-
-const filterOptions = [
-  { value: "all", label: "Все" },
-  { value: "expelled", label: "Отчислен" },
-  { value: "study", label: "Обучается" },
-  { value: "finished", label: "Закончил" },
-];
 
 export const StudentsList = () => {
   const students = useStore($students);

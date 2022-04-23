@@ -5,3 +5,4 @@ export * from "./comments";
 export * from "./students";
 export * from "./user";
 export * as Helpers from "./helpers";
+export * from "./regExp";
