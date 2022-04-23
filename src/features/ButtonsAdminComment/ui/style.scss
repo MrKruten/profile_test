@@ -1,0 +1,27 @@
+@import'src/app/styles/variables';
+
+.comment{
+  &__admin-buttons{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    .btn_img{
+      svg{
+        width: 18px;
+        height: 18px;
+        mix-blend-mode: screen;
+        fill: #FFFFFF;
+        path:nth-child(2){
+          stroke: #FFFFFF;
+        }
+      }
+    }
+  }
+
+  &__left-buttons{
+    .btn:first-child{
+      margin-right: 12px;
+    }
+  }
+}

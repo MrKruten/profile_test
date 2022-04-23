@@ -13,8 +13,7 @@
   z-index: 1;
 
   @media (max-width: $md3) {
-    width: 42px;
-    padding: 12px;
+    padding: 12px 6px;
     font-size: 14px;
 
     img{
@@ -86,6 +85,13 @@
 
     &:active:not([disabled]) {
       background: #FF7171;
+    }
+  }
+
+  &_img{
+    padding: 12px;
+    @media (max-width: $md3) {
+      width: 42px;
     }
   }
 }

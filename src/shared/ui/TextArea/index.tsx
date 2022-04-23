@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import classnames from "classnames";
 
 import { IInputField } from "shared/ui/Input";
 import { ReactComponent as Cross } from "shared/images/Cross.svg";
 import "./style.scss";
 
-export const TextArea: React.FC<IInputField> = ({
+interface ITextArea extends IInputField {}
+
+export const TextArea: React.FC<ITextArea> = ({
   name,
   placeholder,
   label,
@@ -19,6 +21,10 @@ export const TextArea: React.FC<IInputField> = ({
   defaultValue,
 }) => {
   const [symbols, setSymbols] = useState(0);
+
+  useEffect(() => {
+    setSymbols(defaultValue ? defaultValue.length : 0);
+  }, [defaultValue]);
 
   const onChangeSymbols = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setSymbols(e.currentTarget.value.length);

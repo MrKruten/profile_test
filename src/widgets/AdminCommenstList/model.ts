@@ -1,6 +1,6 @@
 import { createEvent, createStore, sample } from "effector";
 
-import { $comments, Helpers, Types } from "shared/lib";
+import { $comments, Helpers, Types, updateComment } from "shared/lib";
 
 export const filterComments = createEvent<string>();
 
@@ -16,4 +16,10 @@ sample({
     return Helpers.sortComments(clock, source);
   },
   target: $sortedComments,
+});
+
+sample({
+  clock: updateComment,
+  fn: (clock) => clock.status as string,
+  target: filterComments,
 });

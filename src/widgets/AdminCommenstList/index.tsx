@@ -9,7 +9,9 @@ import {
   $sortedComments,
   filterComments,
 } from "widgets/AdminCommenstList/model";
+import { ButtonsAdminComment } from "features/ButtonsAdminComment";
 import "./style.scss";
+import { EditCommentModel } from "features/EditComment";
 
 const filterOptions = [
   { value: "editable", label: "Сначала неопубликованные" },
@@ -22,13 +24,17 @@ interface IITems {
 }
 
 const Items: React.FC<IITems> = ({ items }) => {
+  const editFunc = () => {
+    EditCommentModel.showEditComment(true);
+  };
+
   if (!items) {
     return null;
   }
   return (
     <ul className="admin-comments__list">
       {items.map((comment, id) => (
-        <li key={`${comment.name}-${id + 1}`}>
+        <li key={`${comment.name}-${comment.id}`}>
           <Comment
             isAdmin
             status={comment.status}
@@ -36,6 +42,11 @@ const Items: React.FC<IITems> = ({ items }) => {
             date={comment.date}
             text={comment.text}
             avatar={comment.avatar}
+            editBlock={
+              comment.status === "editable" ? (
+                <ButtonsAdminComment comment={comment} editFunc={editFunc} />
+              ) : null
+            }
           />
         </li>
       ))}

@@ -30,6 +30,7 @@ export interface IFormInputs
     IFormAboutUserInputs {}
 
 export interface IComment {
+  id?: number;
   name: string;
   avatar: "None" | string;
   date: string;

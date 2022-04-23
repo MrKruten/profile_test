@@ -74,7 +74,7 @@ export const CommentsList = () => {
       <div className="comment-list__container">
         <div className="comment-list__header">
           <h2>Отзывы</h2>
-          <Button onClick={showModal}>
+          <Button onClick={showModal} isImg={!isResize}>
             <>
               <img src={plus} alt="Добавить" />
               {isResize && "Добавить отзыв"}

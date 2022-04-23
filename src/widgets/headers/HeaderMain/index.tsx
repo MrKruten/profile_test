@@ -28,7 +28,7 @@ export const HeaderMain = () => {
       </div>
       <Logo />
       <div>
-        <Button onClick={goAdmin}>
+        <Button onClick={goAdmin} isImg={!isResize}>
           {isResize ? (
             "Панель управления"
           ) : (

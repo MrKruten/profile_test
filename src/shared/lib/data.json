@@ -15,6 +15,7 @@
   },
   "comments": [
     {
+      "id": 1,
       "name": "Денис Мигунов",
       "avatar": "https://sun9-43.userapi.com/impf/T0napMGt-siBScXsMCAlIhEFrzaGbyLzb0HAUg/sU24RSXjIks.jpg?size=658x658&quality=95&sign=53a9ed35e14fed312ecb3e4bbae34cc9&type=album",
       "date": "20.03.2022",
@@ -22,6 +23,7 @@
       "text": "Бог создал Адама. Из его ребра создал Еву.\nНоворожденные спрашивают у бога:\n- А это кто?\n- Да чел тут лабу сдать хочет"
     },
     {
+      "id": 2,
       "name": "Общажный Дед",
       "avatar": "https://sun9-39.userapi.com/impf/LZ_UldipCHAMsTIsWK_mG0lwer1xM8ZUq6N0EA/FV84VDdTVPo.jpg?size=308x372&quality=96&sign=938476a2d5d663c91bf0744cdb58f3b9&type=album",
       "date": "21.03.2022",
@@ -29,13 +31,15 @@
       "text": "Здоровье: здоров\nВозраст: молодой\nВид: драконид\nПрофессия: программист\nХобби: туризм\nМировоззрение: научное\nkaiq.ru"
     },
     {
+      "id": 3,
       "name": "Bruh Bruh",
       "avatar": "None",
       "date": "17.03.2022",
       "status": "editable",
-      "text": "Bruh Bruh Bruh !!! Bruh? Bruh. Bruh - Bruh ? Bruh Bruh Bruh Bruh Bruh Bruh Bruh Bruh Bruh !!! Bruh? Bruh. Bruh - Bruh ? Bruh Bruh Bruh Bruh Bruh Bruh Bruh Bruh Bruh !!! Bruh? Bruh. Bruh - Bruh ? Bruh Bruh Bruh Bruh Bruh Bruh Bruh Bruh Bruh !!! Bruh? Bruh. Bruh - Bruh ? Bruh Bruh Bruh Bruh Bruh Bruh"
+      "text": "Bruh Bruh Bruh !!! Bruh? Bruh. Bruh - Bruh ? Bruh Bruh Bruh Bruh Bruh Bruh Bruh Bruh Bruh !!! Bruh? Bruh. Bruh - Bruh ? Bruh Bruh Bruh Bruh Bruh Bruh Bruh Bruh Bruh !!! Bruh? Bruh"
     },
     {
+      "id": 4,
       "name": "Денис Мигунов",
       "avatar": "https://sun9-43.userapi.com/impf/T0napMGt-siBScXsMCAlIhEFrzaGbyLzb0HAUg/sU24RSXjIks.jpg?size=658x658&quality=95&sign=53a9ed35e14fed312ecb3e4bbae34cc9&type=album",
       "date": "15.03.2022",
@@ -43,6 +47,7 @@
       "text": "Бог создал Адама. Из его ребра создал Еву.\nНоворожденные спрашивают у бога:\n- А это кто?\n- Да чел тут лабу сдать хочет"
     },
     {
+      "id": 5,
       "name": "Общажный Дед",
       "avatar": "https://sun9-39.userapi.com/impf/LZ_UldipCHAMsTIsWK_mG0lwer1xM8ZUq6N0EA/FV84VDdTVPo.jpg?size=308x372&quality=96&sign=938476a2d5d663c91bf0744cdb58f3b9&type=album",
       "date": "22.03.2022",
@@ -50,13 +55,15 @@
       "text": "Здоровье: здоров\nВозраст: молодой\nВид: драконид\nПрофессия: программист\nХобби: туризм\nМировоззрение: научное\nkaiq.ru"
     },
     {
+      "id": 6,
       "name": "Bruh Bruh",
       "avatar": "None",
       "date": "01.03.2022",
       "status": "editable",
-      "text": "Bruh Bruh Bruh !!! Bruh? Bruh. Bruh - Bruh ? Bruh Bruh Bruh Bruh Bruh Bruh Bruh Bruh Bruh !!! Bruh? Bruh. Bruh - Bruh ? Bruh Bruh Bruh Bruh Bruh Bruh Bruh Bruh Bruh !!! Bruh? Bruh. Bruh - Bruh ? Bruh Bruh Bruh Bruh Bruh Bruh Bruh Bruh Bruh !!! Bruh? Bruh. Bruh - Bruh ? Bruh Bruh Bruh Bruh Bruh Bruh"
+      "text": "Bruh Bruh Bruh !!! Bruh? Bruh. Bruh - Bruh ? Bruh Bruh Bruh Bruh Bruh Bruh Bruh Bruh Bruh !!! Bruh? Bruh. Bruh - Bruh ? Bruh Bruh Bruh Bruh Bruh Bruh Bruh Bruh Bruh !!! Bruh? Bruh"
     },
     {
+      "id": 7,
       "name": "Денис Мигунов",
       "avatar": "https://sun9-43.userapi.com/impf/T0napMGt-siBScXsMCAlIhEFrzaGbyLzb0HAUg/sU24RSXjIks.jpg?size=658x658&quality=95&sign=53a9ed35e14fed312ecb3e4bbae34cc9&type=album",
       "date": "27.03.2022",
@@ -64,6 +71,7 @@
       "text": "Бог создал Адама. Из его ребра создал Еву.\nНоворожденные спрашивают у бога:\n- А это кто?\n- Да чел тут лабу сдать хочет"
     },
     {
+      "id": 8,
       "name": "Общажный Дед",
       "avatar": "https://sun9-39.userapi.com/impf/LZ_UldipCHAMsTIsWK_mG0lwer1xM8ZUq6N0EA/FV84VDdTVPo.jpg?size=308x372&quality=96&sign=938476a2d5d663c91bf0744cdb58f3b9&type=album",
       "date": "20.05.2022",
@@ -71,11 +79,20 @@
       "text": "Здоровье: здоров\nВозраст: молодой\nВид: драконид\nПрофессия: программист\nХобби: туризм\nМировоззрение: научное\nkaiq.ru"
     },
     {
+      "id": 9,
       "name": "Bruh Bruh",
       "avatar": "None",
       "date": "20.03.2020",
       "status": "editable",
-      "text": "Bruh Bruh Bruh !!! Bruh? Bruh. Bruh - Bruh ? Bruh Bruh Bruh Bruh Bruh Bruh Bruh Bruh Bruh !!! Bruh? Bruh. Bruh - Bruh ? Bruh Bruh Bruh Bruh Bruh Bruh Bruh Bruh Bruh !!! Bruh? Bruh. Bruh - Bruh ? Bruh Bruh Bruh Bruh Bruh Bruh Bruh Bruh Bruh !!! Bruh? Bruh. Bruh - Bruh ? Bruh Bruh Bruh Bruh Bruh Bruh"
+      "text": "Bruh Bruh Bruh !!! Bruh? Bruh. Bruh - Bruh ? Bruh Bruh Bruh Bruh Bruh Bruh Bruh Bruh Bruh !!! Bruh? Bruh. Bruh - Bruh ? Bruh Bruh Bruh Bruh Bruh Bruh Bruh Bruh Bruh !!! Bruh? Bruh"
+    },
+    {
+      "id": 10,
+      "name": "Общажный Дед",
+      "avatar": "https://sun9-39.userapi.com/impf/LZ_UldipCHAMsTIsWK_mG0lwer1xM8ZUq6N0EA/FV84VDdTVPo.jpg?size=308x372&quality=96&sign=938476a2d5d663c91bf0744cdb58f3b9&type=album",
+      "date": "20.05.2022",
+      "status": "editable",
+      "text": "Здоровье: здоров\nВозраст: молодой\nВид: драконид\nПрофессия: программист\nХобби: туризм\nМировоззрение: научное\nkaiq.ru"
     }
   ],
   "users": [
