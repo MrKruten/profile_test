@@ -1,0 +1,181 @@
+.loader{
+  background: #FFFFFF;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__content{
+    width: 25px;
+    height: 25px;
+    position: relative;
+  }
+
+  &__block{
+    height: 20px;
+    width: 20px;
+    border-radius: 2px;
+    position: absolute;
+
+    &_first{
+      animation: loader-block-1 3s  ease-in-out infinite;
+      background: #C7C9F2;
+      left: 0;
+      top:0;
+    }
+    &_second{
+      background: #8A8EEB;
+      animation: loader-block-2 3s ease-in-out infinite;
+      left: 100%;
+      top:0;
+    }
+    &_third{
+      background: #585CC6;
+      animation: loader-block-3 3s ease-in-out infinite;
+      left: 0;
+      top: 100%;
+    }
+  }
+}
+
+@keyframes loader-block-1{
+  0% {
+    left: 0;
+    top: 0;
+  }
+  //wait
+  11% {
+    left: 0;
+    top: 0;
+  }
+  22% {
+    top: 0;
+    left: 100%;
+  }
+  //wait
+  33% {
+    top: 0;
+    left: 100%;
+  }
+  44% {
+    top: 100%;
+    left: 100%;
+  }
+  //wait
+  55% {
+    top: 100%;
+    left: 100%;
+  }
+  66% {
+    top: 100%;
+    left: 0;
+  }
+  //wait
+  77% {
+    top: 100%;
+    left: 0;
+  }
+  88% {
+    top: 0;
+    left: 0;
+  }
+  100% {
+    top: 0;
+    left: 0;
+  }
+}
+
+@keyframes loader-block-2{
+  0% {
+    left: 100%;
+    top: 0;
+  }
+  11% {
+    left: 100%;
+    top: 100%;
+  }
+  //wait
+  22% {
+    left: 100%;
+    top: 100%;
+  }
+  33% {
+    top: 100%;
+    left: 0;
+  }
+  //wait
+  44% {
+    top: 100%;
+    left: 0;
+  }
+  55% {
+    top: 0;
+    left: 0;
+  }
+  //wait
+  66% {
+    top: 0;
+    left: 0;
+  }
+  77% {
+    top: 0;
+    left: 100%;
+  }
+  //wait
+  88% {
+    top: 0;
+    left: 100%;
+  }
+  100% {
+    top: 0;
+    left: 100%;
+  }
+}
+
+@keyframes loader-block-3{
+  0% {
+    left: 0;
+    top: 100%;
+  }
+  //wait
+  11% {
+    left: 0;
+    top: 100%;
+  }
+  22% {
+    top: 0;
+    left: 0;
+  }
+  //wait
+  33% {
+    top: 0;
+    left: 0;
+  }
+  44% {
+    top: 0;
+    left: 100%;
+  }
+  //wait
+  55% {
+    top: 0;
+    left: 100%;
+  }
+  66% {
+    top: 100%;
+    left: 100%;
+  }
+  //wait
+  77% {
+    top: 100%;
+    left: 100%;
+  }
+  88% {
+    top: 100%;
+    left: 0;
+  }
+  100% {
+    top: 100%;
+    left: 0;
+  }
+}
