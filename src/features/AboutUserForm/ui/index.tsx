@@ -39,9 +39,12 @@ export const AboutUserForm = () => {
     readerURL.readAsDataURL(file);
 
     readerURL.onload = () => {
-      setAvatar(readerURL.result as string);
       if (file.size / 1024 / 1024 > 5) {
         BottomNotificationModel.showBottomNotification(true);
+      } else {
+        const fixImg = new Image(180, 180);
+        fixImg.src = readerURL.result as string;
+        setAvatar(fixImg.src);
       }
     };
   };
@@ -105,16 +108,8 @@ export const AboutUserForm = () => {
           <div className="about-form__avatar-info">
             <p className="about-form__photo-text">Фото профиля</p>
             <div className="input__wrapper">
-              <label
-                htmlFor="avatar"
-                className={
-                  isEdit
-                    ? "input__file-button"
-                    : "input__file-button input__file-button_disabled"
-                }
-              >
+              <label htmlFor="avatar" className="input__file-button">
                 <input
-                  disabled={!isEdit}
                   type="file"
                   className="input input__file"
                   id="avatar"

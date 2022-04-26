@@ -19,7 +19,7 @@ export const EditComment = () => {
     register,
     handleSubmit,
     reset,
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm<Types.IFormInputs>({
     resolver: yupResolver(schema),
     mode: "onChange",
@@ -63,7 +63,9 @@ export const EditComment = () => {
           errorMessage={errors.text?.message}
         />
         <div className="edit-comment__btn">
-          <Button type="submit">Подтвердить редактирование</Button>
+          <Button type="submit" disabled={!isValid}>
+            Подтвердить редактирование
+          </Button>
           <Button color="red" onClick={onClose}>
             Отмена
           </Button>
