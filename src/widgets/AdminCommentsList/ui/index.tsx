@@ -26,7 +26,7 @@ const Items: React.FC<IITems> = ({ items }) => {
   }
   return (
     <ul className="admin-comments__list">
-      {items.map((comment, id) => (
+      {items.map((comment) => (
         <li key={`${comment.name}-${comment.id}`}>
           <Comment
             isAdmin

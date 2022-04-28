@@ -1,15 +1,14 @@
 import React from "react";
 import { useStore } from "effector-react";
 
+import { BottomNotificationModel } from "../model";
 import "./style.scss";
-import { $isShowBottomNotification } from "../model";
 
-interface IBottomNotification {
-  text: string;
-}
-
-export const BottomNotification: React.FC<IBottomNotification> = ({ text }) => {
-  const isShowNotification = useStore($isShowBottomNotification);
+export const BottomNotification: React.FC = () => {
+  const isShowNotification = useStore(
+    BottomNotificationModel.$isShowBottomNotification
+  );
+  const text = useStore(BottomNotificationModel.$bottomNotification);
 
   if (!isShowNotification) {
     return null;

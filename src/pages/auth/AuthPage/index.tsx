@@ -1,18 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 
-import { BottomNotification } from "entities/BottomNotification";
 import { AuthTemplate } from "shared/ui/templates";
 import { Auth } from "widgets";
+import { BottomNotificationModel } from "entities/BottomNotification";
+import { NotificationModel } from "entities/Notification";
 
 const AuthPage = () => {
-  return (
-    <AuthTemplate
-      mainBlock={<Auth />}
-      Notification={
-        <BottomNotification text="Такого пользователя не существует" />
-      }
-    />
-  );
+  useEffect(() => {
+    BottomNotificationModel.setBottomNotification(
+      "Такого пользователя не существует"
+    );
+    NotificationModel.setNotification({
+      textError: "Не получилось отправить код. Попробуйте еще раз!",
+      textSuccess: "Код успешно отправлен на вашу почту!",
+      titleSuccess: "Пароль изменен",
+    });
+  }, []);
+
+  return <AuthTemplate mainBlock={<Auth />} />;
 };
 
 export default AuthPage;

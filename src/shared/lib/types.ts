@@ -8,7 +8,7 @@ export interface IFormAuthInputs {
   password: string;
 }
 
-type TSelect = {
+export type TSelect = {
   label: string;
   value: string;
 };

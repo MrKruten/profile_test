@@ -4,30 +4,20 @@ import classnames from "classnames";
 
 import { ReactComponent as Cross } from "shared/images/Cross.svg";
 
-import {
-  $isShowNotification,
-  $isSuccessNotification,
-  showNotification,
-} from "../model";
+import { NotificationModel } from "../model";
 import "./style.scss";
 
-interface INotification {
-  textError: string;
-  titleSuccess: string;
-  textSuccess: string;
-}
-
-// Т.к есть валидация формы и нет сервера, то уведомление всегда будет успешным
-export const Notification: React.FC<INotification> = ({
-  textError,
-  textSuccess,
-  titleSuccess,
-}) => {
-  const isShowNotification = useStore($isShowNotification);
-  const isSuccessNotification = useStore($isSuccessNotification);
+export const Notification: React.FC = () => {
+  const isShowNotification = useStore(NotificationModel.$isShowNotification);
+  const isSuccessNotification = useStore(
+    NotificationModel.$isSuccessNotification
+  );
+  const { titleSuccess, textSuccess, textError } = useStore(
+    NotificationModel.$notification
+  );
 
   const onClose = () => {
-    showNotification(false);
+    NotificationModel.showNotification(false);
   };
 
   if (!isShowNotification) {

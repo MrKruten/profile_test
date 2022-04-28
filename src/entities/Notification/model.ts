@@ -1,19 +1,42 @@
-import { createEvent, createStore, sample } from "effector";
+import { createEvent, createStore, restore, sample } from "effector";
 
-export const $isShowNotification = createStore(false);
+interface INotification {
+  textError: string;
+  titleSuccess: string;
+  textSuccess: string;
+}
 
-export const showNotification = createEvent<boolean>();
+const $isShowNotification = createStore(false);
+
+const showNotification = createEvent<boolean>();
 
 sample({
   clock: showNotification,
   target: $isShowNotification,
 });
 
-export const $isSuccessNotification = createStore(true);
+const $isSuccessNotification = createStore(true);
 
-export const successNotification = createEvent<boolean>();
+const successNotification = createEvent<boolean>();
 
 sample({
   clock: successNotification,
   target: $isSuccessNotification,
 });
+
+const setNotification = createEvent<INotification>();
+
+const $notification = restore<INotification>(setNotification, {
+  textError: "",
+  textSuccess: "",
+  titleSuccess: "",
+});
+
+export const NotificationModel = {
+  $isShowNotification,
+  showNotification,
+  setNotification,
+  $notification,
+  $isSuccessNotification,
+  successNotification,
+};

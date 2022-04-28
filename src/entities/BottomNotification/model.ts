@@ -1,10 +1,21 @@
-import { createEvent, createStore, sample } from "effector";
+import { createEvent, createStore, restore, sample } from "effector";
 
-export const $isShowBottomNotification = createStore(false);
+const $isShowBottomNotification = createStore(false);
 
-export const showBottomNotification = createEvent<boolean>();
+const showBottomNotification = createEvent<boolean>();
 
 sample({
   clock: showBottomNotification,
   target: $isShowBottomNotification,
 });
+
+const setBottomNotification = createEvent<string>();
+
+const $bottomNotification = restore(setBottomNotification, "");
+
+export const BottomNotificationModel = {
+  $isShowBottomNotification,
+  showBottomNotification,
+  setBottomNotification,
+  $bottomNotification,
+};

@@ -40,4 +40,6 @@ sample({
   target: $editComment,
 });
 
-export const $publishedComments = $comments.map((comments) => comments.filter(comment => comment.status === "published"));
+export const $publishedComments = $comments.map((comments) =>
+  comments.filter((comment) => comment.status === "published")
+);
