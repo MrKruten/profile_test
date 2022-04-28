@@ -146,6 +146,7 @@ body {
   }
 
   &__control{
+    cursor: pointer !important;
     border: 1px solid #E0E0E0 !important;
     border-radius: 2px !important;
 
@@ -198,6 +199,7 @@ body {
   }
 
   &__option{
+    cursor: pointer !important;
     padding: 12px !important;
     font-family: 'Gilroy', sans-serif !important;
     font-weight: 400 !important;
