@@ -1,9 +1,10 @@
 export enum SCREENS {
-  AUTH = "/",
+  AUTH = "/auth",
   MAIN = "/main",
-  RECOVERY = "/password-recovery",
-  STUDENTS = "/students",
-  COMMENTS = "/comments",
-  ABOUT = "/about",
+  RECOVERY = "password-recovery",
+  ADMIN = "/admin",
+  STUDENTS = "students",
+  COMMENTS = "comments",
+  ABOUT = "about",
   REDIRECT = "*",
 }

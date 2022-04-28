@@ -3,10 +3,11 @@ import Select, { SingleValue } from "react-select";
 import { useStore } from "effector-react";
 
 import { Types } from "shared/lib";
-import { HeaderContentAdmin } from "shared/ui";
+import { HeaderContentAdmin, ZeroData } from "shared/ui";
 import { Comment } from "entities/Comment";
 import { ButtonsAdminComment } from "features/ButtonsAdminComment";
 import { EditCommentModel } from "features/EditComment";
+import { NotificationModel } from "entities/Notification";
 
 import { $sortedComments, filterComments } from "../model";
 import "./style.scss";
@@ -50,6 +51,14 @@ const Items: React.FC<IITems> = ({ items }) => {
 export const AdminCommentsList: React.FC = () => {
   const comments = useStore($sortedComments);
 
+  useEffect(() => {
+    NotificationModel.setNotification({
+      textError: "Не получилось отредактировать отзыв. Попробуйте еще раз!",
+      textSuccess: "Отзыв успешно отредактирован!",
+      titleSuccess: "Отзыв изменен",
+    });
+  }, []);
+
   const onChangeFilter = (
     filter: SingleValue<{ value: string; label: string }>
   ) => {
@@ -60,6 +69,10 @@ export const AdminCommentsList: React.FC = () => {
   useEffect(() => {
     onChangeFilter(filterOptions[0]);
   }, []);
+
+  if (comments.length === 0) {
+    return <ZeroData text="Список отзывов пуст" />;
+  }
 
   return (
     <div className="admin-comments">

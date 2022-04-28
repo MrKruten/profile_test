@@ -15,7 +15,7 @@ export const HeaderMain = () => {
 
   const goAdmin = () => {
     resetNotifications();
-    navigate(SCREENS.STUDENTS);
+    navigate(SCREENS.ADMIN);
   };
 
   return (

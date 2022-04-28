@@ -3,7 +3,7 @@ import ReactPaginate from "react-paginate";
 import { useStore } from "effector-react";
 import Select, { SingleValue } from "react-select";
 
-import { HeaderContentAdmin } from "shared/ui";
+import { HeaderContentAdmin, ZeroData } from "shared/ui";
 import { Student } from "entities/Student";
 import { $students } from "shared/lib";
 import "./style.scss";
@@ -76,6 +76,10 @@ export const StudentsList = () => {
       setSortedStudents(newSortedStudents);
     }
   };
+
+  if (students.length === 0) {
+    return <ZeroData text="Список участников пуст" />;
+  }
 
   return (
     <div className="students">

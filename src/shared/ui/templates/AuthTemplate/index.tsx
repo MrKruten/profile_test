@@ -1,25 +1,21 @@
 import React from "react";
 
 import { Footer } from "shared/ui/Footer";
-import "./style.scss";
 import { Logo } from "shared/ui/Logo";
+
+import "./style.scss";
 
 interface IAuthTemplate {
   mainBlock: React.ReactNode;
-  Notification?: React.ReactNode;
 }
 
-export const AuthTemplate: React.FC<IAuthTemplate> = ({
-  mainBlock,
-  Notification,
-}) => {
+export const AuthTemplate: React.FC<IAuthTemplate> = ({ mainBlock }) => {
   return (
     <div className="auth-page">
       <header className="auth-page__header">
         <Logo isWhite />
       </header>
       <main className="auth-page__main">{mainBlock}</main>
-      {Notification}
       <Footer />
     </div>
   );

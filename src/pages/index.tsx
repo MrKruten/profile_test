@@ -2,24 +2,36 @@ import React, { lazy } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 
 import { SCREENS } from "shared/lib";
+import {
+  AboutUser,
+  AdminCommentsList,
+  Auth,
+  PasswordRecovery,
+  StudentsList,
+} from "widgets";
 
 const MainPage = lazy(() => import("./MainPage"));
-const AuthPage = lazy(() => import("./auth/AuthPage"));
-const PasswordRecoveryPage = lazy(() => import("./auth/PasswordRecoveryPage"));
-const StudentsPage = lazy(() => import("./admin/StudentsPage"));
-const CommentsPage = lazy(() => import("./admin/CommentsPage"));
-const AboutPage = lazy(() => import("./admin/AboutPage"));
+const AuthPage = lazy(() => import("./AuthPage"));
+const AdminPage = lazy(() => import("./AdminPage"));
 
 export const Router = () => {
   // TODO add isAuth
   return (
     <Routes>
+      <Route path={SCREENS.AUTH} element={<AuthPage />}>
+        <Route index element={<Auth />} />
+        <Route path={SCREENS.RECOVERY} element={<PasswordRecovery />} />
+      </Route>
       <Route path={SCREENS.MAIN} element={<MainPage />} />
-      <Route path={SCREENS.STUDENTS} element={<StudentsPage />} />
-      <Route path={SCREENS.COMMENTS} element={<CommentsPage />} />
-      <Route path={SCREENS.ABOUT} element={<AboutPage />} />
-      <Route path={SCREENS.AUTH} element={<AuthPage />} />
-      <Route path={SCREENS.RECOVERY} element={<PasswordRecoveryPage />} />
+      <Route path={SCREENS.ADMIN} element={<AdminPage />}>
+        <Route
+          path={SCREENS.ADMIN}
+          element={<Navigate to={SCREENS.STUDENTS} />}
+        />
+        <Route path={SCREENS.STUDENTS} element={<StudentsList />} />
+        <Route path={SCREENS.COMMENTS} element={<AdminCommentsList />} />
+        <Route path={SCREENS.ABOUT} element={<AboutUser />} />
+      </Route>
       <Route path={SCREENS.REDIRECT} element={<Navigate to={SCREENS.AUTH} />} />
     </Routes>
   );

@@ -15,6 +15,7 @@ export const ArrowButton: React.FC<IButton> = ({
 }) => {
   return (
     <button
+      type="button"
       className={classnames("button-arrow", {
         "button-arrow__rotated": rotated,
       })}
