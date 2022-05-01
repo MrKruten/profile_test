@@ -2,11 +2,7 @@
 
 This project is a test task for XXX company
 
-## Test data
-Users (Authorization):
-* Login: test1@td.ru / Password: testA-11
-* Login: test2@td.ru / Password: testA-22
-* Login: test3@td.ru / Password: testA-33
+## Mission:live up to refactoring
 
 ## Functional
 
