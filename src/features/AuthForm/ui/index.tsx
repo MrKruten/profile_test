@@ -1,41 +1,27 @@
 import React from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useNavigate } from "react-router-dom";
 
-// mock date
-import dataTest from "shared/lib/data.json";
-import { Types, SCREENS } from "shared/lib";
+import { Types } from "shared/lib";
 import { Button, Input } from "shared/ui";
-import { BottomNotificationModel } from "entities/BottomNotification";
 
+import { submitAuthForm } from "../model";
 import { schema } from "../lib/schema";
 
 import "./style.scss";
 
 export const AuthForm: React.FC = () => {
-  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
-    reset,
     formState: { errors },
   } = useForm<Types.IFormInputs>({
     resolver: yupResolver(schema),
     mode: "onChange",
   });
 
-  const onSubmit: SubmitHandler<Types.IFormInputs> = (data) => {
-    const resultFindUser = dataTest.users.find(
-      (user) => user.login === data.login && user.password === data.password
-    );
-    if (resultFindUser) {
-      navigate(SCREENS.MAIN);
-      BottomNotificationModel.showBottomNotification(false);
-      reset();
-    } else {
-      BottomNotificationModel.showBottomNotification(true);
-    }
+  const onSubmit: SubmitHandler<Types.IFormInputs> = async (data) => {
+    await submitAuthForm({ email: data.login, password: data.password });
   };
 
   return (

@@ -4,7 +4,7 @@ import "./style.scss";
 
 import { Profile } from "entities/Profile";
 import { CommentsList, AddComment } from "widgets";
-import { ResizeGate } from "shared/lib";
+import { getComments, getUser, ResizeGate } from "shared/lib";
 import { Footer } from "shared/ui";
 import { HeaderMain } from "widgets/headers";
 import { NotificationModel } from "entities/Notification";
@@ -18,6 +18,8 @@ const MainPage = () => {
       textSuccess: "Спасибо за отзыв о нашей компании :)",
       titleSuccess: "Успешно!",
     });
+    getUser();
+    getComments();
   }, []);
 
   return (

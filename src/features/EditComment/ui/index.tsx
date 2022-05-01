@@ -26,7 +26,7 @@ export const EditComment = () => {
   });
 
   const onSubmit: SubmitHandler<Types.IFormInputs> = (data) => {
-    updateComment({ ...editComment, text: data.text });
+    // updateComment({ ...editComment, text: data.text });
     showEditComment(false);
     reset();
 

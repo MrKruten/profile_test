@@ -21,9 +21,9 @@ export const HeaderAdmin = () => {
     <header className="header header-admin">
       <div className="header-admin__left">
         <div className="header__user">
-          <Avatar avatar={user.avatar} />
+          <Avatar avatar={user.profileImage ? user.profileImage! : "None"} />
           <span className="header__user-name">
-            {isResize ? `${user.firstName} ${user.secondName}` : user.firstName}
+            {isResize ? `${user.firstName} ${user.lastName}` : user.firstName}
           </span>
         </div>
         <h3>Панель управления</h3>

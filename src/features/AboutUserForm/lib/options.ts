@@ -1,13 +1,13 @@
 export const optionsCity = [
-  { value: "Томск", label: "Томск" },
+  { value: "Tomsk", label: "Томск" },
   { value: "Анжеро-Судженск", label: "Анжеро-Судженск" },
   { value: "Кемерово", label: "Кемерово" },
   { value: "Москва", label: "Москва" },
 ];
 
 export const optionsSex = [
-  { value: "Male", label: "Мужчина" },
-  { value: "Female", label: "Женщина" },
+  { value: "male", label: "Мужчина" },
+  { value: "female", label: "Женщина" },
 ];
 
 export const optionsPet = [

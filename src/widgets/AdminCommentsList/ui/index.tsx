@@ -14,7 +14,7 @@ import "./style.scss";
 import { filterOptions } from "../lib/options";
 
 interface IITems {
-  items: Array<Types.IComment>;
+  items: Array<Types.IReview>;
 }
 
 const Items: React.FC<IITems> = ({ items }) => {
@@ -28,16 +28,16 @@ const Items: React.FC<IITems> = ({ items }) => {
   return (
     <ul className="admin-comments__list">
       {items.map((comment) => (
-        <li key={`${comment.name}-${comment.id}`}>
+        <li key={`${comment.authorName}-${comment.id}`}>
           <Comment
             isAdmin
             status={comment.status}
-            name={comment.name}
-            date={comment.date}
+            authorName={comment.authorName}
+            createdAt={comment.createdAt}
             text={comment.text}
-            avatar={comment.avatar}
+            authorImage={comment.authorImage ? comment.authorImage! : "None"}
             editBlock={
-              comment.status === "editable" ? (
+              comment.status === "onCheck" ? (
                 <ButtonsAdminComment comment={comment} editFunc={editFunc} />
               ) : null
             }

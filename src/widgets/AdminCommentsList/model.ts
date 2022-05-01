@@ -4,7 +4,7 @@ import { $comments, Helpers, Types, updateComment } from "shared/lib";
 
 export const filterComments = createEvent<string>();
 
-export const $sortedComments = createStore<Types.IComment[]>([]).on(
+export const $sortedComments = createStore<Types.IReview[]>([]).on(
   filterComments,
   (d) => [...d]
 );

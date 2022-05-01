@@ -1,16 +1,77 @@
-import { createEvent, createStore, sample } from "effector";
+import { createEffect, createEvent, createStore, sample } from "effector";
 
-import data from "shared/lib/data.json";
-import { IComment } from "shared/lib/types";
+import { IAddReview, IReview } from "shared/lib/types";
+// eslint-disable-next-line import/no-cycle
+import { API } from "shared/api";
+import { errorAuth } from "shared/lib/errorAuth";
 
-export const addComment = createEvent<IComment>();
+export const addComment = createEvent<IAddReview>();
 
-export const $comments = createStore<Array<IComment>>(data.comments).on(
-  addComment,
-  (prev, array) => [...prev, array]
+export const addCommentFx = createEffect<IAddReview, IReview, Error>(
+  async (comment: IAddReview) => await API.createComment(comment)
 );
 
-export const updateComment = createEvent<IComment>();
+sample({
+  clock: addComment,
+  target: addCommentFx,
+});
+
+const getCommentsFx = createEffect(async () => await API.getComments());
+
+export const getComments = createEvent();
+
+sample({
+  clock: getComments,
+  target: getCommentsFx,
+});
+
+export const $comments = createStore<Array<IReview>>([]);
+
+sample({
+  clock: getCommentsFx.doneData,
+  target: $comments,
+});
+
+sample({
+  clock: addCommentFx.doneData,
+  target: getComments,
+});
+
+export const resetLastAddedComment = createEvent();
+
+export const $lastAddedComment = createStore<IReview>({
+  authorImage: "",
+  authorName: "",
+  createdAt: "",
+  deletedAt: "",
+  id: "-1",
+  status: "onCheck",
+  text: "",
+  title: "",
+  updatedAt: "",
+  version: 0,
+}).reset(resetLastAddedComment);
+
+sample({
+  clock: addCommentFx.doneData,
+  target: $lastAddedComment,
+});
+
+export const addCommentCaptchaError = createEvent();
+
+sample({
+  clock: addCommentFx.failData,
+  filter: (clock) => clock.message.indexOf("invalid captcha") !== -1,
+  target: addCommentCaptchaError,
+});
+
+sample({
+  clock: addCommentFx.failData,
+  filter: (clock) => clock.message === "Unauthorized",
+  target: errorAuth,
+});
+
+export const updateComment = createEvent<IReview>();
 
 sample({
   clock: updateComment,
@@ -24,16 +85,16 @@ sample({
   target: $comments,
 });
 
-export const $editComment = createStore<IComment>({
-  status: "",
-  name: "",
-  id: -1,
+export const $editComment = createStore<IReview>({
+  status: "onCheck",
+  authorName: "",
+  id: "-1",
   text: "",
-  avatar: "",
-  date: "",
+  authorImage: "",
+  createdAt: "",
 });
 
-export const setEditComment = createEvent<IComment>();
+export const setEditComment = createEvent<IReview>();
 
 sample({
   clock: setEditComment,
@@ -41,5 +102,5 @@ sample({
 });
 
 export const $publishedComments = $comments.map((comments) =>
-  comments.filter((comment) => comment.status === "published")
+  comments.filter((comment) => comment.status === "onCheck")
 );

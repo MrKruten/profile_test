@@ -17,7 +17,7 @@ import "./style.scss";
 
 export const AboutUserForm = () => {
   const user = useStore($user);
-  const [avatar, setAvatar] = useState(user.avatar);
+  const [avatar, setAvatar] = useState(user.profileImage);
   const inputFileRef = useRef<HTMLInputElement>(null);
   const [isDateError, setIsDateError] = useState(false);
   const [isEdit, setIsEdit] = useState(false);
@@ -72,20 +72,20 @@ export const AboutUserForm = () => {
       newAgeUser = Helpers.calcAgeUser(data.dateBirth);
     }
 
-    editUser({
-      firstName: data.firstName || user.firstName,
-      secondName: data.secondName || user.secondName,
-      avatar,
-      description: {
-        city: data.city.value || user.description.city,
-        pet: data.pet.value !== "false",
-        age: newAgeUser !== -1 ? newAgeUser : user.description.age,
-        sex: data.sex.value || user.description.sex,
-        text: data.text || user.description.text,
-        shortInfo: data.shortInfo || user.description.shortInfo,
-        dateBirth: data.dateBirth || user.description.dateBirth,
-      },
-    });
+    // editUser({
+    //   firstName: data.firstName || user.firstName,
+    //   secondName: data.secondName || user.secondName,
+    //   avatar,
+    //   description: {
+    //     city: data.city.value || user.description.city,
+    //     pet: data.pet.value !== "false",
+    //     age: newAgeUser !== -1 ? newAgeUser : user.description.age,
+    //     sex: data.sex.value || user.description.sex,
+    //     text: data.text || user.description.text,
+    //     shortInfo: data.shortInfo || user.description.shortInfo,
+    //     dateBirth: data.dateBirth || user.description.dateBirth,
+    //   },
+    // });
 
     // рандом для проверки тоста
     const random = Math.random() >= 0.5;
@@ -142,7 +142,7 @@ export const AboutUserForm = () => {
         />
         <Input
           placeholder="Введите фамилию"
-          defaultValue={user.secondName}
+          defaultValue={user.lastName}
           disabled={!isEdit}
           name="secondName"
           label="Фамилия"
@@ -154,7 +154,7 @@ export const AboutUserForm = () => {
         />
         <Input
           maxlength={10}
-          defaultValue={user.description.dateBirth}
+          defaultValue={Helpers.dateToString(new Date(user.birthDate))}
           disabled={!isEdit}
           placeholder="Введите дату рождения"
           name="dateBirth"
@@ -176,7 +176,7 @@ export const AboutUserForm = () => {
             name="city"
             control={control}
             defaultValue={optionsCity.find(
-              (city) => city.value === user.description.city
+              (city) => city.value === user.cityOfResidence
             )}
             render={({ field }) => (
               <Select
@@ -194,9 +194,7 @@ export const AboutUserForm = () => {
           <Controller
             name="sex"
             control={control}
-            defaultValue={optionsSex.find(
-              (sex) => sex.value === user.description.sex
-            )}
+            defaultValue={optionsSex.find((sex) => sex.value === user.gender)}
             render={({ field }) => (
               <Select
                 {...field}
@@ -214,7 +212,7 @@ export const AboutUserForm = () => {
             name="pet"
             control={control}
             defaultValue={optionsPet.find(
-              (pet) => pet.value === (user.description.pet ? "true" : "false")
+              (pet) => pet.value === (user.hasPet ? "true" : "false")
             )}
             render={({ field }) => (
               <Select
@@ -231,7 +229,7 @@ export const AboutUserForm = () => {
       <div className="about-form__textarea">
         <TextArea
           placeholder="Кратко расскажи о себе..."
-          defaultValue={user.description.shortInfo}
+          defaultValue={user.smallAboutMe!}
           disabled={!isEdit}
           label="Краткая информация"
           name="shortInfo"
@@ -242,7 +240,7 @@ export const AboutUserForm = () => {
           errorMessage={errors.shortInfo?.message}
         />
         <TextArea
-          defaultValue={user.description.text}
+          defaultValue={user.aboutMe}
           disabled={!isEdit}
           placeholder="Расскажите о себе..."
           label="О себе"

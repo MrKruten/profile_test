@@ -6,7 +6,7 @@ import { setEditComment, Types, updateComment } from "shared/lib";
 import "./style.scss";
 
 interface IButtonsAdminComment {
-  comment: Types.IComment;
+  comment: Types.IReview;
   editFunc: () => void;
 }
 
@@ -15,16 +15,16 @@ export const ButtonsAdminComment: React.FC<IButtonsAdminComment> = ({
   editFunc,
 }) => {
   const publish = () => {
-    updateComment({ ...comment, status: "published" });
+    updateComment({ ...comment, status: "approved" });
   };
 
   const reject = () => {
-    updateComment({ ...comment, status: "rejected" });
+    updateComment({ ...comment, status: "declined" });
   };
 
   const edit = () => {
-    setEditComment(comment);
-    editFunc();
+    // setEditComment(comment);
+    // editFunc();
   };
 
   return (

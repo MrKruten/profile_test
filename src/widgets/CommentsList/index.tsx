@@ -10,16 +10,16 @@ import { Comment } from "entities/Comment";
 import plus from "shared/images/Plus.svg";
 import { ArrowButton, Button } from "shared/ui";
 import { AddCommentModel } from "features/AddCommentForm";
-import {$comments, $publishedComments} from "shared/lib/comments";
+import { $comments, $publishedComments } from "shared/lib/comments";
 import { $isResize } from "shared/lib";
 
 export const CommentsList = () => {
   const isResize = useStore($isResize);
   const commentList = useList($publishedComments, (comment) => (
     <Comment
-      name={comment.name}
-      avatar={comment.avatar}
-      date={comment.date}
+      authorName={comment.authorName}
+      authorImage={comment.authorImage ? comment.authorImage! : "None"}
+      createdAt={comment.createdAt}
       text={comment.text}
     />
   ));
@@ -37,7 +37,7 @@ export const CommentsList = () => {
 
   const settings = {
     arrows: false,
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 500,
     slidesToShow: 2,
@@ -51,7 +51,7 @@ export const CommentsList = () => {
           slidesToShow: 1,
           slidesToScroll: 1,
           infinite: true,
-          dots: true,
+          dots: false,
         },
       },
     ],

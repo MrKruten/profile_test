@@ -5,7 +5,7 @@ import { Avatar } from "shared/ui";
 import male from "shared/images/Male.svg";
 import female from "shared/images/Female.svg";
 import food from "shared/images/Dog_Food.svg";
-import { $user } from "shared/lib";
+import { $user, Helpers } from "shared/lib";
 import "./style.scss";
 
 export const Profile: React.FC = () => {
@@ -13,22 +13,22 @@ export const Profile: React.FC = () => {
 
   return (
     <div className="profile">
-      <Avatar avatar={user.avatar} />
+      <Avatar avatar={user.profileImage ? user.profileImage! : "None"} />
       <div className="profile__description">
         <div className="profile__description__name-date">
-          <h3>{`${user.firstName} ${user.secondName}`}</h3>
+          <h3>{`${user.firstName} ${user.lastName}`}</h3>
           <span className="profile__description__name-date date">
-            {user.description.dateBirth}
+            {Helpers.dateToString(new Date(user.birthDate))}
           </span>
         </div>
         <div className="profile__description__info">
           <span className="profile__description__info__item">
             <b>Город:&nbsp;</b>
-            {user.description.city}
+            {user.cityOfResidence}
           </span>
           <span className="profile__description__info__item">
             <b>Пол:&nbsp;</b>
-            {user.description.sex === "Male" ? (
+            {user.gender === "male" ? (
               <span>
                 мужчина&nbsp;
                 <img src={male} alt="Мужчина" />
@@ -42,19 +42,19 @@ export const Profile: React.FC = () => {
           </span>
           <span className="profile__description__info__item">
             <b>Возраст:&nbsp;</b>
-            {user.description.age}
+            {Helpers.calculateAge(user.birthDate)}
           </span>
         </div>
         <div className="profile__description__text">
           <p>
             <b>О себе:&nbsp;</b>
-            {user.description.text}
+            {user.aboutMe}
           </p>
         </div>
         <div className="profile__description__pet">
           <img src={food} alt="Питомец" />
           <b>Домашнее животное:&nbsp;</b>
-          {user.description.pet ? "есть" : "нет"}
+          {user.hasPet ? "есть" : "нет"}
         </div>
       </div>
     </div>

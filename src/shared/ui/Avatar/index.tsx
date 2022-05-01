@@ -10,7 +10,14 @@ export const Avatar: React.FC<IAvatar> = ({ avatar = "None" }) => {
     <div
       className={classnames("avatar", { avatar_default: avatar === "None" })}
     >
-      <img src={avatar === "None" ? camera : avatar} alt="Avatar" />
+      <img
+        src={
+          avatar === "None"
+            ? camera
+            : `https://academtest.ilink.dev/images/${avatar}`
+        }
+        alt="Avatar"
+      />
     </div>
   );
 };

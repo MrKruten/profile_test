@@ -6,6 +6,7 @@ export interface IFormAddCommentInputs {
 export interface IFormAuthInputs {
   login: string;
   password: string;
+  captcha: string;
 }
 
 export type TSelect = {
@@ -29,13 +30,25 @@ export interface IFormInputs
     IFormAddCommentInputs,
     IFormAboutUserInputs {}
 
-export interface IComment {
-  id?: number;
-  name: string;
-  avatar: "None" | string;
-  date: string;
+export interface IAddReview {
+  authorName: string;
+  title: string;
   text: string;
-  status?: "editable" | "rejected" | "published" | string;
+  captchaKey: string;
+  captchaValue: string;
+}
+
+export interface IReview {
+  id?: string;
+  createdAt: string;
+  updatedAt?: string;
+  deletedAt?: string;
+  version?: number;
+  authorImage: string | null;
+  authorName: string;
+  title?: string;
+  text: string;
+  status?: "onCheck" | "approved" | "declined";
 }
 
 export interface IStudent {
@@ -50,17 +63,34 @@ export interface IAvatar {
   avatar?: string;
 }
 
-export interface IUser {
+export interface IProfile {
   firstName: string;
-  secondName: string;
-  avatar: string;
-  description: {
-    city: string;
-    sex: string;
-    age: number;
-    dateBirth: string;
-    text: string;
-    pet: boolean;
-    shortInfo: string;
-  };
+  lastName: string;
+  profileImage?: string;
+  birthDate: string;
+  gender: "male" | "female";
+  cityOfResidence: string;
+  favoriteFood: string | null;
+  hasPet: boolean;
+  petType: string | null;
+  petName: string | null;
+  aboutMe: string;
+  smallAboutMe: string | null;
+  academyStatus: "studies";
+  // add academy status
+}
+
+export interface IAuthorization {
+  email: string;
+  password: string;
+}
+
+export interface ICaptcha {
+  base64Image: string;
+  key: string;
+}
+
+export interface IUploadImage {
+  id: string;
+  authorImage: FormData;
 }

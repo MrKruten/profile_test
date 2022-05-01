@@ -1,11 +1,47 @@
-import { createEvent, createStore } from "effector";
+import { createEffect, createEvent, createStore, sample } from "effector";
 
-import data from "shared/lib/data.json";
-import { IUser } from "shared/lib/types";
+import { IProfile } from "shared/lib/types";
 
-export const editUser = createEvent<IUser>();
+// eslint-disable-next-line import/no-cycle
+import { API } from "../api/requests";
 
-export const $user = createStore<IUser>(data.user).on(
-  editUser,
-  (_, next) => next
-);
+import { errorAuth } from "./errorAuth";
+
+export const editUser = createEvent<IProfile>();
+
+export const $user = createStore<IProfile>({
+  aboutMe: "",
+  academyStatus: "studies",
+  birthDate: "",
+  cityOfResidence: "",
+  favoriteFood: "undefined",
+  firstName: "",
+  gender: "male",
+  hasPet: false,
+  lastName: "",
+  petName: "undefined",
+  petType: "undefined",
+  profileImage: "",
+  smallAboutMe: "undefined",
+}).on(editUser, (_, next) => next);
+
+export const getUser = createEvent();
+
+const userFx = createEffect(async () => {
+  return await API.getProfile();
+});
+
+sample({
+  clock: getUser,
+  target: userFx,
+});
+
+sample({
+  clock: userFx.doneData,
+  target: $user,
+});
+
+sample({
+  clock: userFx.failData,
+  target: errorAuth,
+});
