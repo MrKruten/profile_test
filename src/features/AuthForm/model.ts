@@ -34,7 +34,7 @@ export const $accessToken = restore(
 );
 
 export const setIsAuth = createEvent<boolean>();
-export const $isAuth = createStore(false);
+export const $isAuth = createStore<boolean>(false);
 
 sample({
   clock: setIsAuth,
@@ -45,6 +45,13 @@ sample({
   clock: $accessToken,
   fn: (clock) => !!clock,
   target: setIsAuth,
+});
+
+sample({
+  clock: $isAuth,
+  filter: (clock) => clock,
+  fn: () => false,
+  target: BottomNotificationModel.showBottomNotification,
 });
 
 sample({
