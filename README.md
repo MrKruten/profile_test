@@ -2,7 +2,7 @@
 
 This project is a test task for XXX company
 
-## Mission:live up to refactoring
+## Mission: live up to refactoring
 
 ## Functional
 
