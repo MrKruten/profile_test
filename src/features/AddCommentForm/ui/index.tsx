@@ -10,7 +10,7 @@ import fileImg from "shared/images/File.svg";
 import { ReactComponent as DeleteImg } from "shared/images/Delete.svg";
 import { ReactComponent as ReloadCaptcha } from "shared/images/Reload.svg";
 import { Button, Input, TextArea } from "shared/ui";
-import { addComment } from "shared/lib/comments";
+import { addComment, addCommentFx } from "shared/lib/comments";
 import { Types } from "shared/lib";
 import { NotificationModel } from "entities/Notification";
 import crossImg from "shared/images/Cross.svg";
@@ -27,13 +27,16 @@ import {
   showAddComment,
   updateUploadPhoto,
   uploadPhoto,
+  uploadPhotoFx,
 } from "../model";
 import { schema } from "../lib/schema";
 
 import "./style.scss";
 
 export const AddCommentForm = () => {
-  const isLoading = useStore(getCaptchaFx.pending);
+  const isLoadingCaptcha = useStore(getCaptchaFx.pending);
+  const isLoadingRequestComment = useStore(addCommentFx.pending);
+  const isLoadingRequestPhoto = useStore(uploadPhotoFx.pending);
   const avatar = useStore($uploadPhoto);
   const [fileName, setFileName] = useState("");
   const [isFileError, setIsFileError] = useState(false);
@@ -134,11 +137,11 @@ export const AddCommentForm = () => {
       formData.set("authorImage", inputFileRef.current?.files?.[0]!);
       uploadPhoto(formData);
     }
-    // showAddComment(false);
-    // NotificationModel.showNotification(true);
-    // deleteFile();
-    // reset();
   };
+
+  if (isLoadingRequestComment || isLoadingRequestPhoto) {
+    return <Loader />;
+  }
 
   return (
     <div className="add-comment__content">
@@ -230,7 +233,7 @@ export const AddCommentForm = () => {
             }
           />
           <div className="add-comment__captcha-right">
-            {isLoading ? (
+            {isLoadingCaptcha ? (
               <Loader />
             ) : (
               <img
