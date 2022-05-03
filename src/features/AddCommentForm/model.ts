@@ -8,7 +8,6 @@ import {
   resetLastAddedComment,
   Types,
 } from "shared/lib";
-import { IUploadImage } from "shared/lib/types";
 import { NotificationModel } from "entities/Notification";
 
 export const $isShowAddComment = createStore(false);
@@ -27,7 +26,7 @@ export const $captcha = createStore<Types.ICaptcha>({
   key: "",
 });
 
-const getCaptchaFx = createEffect(async () => await API.getCaptcha());
+export const getCaptchaFx = createEffect(async () => await API.getCaptcha());
 
 sample({
   clock: getCaptcha,
@@ -39,19 +38,13 @@ sample({
   target: $captcha,
 });
 
-export const $isErrorCaptcha = createStore(false);
+export const resetIsErrorCaptcha = createEvent();
 
-export const setNoErrorCaptcha = createEvent();
+export const $isErrorCaptcha = createStore(false).reset(resetIsErrorCaptcha);
 
 sample({
   clock: addCommentCaptchaError,
   fn: (_) => true,
-  target: $isErrorCaptcha,
-});
-
-sample({
-  clock: setNoErrorCaptcha,
-  fn: (_) => false,
   target: $isErrorCaptcha,
 });
 
@@ -78,7 +71,7 @@ sample({
 });
 
 sample({
-  clock: uploadPhotoFx.doneData,
+  clock: [uploadPhotoFx.doneData, uploadPhotoFx.failData],
   target: resetLastAddedComment,
 });
 
@@ -89,15 +82,25 @@ sample({
 });
 
 sample({
-  clock: uploadPhotoFx.doneData,
+  clock: [uploadPhotoFx.doneData, addCommentFx.doneData],
   fn: () => true,
   target: NotificationModel.successNotification,
 });
 
 sample({
-  clock: uploadPhotoFx.failData,
+  clock: [uploadPhotoFx.failData, addCommentFx.failData],
   fn: () => false,
   target: NotificationModel.successNotification,
+});
+
+sample({
+  clock: addCommentFx.failData,
+  fn: () => ({
+    textError: "Не удеалось добавить отзыв",
+    textSuccess: "Спасибо за отзыв о нашей компании :)",
+    titleSuccess: "Успешно!",
+  }),
+  target: NotificationModel.setNotification,
 });
 
 sample({
@@ -109,7 +112,15 @@ sample({
 });
 
 sample({
-  clock: showAddComment,
+  clock: addCommentFx.doneData,
+  source: $uploadPhoto,
+  filter: (source, _) => source === "None",
+  fn: () => true,
+  target: NotificationModel.showNotification,
+});
+
+sample({
+  clock: uploadPhotoFx.doneData,
   fn: () => true,
   target: NotificationModel.showNotification,
 });

@@ -14,14 +14,16 @@ import { addComment } from "shared/lib/comments";
 import { Types } from "shared/lib";
 import { NotificationModel } from "entities/Notification";
 import crossImg from "shared/images/Cross.svg";
+import { Loader } from "shared/ui/Loader";
 
 import {
   $captcha,
   $isErrorCaptcha,
   $uploadPhoto,
   getCaptcha,
+  getCaptchaFx,
+  resetIsErrorCaptcha,
   resetUploadPhoto,
-  setNoErrorCaptcha,
   showAddComment,
   updateUploadPhoto,
   uploadPhoto,
@@ -31,6 +33,7 @@ import { schema } from "../lib/schema";
 import "./style.scss";
 
 export const AddCommentForm = () => {
+  const isLoading = useStore(getCaptchaFx.pending);
   const avatar = useStore($uploadPhoto);
   const [fileName, setFileName] = useState("");
   const [isFileError, setIsFileError] = useState(false);
@@ -62,7 +65,7 @@ export const AddCommentForm = () => {
       });
       NotificationModel.showNotification(true);
       setTimeout(() => {
-        setNoErrorCaptcha();
+        resetIsErrorCaptcha();
         NotificationModel.showNotification(false);
       }, 4000);
     }
@@ -108,6 +111,7 @@ export const AddCommentForm = () => {
   const closeWindow = () => {
     showAddComment(false);
     reset();
+    deleteFile();
   };
 
   const onChangeFile = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -226,11 +230,15 @@ export const AddCommentForm = () => {
             }
           />
           <div className="add-comment__captcha-right">
-            <img
-              src={captcha.base64Image}
-              alt="Captcha"
-              className="add-comment__captcha-img"
-            />
+            {isLoading ? (
+              <Loader />
+            ) : (
+              <img
+                src={captcha.base64Image}
+                alt="Captcha"
+                className="add-comment__captcha-img"
+              />
+            )}
             <button
               type="button"
               className="add-comment__reload-captcha"
