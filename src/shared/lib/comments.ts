@@ -16,7 +16,7 @@ sample({
   target: addCommentFx,
 });
 
-const getCommentsFx = createEffect(async () => await API.getComments());
+export const getCommentsFx = createEffect(async () => await API.getComments());
 
 export const getComments = createEvent();
 

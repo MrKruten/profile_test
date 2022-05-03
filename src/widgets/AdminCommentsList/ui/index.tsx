@@ -2,16 +2,17 @@ import React, { useEffect } from "react";
 import Select, { SingleValue } from "react-select";
 import { useStore } from "effector-react";
 
-import { Types } from "shared/lib";
+import { getCommentsFx, Types } from "shared/lib";
 import { HeaderContentAdmin, ZeroData } from "shared/ui";
 import { Comment } from "entities/Comment";
 import { ButtonsAdminComment } from "features/ButtonsAdminComment";
 import { EditCommentModel } from "features/EditComment";
 import { NotificationModel } from "entities/Notification";
+import { Loader } from "shared/ui/Loader";
 
 import { $sortedComments, filterComments } from "../model";
-import "./style.scss";
 import { filterOptions } from "../lib/options";
+import "./style.scss";
 
 interface IITems {
   items: Array<Types.IReview>;
@@ -50,6 +51,7 @@ const Items: React.FC<IITems> = ({ items }) => {
 
 export const AdminCommentsList: React.FC = () => {
   const comments = useStore($sortedComments);
+  const isLoading = useStore(getCommentsFx.pending);
 
   useEffect(() => {
     NotificationModel.setNotification({
@@ -88,7 +90,7 @@ export const AdminCommentsList: React.FC = () => {
           />
         }
       />
-      <Items items={comments} />
+      {isLoading ? <Loader /> : <Items items={comments} />}
     </div>
   );
 };

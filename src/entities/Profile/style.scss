@@ -6,6 +6,10 @@
   margin-bottom: 152px;
   display: flex;
 
+  .loader{
+    width: 80%;
+  }
+
   @media (max-width: $md3) {
     margin-left: 15px;
     flex-direction: column;

@@ -4,14 +4,16 @@ import { useNavigate } from "react-router-dom";
 
 import { Button, Avatar, Logo } from "shared/ui";
 import profile from "shared/images/Profile.svg";
-import { $isResize, SCREENS, $user } from "shared/lib";
+import { $isResize, SCREENS, $user, userFx } from "shared/lib";
 import "./style.scss";
 import { resetNotifications } from "widgets/headers/resetNotifications";
+import { Loader } from "shared/ui/Loader";
 
 export const HeaderMain = () => {
   const user = useStore($user);
   const isResize = useStore($isResize);
   const navigate = useNavigate();
+  const isLoading = useStore(userFx.pending);
 
   const goAdmin = () => {
     resetNotifications();
@@ -21,10 +23,16 @@ export const HeaderMain = () => {
   return (
     <header className="header">
       <div className="header__user">
-        <Avatar avatar={user.profileImage ? user.profileImage! : "None"} />
-        <span className="header__user-name">
-          {isResize ? `${user.firstName} ${user.lastName}` : user.firstName}
-        </span>
+        {isLoading ? (
+          <Loader />
+        ) : (
+          <>
+            <Avatar avatar={user.profileImage ? user.profileImage! : "None"} />
+            <span className="header__user-name">
+              {isResize ? `${user.firstName} ${user.lastName}` : user.firstName}
+            </span>
+          </>
+        )}
       </div>
       <Logo />
       <div>

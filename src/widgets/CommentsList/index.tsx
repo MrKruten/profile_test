@@ -10,10 +10,12 @@ import { Comment } from "entities/Comment";
 import plus from "shared/images/Plus.svg";
 import { ArrowButton, Button } from "shared/ui";
 import { AddCommentModel } from "features/AddCommentForm";
-import { $comments, $publishedComments } from "shared/lib/comments";
+import { $publishedComments, getCommentsFx } from "shared/lib/comments";
 import { $isResize } from "shared/lib";
+import { Loader } from "shared/ui/Loader";
 
 export const CommentsList = () => {
+  const isLoading = useStore(getCommentsFx.pending);
   const isResize = useStore($isResize);
   const commentList = useList($publishedComments, (comment) => (
     <Comment
@@ -82,9 +84,13 @@ export const CommentsList = () => {
           </Button>
         </div>
         <div className="comment-list__swiper">
-          <Slider {...settings} ref={slider}>
-            {commentList}
-          </Slider>
+          {isLoading ? (
+            <Loader />
+          ) : (
+            <Slider {...settings} ref={slider}>
+              {commentList}
+            </Slider>
+          )}
         </div>
       </div>
       {isResize && (

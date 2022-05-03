@@ -27,7 +27,7 @@ export const $user = createStore<IProfile>({
 
 export const getUser = createEvent();
 
-const userFx = createEffect(async () => {
+export const userFx = createEffect(async () => {
   return await API.getProfile();
 });
 
