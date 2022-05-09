@@ -38,6 +38,8 @@ export interface IAddReview {
   captchaValue: string;
 }
 
+export type TStatus = "onCheck" | "approved" | "declined";
+
 export interface IReview {
   id?: string;
   createdAt: string;
@@ -48,7 +50,7 @@ export interface IReview {
   authorName: string;
   title?: string;
   text: string;
-  status?: "onCheck" | "approved" | "declined";
+  status?: TStatus;
 }
 
 export interface IStudent {

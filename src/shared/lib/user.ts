@@ -1,11 +1,8 @@
 import { createEffect, createEvent, createStore, sample } from "effector";
 
 import { IProfile } from "shared/lib/types";
-
 // eslint-disable-next-line import/no-cycle
-import { API } from "../api/requests";
-
-import { errorAuth } from "./errorAuth";
+import { API } from "shared/api";
 
 export const editUser = createEvent<IProfile>();
 
@@ -27,21 +24,16 @@ export const $user = createStore<IProfile>({
 
 export const getUser = createEvent();
 
-export const userFx = createEffect(async () => {
+export const getProfileFx = createEffect(async () => {
   return await API.getProfile();
 });
 
 sample({
   clock: getUser,
-  target: userFx,
+  target: getProfileFx,
 });
 
 sample({
-  clock: userFx.doneData,
+  clock: getProfileFx.doneData,
   target: $user,
-});
-
-sample({
-  clock: userFx.failData,
-  target: errorAuth,
 });

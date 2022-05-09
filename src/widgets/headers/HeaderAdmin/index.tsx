@@ -3,7 +3,7 @@ import { useStore } from "effector-react";
 import { useNavigate } from "react-router-dom";
 
 import { Avatar, Logo } from "shared/ui";
-import { $isResize, SCREENS, $user, userFx } from "shared/lib";
+import { $isResize, SCREENS, $user, getProfileFx } from "shared/lib";
 import { resetNotifications } from "widgets/headers/resetNotifications";
 import "./style.scss";
 import { Loader } from "shared/ui/Loader";
@@ -12,7 +12,7 @@ export const HeaderAdmin = () => {
   const user = useStore($user);
   const navigate = useNavigate();
   const isResize = useStore($isResize);
-  const isLoading = useStore(userFx.pending);
+  const isLoading = useStore(getProfileFx.pending);
 
   const navigateToMain = () => {
     resetNotifications();

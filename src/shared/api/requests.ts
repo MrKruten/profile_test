@@ -3,6 +3,17 @@ import { Types } from "shared/lib";
 
 import { BASE_URL } from "./configure";
 
+interface IUpdateProfile {
+  firstName: string;
+  lastName: string;
+  birthDate: Date;
+  gender: "male" | "female";
+  cityOfResidence: string;
+  hasPet: boolean;
+  aboutMe: string;
+  smallAboutMe: string;
+}
+
 const authorization = async (
   loginData: Types.IAuthorization
 ): Promise<string> => {
@@ -47,6 +58,71 @@ const getCaptcha = async (): Promise<Types.ICaptcha> => {
 
 const getProfile = async (): Promise<Types.IProfile> => {
   const url = `${BASE_URL}user/getUserProfile`;
+  try {
+    const request = await fetch(url, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("accessToken")!}`,
+      },
+    });
+
+    const response = await request.json();
+    if (!request.ok) {
+      throw Error(response.message);
+    }
+
+    return response;
+  } catch (e: any) {
+    throw Error(e.message);
+  }
+};
+
+const updatePhotoProfile = async (profileImage: FormData): Promise<any> => {
+  const url = `${BASE_URL}user/updatePhoto`;
+  try {
+    const request = await fetch(url, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("accessToken")!}`,
+      },
+      body: profileImage,
+    });
+
+    const response = await request.json();
+    if (!request.ok) {
+      throw Error(response.message);
+    }
+
+    return response;
+  } catch (e: any) {
+    throw Error(e.message);
+  }
+};
+
+const updateProfile = async (body: IUpdateProfile): Promise<any> => {
+  const url = `${BASE_URL}user/updateInfo`;
+  try {
+    const request = await fetch(url, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("accessToken")!}`,
+      },
+      body: JSON.stringify(body),
+    });
+
+    const response = await request.json();
+    if (!request.ok) {
+      throw Error(response.message);
+    }
+
+    return response;
+  } catch (e: any) {
+    throw Error(e.message);
+  }
+};
+
+const getStudents = async (): Promise<Array<Types.IProfile>> => {
+  const url = `${BASE_URL}user/getAll`;
   try {
     const request = await fetch(url, {
       method: "GET",
@@ -112,6 +188,56 @@ const createComment = async (
   }
 };
 
+const updateTextComment = async (
+  id: string,
+  text: string
+): Promise<Types.IReview> => {
+  const url = `${BASE_URL}reviews/updateInfo/${id}`;
+  try {
+    const request = await fetch(url, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("accessToken")!}`,
+        text,
+      },
+    });
+
+    const response = await request.json();
+    if (!request.ok) {
+      throw Error(response.message);
+    }
+
+    return response;
+  } catch (e: any) {
+    throw Error(e.message);
+  }
+};
+
+const updateStatusComment = async (
+  id: string,
+  status: Types.TStatus
+): Promise<Types.IReview> => {
+  const url = `${BASE_URL}reviews/updateStatus/${id}`;
+  try {
+    const request = await fetch(url, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("accessToken")!}`,
+        status,
+      },
+    });
+
+    const response = await request.json();
+    if (!request.ok) {
+      throw Error(response.message);
+    }
+
+    return response;
+  } catch (e: any) {
+    throw Error(e.message);
+  }
+};
+
 const updatePhotoComment = async (id: string, body: FormData): Promise<any> => {
   const url = `${BASE_URL}reviews/updatePhoto/${id}`;
   try {
@@ -138,4 +264,9 @@ export const API = {
   getComments,
   createComment,
   updatePhotoComment,
+  getStudents,
+  updateTextComment,
+  updateStatusComment,
+  updatePhotoProfile,
+  updateProfile,
 };

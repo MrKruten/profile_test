@@ -6,10 +6,10 @@ import {
   sample,
 } from "effector";
 
-import { Types } from "shared/lib";
+import { getCommentsFx, Types, getProfileFx } from "shared/lib";
 import { API } from "shared/api";
 import { BottomNotificationModel } from "entities/BottomNotification";
-import { errorAuthDone } from "shared/lib/errorAuth";
+import { errorAuth, errorAuthFx } from "shared/lib/errorAuth";
 
 export const submitAuthForm = createEvent<Types.IAuthorization>();
 
@@ -61,13 +61,18 @@ sample({
 });
 
 sample({
-  clock: errorAuthDone,
+  clock: errorAuthFx.doneData,
   fn: (_) => "",
   target: $accessToken,
 });
 
 sample({
-  clock: errorAuthDone,
+  clock: errorAuthFx.doneData,
   fn: (_) => false,
   target: $isAuth,
+});
+
+sample({
+  clock: [getProfileFx.failData, getCommentsFx.failData],
+  target: errorAuth,
 });

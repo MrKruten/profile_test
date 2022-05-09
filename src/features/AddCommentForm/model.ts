@@ -9,6 +9,7 @@ import {
   Types,
 } from "shared/lib";
 import { NotificationModel } from "entities/Notification";
+import { errorAuth } from "shared/lib/errorAuth";
 
 export const $isShowAddComment = createStore(false);
 
@@ -123,4 +124,10 @@ sample({
   clock: uploadPhotoFx.doneData,
   fn: () => true,
   target: NotificationModel.showNotification,
+});
+
+sample({
+  clock: uploadPhotoFx.failData,
+  filter: (clock) => clock.message === "Unauthorized",
+  target: errorAuth,
 });

@@ -5,13 +5,13 @@ import { Avatar } from "shared/ui";
 import male from "shared/images/Male.svg";
 import female from "shared/images/Female.svg";
 import food from "shared/images/Dog_Food.svg";
-import { $user, Helpers, userFx } from "shared/lib";
+import { $user, Helpers, getProfileFx } from "shared/lib";
 import "./style.scss";
 import { Loader } from "shared/ui/Loader";
 
 export const Profile: React.FC = () => {
   const user = useStore($user);
-  const isLoading = useStore(userFx.pending);
+  const isLoading = useStore(getProfileFx.pending);
 
   if (isLoading) {
     return (

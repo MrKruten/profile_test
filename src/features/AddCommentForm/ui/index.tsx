@@ -123,8 +123,8 @@ export const AddCommentForm = () => {
     }
   };
 
-  const onSubmit: SubmitHandler<Types.IFormInputs> = async (data) => {
-    await addComment({
+  const onSubmit: SubmitHandler<Types.IFormInputs> = (data) => {
+    addComment({
       authorName: data.name,
       text: data.text,
       title: data.name,
