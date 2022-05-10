@@ -24,16 +24,22 @@ export const Router = () => {
     setIsAuth(accessToken !== "");
   }, []);
 
-  if (!isAuth) {
+  if (isAuth) {
     return (
       <Routes>
-        <Route path={SCREENS.AUTH} element={<AuthPage />}>
-          <Route index element={<Auth />} />
-          <Route path={SCREENS.RECOVERY} element={<PasswordRecovery />} />
+        <Route path={SCREENS.MAIN} element={<MainPage />} />
+        <Route path={SCREENS.ADMIN} element={<AdminPage />}>
+          <Route
+            path={SCREENS.ADMIN}
+            element={<Navigate to={SCREENS.STUDENTS} />}
+          />
+          <Route path={SCREENS.STUDENTS} element={<StudentsList />} />
+          <Route path={SCREENS.COMMENTS} element={<AdminCommentsList />} />
+          <Route path={SCREENS.ABOUT} element={<AboutUser />} />
         </Route>
         <Route
           path={SCREENS.REDIRECT}
-          element={<Navigate to={SCREENS.AUTH} />}
+          element={<Navigate to={SCREENS.MAIN} />}
         />
       </Routes>
     );
@@ -41,17 +47,11 @@ export const Router = () => {
 
   return (
     <Routes>
-      <Route path={SCREENS.MAIN} element={<MainPage />} />
-      <Route path={SCREENS.ADMIN} element={<AdminPage />}>
-        <Route
-          path={SCREENS.ADMIN}
-          element={<Navigate to={SCREENS.STUDENTS} />}
-        />
-        <Route path={SCREENS.STUDENTS} element={<StudentsList />} />
-        <Route path={SCREENS.COMMENTS} element={<AdminCommentsList />} />
-        <Route path={SCREENS.ABOUT} element={<AboutUser />} />
+      <Route path={SCREENS.AUTH} element={<AuthPage />}>
+        <Route index element={<Auth />} />
+        <Route path={SCREENS.RECOVERY} element={<PasswordRecovery />} />
       </Route>
-      <Route path={SCREENS.REDIRECT} element={<Navigate to={SCREENS.MAIN} />} />
+      <Route path={SCREENS.REDIRECT} element={<Navigate to={SCREENS.AUTH} />} />
     </Routes>
   );
 };

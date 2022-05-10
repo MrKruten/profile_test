@@ -6,16 +6,13 @@ import { updateStatusCommentFx } from "features/ButtonsAdminComment/model";
 
 export const filterComments = createEvent<string>();
 
-export const $sortedComments = createStore<Types.IReview[]>([]).on(
-  filterComments,
-  (d) => [...d]
-);
+export const $sortedComments = createStore<Types.IReview[]>([]);
 
 sample({
   clock: filterComments,
   source: $comments,
   fn: (source, clock) => {
-    return Helpers.sortComments(clock, source);
+    return [...Helpers.sortComments(clock, source)];
   },
   target: $sortedComments,
 });

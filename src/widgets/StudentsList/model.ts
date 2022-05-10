@@ -25,3 +25,25 @@ sample({
   filter: (clock) => clock.message === "Unauthorized",
   target: errorAuth,
 });
+
+export const $sortedStudents = createStore<Array<Types.IProfile>>([]);
+
+sample({
+  clock: $students,
+  target: $sortedStudents,
+});
+
+export const filterStudents = createEvent<string>();
+
+// Какие ещё академ статусы есть???
+sample({
+  clock: filterStudents,
+  source: $students,
+  fn: (source, clock) => {
+    if (clock === "all") {
+      return source;
+    }
+    return source.filter((student) => student.academyStatus === clock);
+  },
+  target: $sortedStudents,
+});

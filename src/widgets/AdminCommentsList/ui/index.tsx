@@ -1,14 +1,15 @@
 import React, { useEffect } from "react";
 import Select, { SingleValue } from "react-select";
 import { useStore } from "effector-react";
+import SkeletonLoading from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
-import { getCommentsFx, Types } from "shared/lib";
+import { getComments, getCommentsFx, Types } from "shared/lib";
 import { HeaderContentAdmin, ZeroData } from "shared/ui";
 import { Comment } from "entities/Comment";
 import { ButtonsAdminComment } from "features/ButtonsAdminComment";
 import { EditCommentModel } from "features/EditCommentForm";
 import { NotificationModel } from "entities/Notification";
-import { Loader } from "shared/ui/Loader";
 
 import { $sortedComments, filterComments } from "../model";
 import { filterOptions } from "../lib/options";
@@ -53,14 +54,6 @@ export const AdminCommentsList: React.FC = () => {
   const comments = useStore($sortedComments);
   const isLoading = useStore(getCommentsFx.pending);
 
-  useEffect(() => {
-    NotificationModel.setNotification({
-      textError: "Не получилось отредактировать отзыв. Попробуйте еще раз!",
-      textSuccess: "Отзыв успешно отредактирован!",
-      titleSuccess: "Отзыв изменен",
-    });
-  }, []);
-
   const onChangeFilter = (
     filter: SingleValue<{ value: string; label: string }>
   ) => {
@@ -69,7 +62,13 @@ export const AdminCommentsList: React.FC = () => {
   };
 
   useEffect(() => {
+    NotificationModel.setNotification({
+      textError: "Не получилось отредактировать отзыв. Попробуйте еще раз!",
+      textSuccess: "Отзыв успешно отредактирован!",
+      titleSuccess: "Отзыв изменен",
+    });
     onChangeFilter(filterOptions[0]);
+    getComments();
   }, []);
 
   if (comments.length === 0) {
@@ -90,7 +89,25 @@ export const AdminCommentsList: React.FC = () => {
           />
         }
       />
-      {isLoading ? <Loader /> : <Items items={comments} />}
+      {isLoading ? (
+        <ul className="admin-comments__list">
+          {[...new Array(4)].map((_, index) => (
+            <li
+              className="admin-comments__skeleton"
+              key={`skeleton-admin-${index + 1}`}
+            >
+              <SkeletonLoading
+                count={1}
+                width="519px"
+                height="350px"
+                baseColor="#E0E0E0"
+              />
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <Items items={comments} />
+      )}
     </div>
   );
 };
