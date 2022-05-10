@@ -74,21 +74,6 @@ export const AboutUserForm = () => {
       newAgeUser = Helpers.stringToDate(data.dateBirth);
     }
 
-    // editUser({
-    //   firstName: data.firstName || user.firstName,
-    //   secondName: data.secondName || user.secondName,
-    //   avatar,
-    //   description: {
-    //     city: data.city.value || user.description.city,
-    //     pet: data.pet.value !== "false",
-    //     age: newAgeUser !== -1 ? newAgeUser : user.description.age,
-    //     sex: data.sex.value || user.description.sex,
-    //     text: data.text || user.description.text,
-    //     shortInfo: data.shortInfo || user.description.shortInfo,
-    //     dateBirth: data.dateBirth || user.description.dateBirth,
-    //   },
-    // });
-
     updateProfile({
       firstName: data.firstName || user.firstName,
       lastName: data.lastName || user.lastName,

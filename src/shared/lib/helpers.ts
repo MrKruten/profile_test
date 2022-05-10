@@ -22,8 +22,8 @@ export const checkIsDateMoreToday = (dateCheck: string): boolean => {
 };
 
 export const compareDates = (prev: string, next: string) => {
-  const prevDate = stringToDate(prev);
-  const nextDate = stringToDate(next);
+  const prevDate = new Date(prev);
+  const nextDate = new Date(next);
   if (prevDate === nextDate) return 0;
   if (prevDate < nextDate) return 1;
   if (prevDate > nextDate) return -1;
