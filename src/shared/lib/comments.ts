@@ -1,6 +1,6 @@
 import { createEffect, createEvent, createStore, sample } from "effector";
 
-import { IAddReview, IReview } from "shared/lib/types";
+import { IAddReview, IReview, TStatus } from "shared/lib/types";
 // eslint-disable-next-line import/no-cycle
 import { API } from "shared/api";
 import { errorAuth } from "shared/lib/errorAuth";
@@ -69,20 +69,6 @@ sample({
   clock: addCommentFx.failData,
   filter: (clock) => clock.message === "Unauthorized",
   target: errorAuth,
-});
-
-export const updateComment = createEvent<IReview>();
-
-sample({
-  clock: updateComment,
-  source: $comments,
-  fn: (source, clock) => {
-    const id = source.findIndex((comment) => comment.id === clock.id);
-    if (id === -1) return source;
-    source[id] = clock;
-    return source;
-  },
-  target: $comments,
 });
 
 export const $editComment = createStore<IReview>({

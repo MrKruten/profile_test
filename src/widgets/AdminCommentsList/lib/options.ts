@@ -1,5 +1,5 @@
 export const filterOptions = [
-  { value: "editable", label: "Сначала неопубликованные" },
-  { value: "rejected", label: "Сначала отклоненные" },
-  { value: "published", label: "Сначала опубликованные" },
+  { value: "onCheck", label: "Сначала неопубликованные" },
+  { value: "declined", label: "Сначала отклоненные" },
+  { value: "approved", label: "Сначала опубликованные" },
 ];

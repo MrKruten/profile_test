@@ -2,8 +2,10 @@ import React from "react";
 
 import { Button } from "shared/ui";
 import { ReactComponent as Edit } from "shared/images/Edit.svg";
-import { setEditComment, Types, updateComment } from "shared/lib";
+import { setEditComment, Types } from "shared/lib";
+
 import "./style.scss";
+import { updateStatusComment } from "../model";
 
 interface IButtonsAdminComment {
   comment: Types.IReview;
@@ -15,16 +17,16 @@ export const ButtonsAdminComment: React.FC<IButtonsAdminComment> = ({
   editFunc,
 }) => {
   const publish = () => {
-    updateComment({ ...comment, status: "approved" });
+    updateStatusComment({ id: comment.id!, status: "approved" });
   };
 
   const reject = () => {
-    updateComment({ ...comment, status: "declined" });
+    updateStatusComment({ id: comment.id!, status: "declined" });
   };
 
   const edit = () => {
-    // setEditComment(comment);
-    // editFunc();
+    setEditComment(comment);
+    editFunc();
   };
 
   return (

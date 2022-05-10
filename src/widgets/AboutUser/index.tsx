@@ -5,7 +5,7 @@ import { HeaderContentAdmin } from "shared/ui";
 import { AboutUserForm } from "features/AboutUserForm";
 import { BottomNotificationModel } from "entities/BottomNotification";
 import { NotificationModel } from "entities/Notification";
-import { getProfileFx } from "shared/lib";
+import { getProfileFx, getUser } from "shared/lib";
 import "./style.scss";
 import { Loader } from "shared/ui/Loader";
 
@@ -21,6 +21,7 @@ export const AboutUser = () => {
       textSuccess: "Данные успешно отредактированы!",
       titleSuccess: "Сохранено",
     });
+    getUser();
   }, []);
 
   return (

@@ -4,10 +4,10 @@ import classnames from "classnames";
 import "./style.scss";
 
 interface IStatus {
-  status?: string;
+  status?: "studies" | string;
 }
 
-export const Status: React.FC<IStatus> = ({ status = "study" }) => {
+export const Status: React.FC<IStatus> = ({ status = "studies" }) => {
   return (
     <div
       className={classnames("status", {
@@ -15,7 +15,7 @@ export const Status: React.FC<IStatus> = ({ status = "study" }) => {
         status_finished: status === "finished",
       })}
     >
-      {status === "study"
+      {status === "studies"
         ? "Обучается"
         : status === "expelled"
         ? "Отчислен"

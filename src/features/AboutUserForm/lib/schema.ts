@@ -12,7 +12,7 @@ export const schema = yup
         Regulars.regName,
         "Это поле может содержать только латиницу и кириллицу"
       ),
-    secondName: yup
+    lastName: yup
       .string()
       .min(2, "Поле должно содержать не менее 2 символов")
       .max(40, "Поле должно содержать не более 40 символов")

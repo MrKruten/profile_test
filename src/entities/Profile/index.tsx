@@ -28,7 +28,7 @@ export const Profile: React.FC = () => {
         <div className="profile__description__name-date">
           <h3>{`${user.firstName} ${user.lastName}`}</h3>
           <span className="profile__description__name-date date">
-            {Helpers.dateToString(new Date(user.birthDate))}
+            {Helpers.dateToString(new Date(user.birthDate!))}
           </span>
         </div>
         <div className="profile__description__info">
@@ -52,7 +52,7 @@ export const Profile: React.FC = () => {
           </span>
           <span className="profile__description__info__item">
             <b>Возраст:&nbsp;</b>
-            {Helpers.calculateAge(user.birthDate)}
+            {Helpers.calculateAge(user.birthDate!)}
           </span>
         </div>
         <div className="profile__description__text">

@@ -1,6 +1,8 @@
 import { createEvent, createStore, sample } from "effector";
 
-import { $comments, Helpers, Types, updateComment } from "shared/lib";
+import { $comments, Helpers, Types } from "shared/lib";
+import { NotificationModel } from "entities/Notification";
+import { updateStatusCommentFx } from "features/ButtonsAdminComment/model";
 
 export const filterComments = createEvent<string>();
 
@@ -19,7 +21,28 @@ sample({
 });
 
 sample({
-  clock: updateComment,
-  fn: (clock) => clock.status as string,
-  target: filterComments,
+  clock: $comments,
+  source: filterComments,
+  fn: (source, clock) => {
+    return Helpers.sortComments(source, clock);
+  },
+  target: $sortedComments,
+});
+
+sample({
+  clock: updateStatusCommentFx.failData,
+  fn: (_) => false,
+  target: NotificationModel.successNotification,
+});
+
+sample({
+  clock: updateStatusCommentFx.doneData,
+  fn: (_) => true,
+  target: NotificationModel.successNotification,
+});
+
+sample({
+  clock: [updateStatusCommentFx.doneData, updateStatusCommentFx.failData],
+  fn: (_) => true,
+  target: NotificationModel.showNotification,
 });

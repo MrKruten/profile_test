@@ -3,12 +3,11 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useStore } from "effector-react";
 
-import { NotificationModel } from "entities/Notification";
-import { $editComment, Types, updateComment } from "shared/lib";
+import { $editComment, Types } from "shared/lib";
 import { ReactComponent as Cross } from "shared/images/Cross.svg";
 import { Button, TextArea } from "shared/ui";
-import { showEditComment } from "features/EditComment/model";
 
+import { showEditComment, updateTextComment } from "../model";
 import { schema } from "../lib/schema";
 
 import "./style.scss";
@@ -26,14 +25,8 @@ export const EditComment = () => {
   });
 
   const onSubmit: SubmitHandler<Types.IFormInputs> = (data) => {
-    // updateComment({ ...editComment, text: data.text });
-    showEditComment(false);
+    updateTextComment({ id: editComment.id!, text: data.text });
     reset();
-
-    // рандом для проверки тоста
-    const random = Math.random() >= 0.5;
-    NotificationModel.successNotification(random);
-    NotificationModel.showNotification(true);
   };
 
   const onClose = () => {

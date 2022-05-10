@@ -4,7 +4,7 @@ import { IProfile } from "shared/lib/types";
 // eslint-disable-next-line import/no-cycle
 import { API } from "shared/api";
 
-export const editUser = createEvent<IProfile>();
+export const updatePhotoUser = createEvent<FormData>();
 
 export const $user = createStore<IProfile>({
   aboutMe: "",
@@ -20,7 +20,7 @@ export const $user = createStore<IProfile>({
   petType: "undefined",
   profileImage: "",
   smallAboutMe: "undefined",
-}).on(editUser, (_, next) => next);
+});
 
 export const getUser = createEvent();
 

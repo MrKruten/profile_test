@@ -3,17 +3,6 @@ import { Types } from "shared/lib";
 
 import { BASE_URL } from "./configure";
 
-interface IUpdateProfile {
-  firstName: string;
-  lastName: string;
-  birthDate: Date;
-  gender: "male" | "female";
-  cityOfResidence: string;
-  hasPet: boolean;
-  aboutMe: string;
-  smallAboutMe: string;
-}
-
 const authorization = async (
   loginData: Types.IAuthorization
 ): Promise<string> => {
@@ -99,15 +88,18 @@ const updatePhotoProfile = async (profileImage: FormData): Promise<any> => {
   }
 };
 
-const updateProfile = async (body: IUpdateProfile): Promise<any> => {
+const updateProfile = async (
+  updateInfo: Types.IUpdateProfile
+): Promise<any> => {
   const url = `${BASE_URL}user/updateInfo`;
   try {
     const request = await fetch(url, {
       method: "POST",
       headers: {
+        "Content-Type": "application/json",
         Authorization: `Bearer ${localStorage.getItem("accessToken")!}`,
       },
-      body: JSON.stringify(body),
+      body: JSON.stringify(updateInfo),
     });
 
     const response = await request.json();
@@ -197,9 +189,10 @@ const updateTextComment = async (
     const request = await fetch(url, {
       method: "POST",
       headers: {
+        "Content-Type": "application/json",
         Authorization: `Bearer ${localStorage.getItem("accessToken")!}`,
-        text,
       },
+      body: JSON.stringify({ text }),
     });
 
     const response = await request.json();
@@ -216,15 +209,16 @@ const updateTextComment = async (
 const updateStatusComment = async (
   id: string,
   status: Types.TStatus
-): Promise<Types.IReview> => {
+): Promise<any> => {
   const url = `${BASE_URL}reviews/updateStatus/${id}`;
   try {
     const request = await fetch(url, {
       method: "POST",
       headers: {
+        "Content-Type": "application/json",
         Authorization: `Bearer ${localStorage.getItem("accessToken")!}`,
-        status,
       },
+      body: JSON.stringify({ status }),
     });
 
     const response = await request.json();

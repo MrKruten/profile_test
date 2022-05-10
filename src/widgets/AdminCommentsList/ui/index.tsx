@@ -6,7 +6,7 @@ import { getCommentsFx, Types } from "shared/lib";
 import { HeaderContentAdmin, ZeroData } from "shared/ui";
 import { Comment } from "entities/Comment";
 import { ButtonsAdminComment } from "features/ButtonsAdminComment";
-import { EditCommentModel } from "features/EditComment";
+import { EditCommentModel } from "features/EditCommentForm";
 import { NotificationModel } from "entities/Notification";
 import { Loader } from "shared/ui/Loader";
 

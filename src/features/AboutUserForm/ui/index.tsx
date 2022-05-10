@@ -5,19 +5,17 @@ import { useStore } from "effector-react";
 import Select from "react-select";
 
 import { Avatar, Button, Input, TextArea } from "shared/ui";
-import { Types, Helpers, $user, editUser } from "shared/lib";
+import { Types, Helpers, $user } from "shared/lib";
 import { BottomNotificationModel } from "entities/BottomNotification";
-import { NotificationModel } from "entities/Notification";
 import { ReactComponent as Edit } from "shared/images/Edit.svg";
 
 import { optionsCity, optionsSex, optionsPet } from "../lib/options";
 import { schema } from "../lib/schema";
-
+import { updateProfile, uploadPhotoProfile } from "../model";
 import "./style.scss";
 
 export const AboutUserForm = () => {
   const user = useStore($user);
-  const [avatar, setAvatar] = useState(user.profileImage);
   const inputFileRef = useRef<HTMLInputElement>(null);
   const [isDateError, setIsDateError] = useState(false);
   const [isEdit, setIsEdit] = useState(false);
@@ -41,10 +39,14 @@ export const AboutUserForm = () => {
     readerURL.onload = () => {
       if (file.size / 1024 / 1024 > 5) {
         BottomNotificationModel.showBottomNotification(true);
+        setTimeout(
+          () => BottomNotificationModel.showBottomNotification(false),
+          4000
+        );
       } else {
-        const fixImg = new Image(180, 180);
-        fixImg.src = readerURL.result as string;
-        setAvatar(fixImg.src);
+        const formData = new FormData();
+        formData.set("profileImage", inputFileRef.current?.files?.[0]!);
+        uploadPhotoProfile(formData);
       }
     };
   };
@@ -60,7 +62,7 @@ export const AboutUserForm = () => {
   };
 
   const onSubmit: SubmitHandler<Types.IFormInputs> = (data) => {
-    let newAgeUser: number = -1;
+    let newAgeUser: Date;
     if (data.dateBirth) {
       if (!Helpers.checkIsDateMoreToday(data.dateBirth)) {
         setIsDateError(true);
@@ -69,7 +71,7 @@ export const AboutUserForm = () => {
         }, 3000);
         return;
       }
-      newAgeUser = Helpers.calcAgeUser(data.dateBirth);
+      newAgeUser = Helpers.stringToDate(data.dateBirth);
     }
 
     // editUser({
@@ -87,10 +89,16 @@ export const AboutUserForm = () => {
     //   },
     // });
 
-    // рандом для проверки тоста
-    const random = Math.random() >= 0.5;
-    NotificationModel.successNotification(random);
-    NotificationModel.showNotification(true);
+    updateProfile({
+      firstName: data.firstName || user.firstName,
+      lastName: data.lastName || user.lastName,
+      birthDate: newAgeUser! || user.birthDate,
+      gender: (data.sex.value as "male" | "female") || user.gender!,
+      cityOfResidence: data.city.value || user.cityOfResidence!,
+      hasPet: data.pet.value !== "false",
+      aboutMe: data.text || user.aboutMe!,
+      smallAboutMe: data.shortInfo || user.smallAboutMe!,
+    });
 
     setIsEdit(false);
   };
@@ -100,9 +108,9 @@ export const AboutUserForm = () => {
       <div className="about-form__head">
         <div className="about-form__avatar">
           <div className="about-form__photo">
-            <Avatar avatar={avatar} />
+            <Avatar avatar={user.profileImage} />
             <div className="avatar-big">
-              <Avatar avatar={avatar} />
+              <Avatar avatar={user.profileImage} />
             </div>
           </div>
           <div className="about-form__avatar-info">
@@ -144,17 +152,17 @@ export const AboutUserForm = () => {
           placeholder="Введите фамилию"
           defaultValue={user.lastName}
           disabled={!isEdit}
-          name="secondName"
+          name="lastName"
           label="Фамилия"
           register={register}
-          id="secondName"
+          id="lastName"
           required
-          error={!!errors.secondName}
-          errorMessage={errors.secondName?.message}
+          error={!!errors.lastName}
+          errorMessage={errors.lastName?.message}
         />
         <Input
           maxlength={10}
-          defaultValue={Helpers.dateToString(new Date(user.birthDate))}
+          defaultValue={Helpers.dateToString(new Date(user.birthDate!))}
           disabled={!isEdit}
           placeholder="Введите дату рождения"
           name="dateBirth"

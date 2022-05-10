@@ -19,15 +19,15 @@ import { Loader } from "shared/ui/Loader";
 import {
   $captcha,
   $isErrorCaptcha,
-  $uploadPhoto,
+  $uploadPhotoComment,
   getCaptcha,
   getCaptchaFx,
   resetIsErrorCaptcha,
   resetUploadPhoto,
   showAddComment,
   updateUploadPhoto,
-  uploadPhoto,
-  uploadPhotoFx,
+  uploadPhotoComment,
+  uploadPhotoCommentFx,
 } from "../model";
 import { schema } from "../lib/schema";
 
@@ -36,8 +36,8 @@ import "./style.scss";
 export const AddCommentForm = () => {
   const isLoadingCaptcha = useStore(getCaptchaFx.pending);
   const isLoadingRequestComment = useStore(addCommentFx.pending);
-  const isLoadingRequestPhoto = useStore(uploadPhotoFx.pending);
-  const avatar = useStore($uploadPhoto);
+  const isLoadingRequestPhoto = useStore(uploadPhotoCommentFx.pending);
+  const avatar = useStore($uploadPhotoComment);
   const [fileName, setFileName] = useState("");
   const [isFileError, setIsFileError] = useState(false);
   const inputFileRef = useRef<HTMLInputElement>(null);
@@ -135,7 +135,7 @@ export const AddCommentForm = () => {
     if (avatar !== "None") {
       const formData = new FormData();
       formData.set("authorImage", inputFileRef.current?.files?.[0]!);
-      uploadPhoto(formData);
+      uploadPhotoComment(formData);
     }
   };
 

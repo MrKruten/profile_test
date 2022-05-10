@@ -53,43 +53,45 @@ export const updateUploadPhoto = createEvent<string>();
 
 export const resetUploadPhoto = createEvent();
 
-export const $uploadPhoto = createStore("None")
+export const $uploadPhotoComment = createStore("None")
   .on(updateUploadPhoto, (_, newImg) => newImg)
   .reset(resetUploadPhoto);
 
-export const uploadPhoto = createEvent<FormData>();
+export const uploadPhotoComment = createEvent<FormData>();
 
-export const uploadPhotoFx = createEffect<Types.IUploadImage, any, Error>(
-  async ({ authorImage, id }) => await API.updatePhotoComment(id, authorImage)
-);
+export const uploadPhotoCommentFx = createEffect<
+  Types.IUploadImage,
+  any,
+  Error
+>(async ({ authorImage, id }) => await API.updatePhotoComment(id, authorImage));
 
 sample({
   clock: $lastAddedComment,
-  source: uploadPhoto,
+  source: uploadPhotoComment,
   filter: (_, clock) => clock.id !== "-1",
   fn: (source, clock) => ({ authorImage: source, id: clock.id! }),
-  target: uploadPhotoFx,
+  target: uploadPhotoCommentFx,
 });
 
 sample({
-  clock: [uploadPhotoFx.doneData, uploadPhotoFx.failData],
+  clock: [uploadPhotoCommentFx.doneData, uploadPhotoCommentFx.failData],
   target: resetLastAddedComment,
 });
 
 sample({
-  clock: uploadPhotoFx.doneData,
+  clock: uploadPhotoCommentFx.doneData,
   fn: () => false,
   target: showAddComment,
 });
 
 sample({
-  clock: [uploadPhotoFx.doneData, addCommentFx.doneData],
+  clock: [uploadPhotoCommentFx.doneData, addCommentFx.doneData],
   fn: () => true,
   target: NotificationModel.successNotification,
 });
 
 sample({
-  clock: [uploadPhotoFx.failData, addCommentFx.failData],
+  clock: [uploadPhotoCommentFx.failData, addCommentFx.failData],
   fn: () => false,
   target: NotificationModel.successNotification,
 });
@@ -106,7 +108,7 @@ sample({
 
 sample({
   clock: addCommentFx.doneData,
-  source: $uploadPhoto,
+  source: $uploadPhotoComment,
   filter: (source, _) => source === "None",
   fn: () => false,
   target: showAddComment,
@@ -114,20 +116,20 @@ sample({
 
 sample({
   clock: addCommentFx.doneData,
-  source: $uploadPhoto,
+  source: $uploadPhotoComment,
   filter: (source, _) => source === "None",
   fn: () => true,
   target: NotificationModel.showNotification,
 });
 
 sample({
-  clock: uploadPhotoFx.doneData,
+  clock: uploadPhotoCommentFx.doneData,
   fn: () => true,
   target: NotificationModel.showNotification,
 });
 
 sample({
-  clock: uploadPhotoFx.failData,
+  clock: uploadPhotoCommentFx.failData,
   filter: (clock) => clock.message === "Unauthorized",
   target: errorAuth,
 });

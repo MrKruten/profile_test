@@ -2,7 +2,7 @@ import { IReview } from "./types";
 
 export const stringToDate = (stringDate: string): Date => {
   const dateSplit = stringDate.split(".");
-  return new Date(`${dateSplit[2]}-${dateSplit[1]}-${dateSplit[0]}`);
+  return new Date(`${dateSplit[1]}-${dateSplit[0]}-${dateSplit[2]}`);
 };
 
 export const dateToString = (dateString: Date): string => {
@@ -10,23 +10,15 @@ export const dateToString = (dateString: Date): string => {
     dateString.getDate() < 10
       ? `0${dateString.getDate()}`
       : dateString.getDate();
-  const month =
-    dateString.getMonth() < 10
-      ? `0${dateString.getMonth()}`
-      : dateString.getMonth();
-  return `${day}.${month}.${dateString.getFullYear()}`;
+  const month = dateString.getMonth() + 1;
+  const monthStr = month < 10 ? `0${month}` : month;
+  return `${day}.${monthStr}.${dateString.getFullYear()}`;
 };
 
 export const checkIsDateMoreToday = (dateCheck: string): boolean => {
   const today = new Date();
   const dateUser = stringToDate(dateCheck);
   return dateUser <= today;
-};
-
-export const calcAgeUser = (dateCheck: string): number => {
-  const today = new Date();
-  const dateUser = stringToDate(dateCheck);
-  return today.getFullYear() - dateUser.getFullYear();
 };
 
 export const compareDates = (prev: string, next: string) => {

@@ -16,7 +16,7 @@ export type TSelect = {
 
 export interface IFormAboutUserInputs {
   firstName: string;
-  secondName: string;
+  lastName: string;
   dateBirth: string;
   city: TSelect;
   sex: TSelect;
@@ -53,14 +53,6 @@ export interface IReview {
   status?: TStatus;
 }
 
-export interface IStudent {
-  firstName: string;
-  secondName: string;
-  avatar: "None" | string;
-  shortInfo: string;
-  status?: "study" | "expelled" | "finished" | string;
-}
-
 export interface IAvatar {
   avatar?: string;
 }
@@ -69,16 +61,16 @@ export interface IProfile {
   firstName: string;
   lastName: string;
   profileImage?: string;
-  birthDate: string;
-  gender: "male" | "female";
-  cityOfResidence: string;
-  favoriteFood: string | null;
-  hasPet: boolean;
-  petType: string | null;
-  petName: string | null;
-  aboutMe: string;
+  birthDate?: string;
+  gender?: "male" | "female";
+  cityOfResidence?: string;
+  favoriteFood?: string | null;
+  hasPet?: boolean;
+  petType?: string | null;
+  petName?: string | null;
+  aboutMe?: string;
   smallAboutMe: string | null;
-  academyStatus: "studies";
+  academyStatus?: "studies" | string;
   // add academy status
 }
 
@@ -95,4 +87,15 @@ export interface ICaptcha {
 export interface IUploadImage {
   id: string;
   authorImage: FormData;
+}
+
+export interface IUpdateProfile {
+  firstName: string;
+  lastName: string;
+  birthDate: Date;
+  gender: "male" | "female";
+  cityOfResidence: string;
+  hasPet: boolean;
+  aboutMe: string;
+  smallAboutMe: string;
 }
