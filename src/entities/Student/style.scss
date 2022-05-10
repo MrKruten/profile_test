@@ -14,6 +14,7 @@
   &__avatar-name{
     display: flex;
     align-items: center;
+    width: 278px;
   }
 
   &__name{
@@ -34,6 +35,7 @@
   &__text{
     line-height: 17px;
     color: #464E5F;
+    width: 600px;
 
     @media (max-width: $md3) {
       font-size: 12px;
