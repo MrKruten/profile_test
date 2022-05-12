@@ -1,6 +1,7 @@
 export interface IFormAddCommentInputs {
   name: string;
   text: string;
+  file: any;
 }
 
 export interface IFormAuthInputs {

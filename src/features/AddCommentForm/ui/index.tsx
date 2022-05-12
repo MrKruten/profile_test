@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import classnames from "classnames";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -19,7 +19,6 @@ import { Loader } from "shared/ui/Loader";
 import {
   $captcha,
   $isErrorCaptcha,
-  $uploadPhotoComment,
   getCaptcha,
   getCaptchaFx,
   resetIsErrorCaptcha,
@@ -37,10 +36,8 @@ export const AddCommentForm = () => {
   const isLoadingCaptcha = useStore(getCaptchaFx.pending);
   const isLoadingRequestComment = useStore(addCommentFx.pending);
   const isLoadingRequestPhoto = useStore(uploadPhotoCommentFx.pending);
-  const avatar = useStore($uploadPhotoComment);
   const [fileName, setFileName] = useState("");
   const [isFileError, setIsFileError] = useState(false);
-  const inputFileRef = useRef<HTMLInputElement>(null);
   const captcha = useStore($captcha);
   const isErrorCaptcha = useStore($isErrorCaptcha);
   const {
@@ -103,9 +100,6 @@ export const AddCommentForm = () => {
   };
 
   const deleteFile = () => {
-    if (inputFileRef.current) {
-      inputFileRef.current.value = "";
-    }
     resetUploadPhoto();
     setFileName("");
     setIsFileError(false);
@@ -132,10 +126,10 @@ export const AddCommentForm = () => {
       captchaKey: captcha.key,
     });
 
-    if (avatar !== "None") {
-      const formData = new FormData();
-      formData.set("authorImage", inputFileRef.current?.files?.[0]!);
-      uploadPhotoComment(formData);
+    if (data.file) {
+      const form = new FormData();
+      form.append("authorImage", data.file[0]);
+      uploadPhotoComment(form);
     }
   };
 
@@ -164,14 +158,14 @@ export const AddCommentForm = () => {
             errorMessage={errors.name?.message}
           />
           <div className="name-file input__wrapper">
-            <label htmlFor="avatar" className="input__file-button btn">
+            <label htmlFor="file" className="input__file-button btn">
               <input
                 type="file"
                 className="input input__file"
-                id="avatar"
+                id="file"
                 accept="image/*"
-                ref={inputFileRef}
-                onChange={onChangeFile}
+                onInput={onChangeFile}
+                {...register("file")}
               />
               <span className="input__file-icon-wrapper">
                 <img

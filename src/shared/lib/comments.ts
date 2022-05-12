@@ -39,22 +39,14 @@ sample({
 
 export const resetLastAddedComment = createEvent();
 
-export const $lastAddedComment = createStore<IReview>({
-  authorImage: "",
-  authorName: "",
-  createdAt: "",
-  deletedAt: "",
-  id: "-1",
-  status: "onCheck",
-  text: "",
-  title: "",
-  updatedAt: "",
-  version: 0,
-}).reset(resetLastAddedComment);
+export const $lastAddedCommentID = createStore<string>("-1").reset(
+  resetLastAddedComment
+);
 
 sample({
   clock: addCommentFx.doneData,
-  target: $lastAddedComment,
+  fn: (review): string => review.id!,
+  target: $lastAddedCommentID,
 });
 
 export const addCommentCaptchaError = createEvent();

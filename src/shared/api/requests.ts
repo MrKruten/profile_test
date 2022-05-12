@@ -232,12 +232,15 @@ const updateStatusComment = async (
   }
 };
 
-const updatePhotoComment = async (id: string, body: FormData): Promise<any> => {
+const updatePhotoComment = async (
+  id: string,
+  authorImage: FormData
+): Promise<any> => {
   const url = `${BASE_URL}reviews/updatePhoto/${id}`;
   try {
     const request = await fetch(url, {
       method: "POST",
-      body,
+      body: authorImage,
     });
 
     const response = await request.json();

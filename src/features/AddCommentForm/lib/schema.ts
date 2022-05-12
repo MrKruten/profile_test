@@ -17,5 +17,6 @@ export const schema = yup
       .min(5, "Поле должно содержать 4 символа")
       .max(5, "Поле должно содержать 4 символа")
       .required("Это обязательное поле"),
+    file: yup.mixed(),
   })
   .required();

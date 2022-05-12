@@ -2,7 +2,7 @@ import { createEffect, createEvent, createStore, sample } from "effector";
 
 import { API } from "shared/api";
 import {
-  $lastAddedComment,
+  $lastAddedCommentID,
   addCommentCaptchaError,
   addCommentFx,
   resetLastAddedComment,
@@ -59,22 +59,37 @@ export const $uploadPhotoComment = createStore("None")
 
 export const uploadPhotoComment = createEvent<FormData>();
 
+const $uploadPhotoCommentData = createStore<FormData | null>(null);
+
+sample({
+  clock: uploadPhotoComment,
+  target: $uploadPhotoCommentData,
+});
+
 export const uploadPhotoCommentFx = createEffect<
   Types.IUploadImage,
   any,
   Error
->(async ({ authorImage, id }) => await API.updatePhotoComment(id, authorImage));
+>(async ({ authorImage, id }) => {
+  await API.updatePhotoComment(id, authorImage);
+});
 
 sample({
-  clock: $lastAddedComment,
-  source: uploadPhotoComment,
-  filter: (_, clock) => clock.id !== "-1",
-  fn: (source, clock) => ({ authorImage: source, id: clock.id! }),
+  clock: $lastAddedCommentID,
+  source: $uploadPhotoCommentData,
+  filter: (_, clock) => clock !== "-1",
+  fn: (source, clock) => {
+    return { authorImage: source!, id: clock };
+  },
   target: uploadPhotoCommentFx,
 });
 
 sample({
-  clock: [uploadPhotoCommentFx.doneData, uploadPhotoCommentFx.failData],
+  clock: [
+    uploadPhotoCommentFx.doneData,
+    uploadPhotoCommentFx.failData,
+    showAddComment,
+  ],
   target: resetLastAddedComment,
 });
 
