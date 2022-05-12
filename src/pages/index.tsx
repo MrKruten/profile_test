@@ -1,4 +1,4 @@
-import React, { lazy, useEffect } from "react";
+import React, { lazy } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { useStore } from "effector-react";
 
@@ -10,7 +10,7 @@ import {
   PasswordRecovery,
   StudentsList,
 } from "widgets";
-import { $accessToken, $isAuth, setIsAuth } from "features/AuthForm/model";
+import { $isAuth } from "features/AuthForm/model";
 
 const MainPage = lazy(() => import("./MainPage"));
 const AuthPage = lazy(() => import("./AuthPage"));
@@ -18,11 +18,6 @@ const AdminPage = lazy(() => import("./AdminPage"));
 
 export const Router = () => {
   const isAuth = useStore($isAuth);
-  const accessToken = useStore($accessToken);
-
-  useEffect(() => {
-    setIsAuth(accessToken !== "");
-  }, []);
 
   if (isAuth) {
     return (

@@ -26,25 +26,31 @@ sample({
   target: authFx,
 });
 
-export const $accessToken = restore(
-  authFx.doneData,
+export const $accessToken = restore(authFx.doneData, "");
+
+const checkAccessTokenFx = createEffect(() =>
   localStorage.getItem("accessToken") !== null
     ? localStorage.getItem("accessToken")!
     : ""
 );
 
-export const setIsAuth = createEvent<boolean>();
+export const checkAccessToken = createEvent();
+sample({
+  clock: checkAccessToken,
+  target: checkAccessTokenFx,
+});
+
 export const $isAuth = createStore<boolean>(false);
 
 sample({
-  clock: setIsAuth,
-  target: $isAuth,
+  clock: checkAccessTokenFx.doneData,
+  target: $accessToken,
 });
 
 sample({
   clock: $accessToken,
   fn: (clock) => !!clock,
-  target: setIsAuth,
+  target: $isAuth,
 });
 
 sample({
