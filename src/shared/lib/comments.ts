@@ -88,5 +88,5 @@ sample({
 });
 
 export const $publishedComments = $comments.map((comments) =>
-  comments.filter((comment) => comment.status === "onCheck")
+  comments.filter((comment) => comment.status === "approved")
 );

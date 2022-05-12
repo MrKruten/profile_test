@@ -14,6 +14,24 @@
   padding: 26px 80px;
   color: #FFFFFF;
 
+  .loader{
+    width: 60px;
+    height: 60px;
+    padding-right: 15px;
+    padding-bottom: 10px;
+    border-radius: 10px;
+
+    &__content{
+      width: 20px;
+      height: 20px;
+    }
+
+    &__block{
+      width: 15px;
+      height: 15px;
+    }
+  }
+
   &__left{
     display: flex;
     width: 60%;

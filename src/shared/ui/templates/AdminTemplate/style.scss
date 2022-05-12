@@ -36,6 +36,10 @@
         margin: 0;
     }
 
+    @media (max-width: 1030px) {
+      padding: 48px 10px 48px 10px;
+    }
+
     &_zero{
       display: flex;
       align-items: center;
