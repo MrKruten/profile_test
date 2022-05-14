@@ -9,37 +9,27 @@ import plusImg from "shared/images/Plus.svg";
 import fileImg from "shared/images/File.svg";
 import { ReactComponent as DeleteImg } from "shared/images/Delete.svg";
 import { ReactComponent as ReloadCaptcha } from "shared/images/Reload.svg";
-import { Button, Input, TextArea } from "shared/ui";
-import { addComment, addCommentFx } from "shared/lib/comments";
-import { Types } from "shared/lib";
+import { Button, Input, TextArea, Loader } from "shared/ui";
+import { CommentsModel } from "entities/Comment";
+import { Types } from "shared/constants";
 import { NotificationModel } from "entities/Notification";
 import crossImg from "shared/images/Cross.svg";
-import { Loader } from "shared/ui/Loader";
 
-import {
-  $captcha,
-  $isErrorCaptcha,
-  getCaptcha,
-  getCaptchaFx,
-  resetIsErrorCaptcha,
-  resetUploadPhoto,
-  showAddComment,
-  updateUploadPhoto,
-  uploadPhotoComment,
-  uploadPhotoCommentFx,
-} from "../model";
+import { AddCommentModel } from "../model";
 import { schema } from "../lib/schema";
 
 import "./style.scss";
 
 export const AddCommentForm = () => {
-  const isLoadingCaptcha = useStore(getCaptchaFx.pending);
-  const isLoadingRequestComment = useStore(addCommentFx.pending);
-  const isLoadingRequestPhoto = useStore(uploadPhotoCommentFx.pending);
+  const isLoadingCaptcha = useStore(AddCommentModel.getCaptchaFx.pending);
+  const isLoadingRequestComment = useStore(CommentsModel.addCommentFx.pending);
+  const isLoadingRequestPhoto = useStore(
+    AddCommentModel.uploadPhotoCommentFx.pending
+  );
   const [fileName, setFileName] = useState("");
   const [isFileError, setIsFileError] = useState(false);
-  const captcha = useStore($captcha);
-  const isErrorCaptcha = useStore($isErrorCaptcha);
+  const captcha = useStore(AddCommentModel.$captcha);
+  const isErrorCaptcha = useStore(AddCommentModel.$isErrorCaptcha);
   const {
     register,
     handleSubmit,
@@ -51,7 +41,7 @@ export const AddCommentForm = () => {
   });
 
   const reloadCaptcha = () => {
-    getCaptcha();
+    AddCommentModel.getCaptcha();
   };
 
   useEffect(() => {
@@ -65,7 +55,7 @@ export const AddCommentForm = () => {
       });
       NotificationModel.showNotification(true);
       setTimeout(() => {
-        resetIsErrorCaptcha();
+        AddCommentModel.resetIsErrorCaptcha();
         NotificationModel.showNotification(false);
       }, 4000);
     }
@@ -95,18 +85,18 @@ export const AddCommentForm = () => {
     readerURL.readAsDataURL(file);
 
     readerURL.onload = () => {
-      updateUploadPhoto(readerURL.result as string);
+      AddCommentModel.updateUploadPhoto(readerURL.result as string);
     };
   };
 
   const deleteFile = () => {
-    resetUploadPhoto();
+    AddCommentModel.resetUploadPhoto();
     setFileName("");
     setIsFileError(false);
   };
 
   const closeWindow = () => {
-    showAddComment(false);
+    AddCommentModel.showAddComment(false);
     reset();
     deleteFile();
   };
@@ -118,7 +108,7 @@ export const AddCommentForm = () => {
   };
 
   const onSubmit: SubmitHandler<Types.IFormInputs> = (data) => {
-    addComment({
+    CommentsModel.addComment({
       authorName: data.name,
       text: data.text,
       title: data.name,
@@ -129,7 +119,7 @@ export const AddCommentForm = () => {
     if (data.file) {
       const form = new FormData();
       form.append("authorImage", data.file[0]);
-      uploadPhotoComment(form);
+      AddCommentModel.uploadPhotoComment(form);
     }
   };
 

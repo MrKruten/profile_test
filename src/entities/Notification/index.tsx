@@ -1,2 +1,2 @@
 export { Notification } from "./ui";
-export * from "./model";
+export { NotificationModel } from "./model";

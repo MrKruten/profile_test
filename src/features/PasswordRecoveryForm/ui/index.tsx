@@ -5,7 +5,8 @@ import { useNavigate } from "react-router-dom";
 import { useStore } from "effector-react";
 
 import { NotificationModel } from "entities/Notification";
-import { Types, $isResize, SCREENS } from "shared/lib";
+import { $isResize } from "shared/lib";
+import { Types, SCREENS } from "shared/constants";
 import { ArrowButton, Button, Input } from "shared/ui";
 // mock date
 import dataTest from "shared/lib/data.json";

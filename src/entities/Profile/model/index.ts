@@ -1,12 +1,11 @@
 import { createEffect, createEvent, createStore, sample } from "effector";
 
-import { IProfile } from "shared/lib/types";
-// eslint-disable-next-line import/no-cycle
+import { Types } from "shared/constants";
 import { API } from "shared/api";
 
-export const updatePhotoUser = createEvent<FormData>();
+const updatePhotoUser = createEvent<FormData>();
 
-export const $user = createStore<IProfile>({
+const $user = createStore<Types.IProfile>({
   aboutMe: "",
   academyStatus: "studies",
   birthDate: "",
@@ -22,9 +21,9 @@ export const $user = createStore<IProfile>({
   smallAboutMe: "undefined",
 });
 
-export const getUser = createEvent();
+const getUser = createEvent();
 
-export const getProfileFx = createEffect(async () => {
+const getProfileFx = createEffect(async () => {
   return await API.getProfile();
 });
 
@@ -37,3 +36,10 @@ sample({
   clock: getProfileFx.doneData,
   target: $user,
 });
+
+export const UserModel = {
+  getProfileFx,
+  getUser,
+  $user,
+  updatePhotoUser,
+};

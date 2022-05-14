@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 import { Hyperlink } from "shared/ui";
-import { SCREENS } from "shared/lib";
+import { SCREENS } from "shared/constants";
 import { AuthForm } from "features/AuthForm";
 import { BottomNotificationModel } from "entities/BottomNotification";
 

@@ -1,4 +1,4 @@
-import { IReview } from "./types";
+import { IReview } from "shared/constants/types";
 
 export const stringToDate = (stringDate: string): Date => {
   const dateSplit = stringDate.split(".");

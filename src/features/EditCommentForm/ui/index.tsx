@@ -3,17 +3,18 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useStore } from "effector-react";
 
-import { $editComment, Types } from "shared/lib";
+import { CommentsModel } from "entities/Comment";
 import { ReactComponent as Cross } from "shared/images/Cross.svg";
 import { Button, TextArea } from "shared/ui";
+import { Types } from "shared/constants";
 
-import { showEditComment, updateTextComment } from "../model";
+import { EditCommentModel } from "../model";
 import { schema } from "../lib/schema";
 
 import "./style.scss";
 
 export const EditComment = () => {
-  const editComment = useStore($editComment);
+  const editComment = useStore(CommentsModel.$editComment);
   const {
     register,
     handleSubmit,
@@ -25,12 +26,15 @@ export const EditComment = () => {
   });
 
   const onSubmit: SubmitHandler<Types.IFormInputs> = (data) => {
-    updateTextComment({ id: editComment.id!, text: data.text });
+    EditCommentModel.updateTextComment({
+      id: editComment.id!,
+      text: data.text,
+    });
     reset();
   };
 
   const onClose = () => {
-    showEditComment(false);
+    EditCommentModel.showEditComment(false);
     reset();
   };
 

@@ -4,15 +4,16 @@ import { useStore } from "effector-react";
 import SkeletonLoading from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
-import { getComments, getCommentsFx, Types } from "shared/lib";
+import { CommentsModel, Comment } from "entities/Comment";
 import { HeaderContentAdmin, ZeroData } from "shared/ui";
-import { Comment } from "entities/Comment";
 import { ButtonsAdminComment } from "features/ButtonsAdminComment";
 import { EditCommentModel } from "features/EditCommentForm";
 import { NotificationModel } from "entities/Notification";
+import { Types } from "shared/constants";
 
 import { $sortedComments, filterComments } from "../model";
 import { filterOptions } from "../lib/options";
+
 import "./style.scss";
 
 interface IITems {
@@ -52,7 +53,7 @@ const Items: React.FC<IITems> = ({ items }) => {
 
 export const AdminCommentsList: React.FC = () => {
   const comments = useStore($sortedComments);
-  const isLoading = useStore(getCommentsFx.pending);
+  const isLoading = useStore(CommentsModel.getCommentsFx.pending);
 
   const onChangeFilter = (
     filter: SingleValue<{ value: string; label: string }>
@@ -68,7 +69,7 @@ export const AdminCommentsList: React.FC = () => {
       titleSuccess: "Отзыв изменен",
     });
     onChangeFilter(filterOptions[0]);
-    getComments();
+    CommentsModel.getComments();
   }, []);
 
   if (comments.length === 0) {

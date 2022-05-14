@@ -1,13 +1,15 @@
 import React, { useEffect } from "react";
 import { useGate } from "effector-react";
-import "./style.scss";
 
-import { Profile } from "entities/Profile";
+import { Profile, UserModel } from "entities/Profile";
 import { CommentsList, AddComment } from "widgets";
-import { getComments, getUser, ResizeGate } from "shared/lib";
+import { ResizeGate } from "shared/lib";
+import { CommentsModel } from "entities/Comment";
 import { Footer } from "shared/ui";
 import { HeaderMain } from "widgets/headers";
 import { NotificationModel } from "entities/Notification";
+
+import "./style.scss";
 
 const MainPage = () => {
   useGate(ResizeGate);
@@ -18,8 +20,8 @@ const MainPage = () => {
       textSuccess: "Спасибо за отзыв о нашей компании :)",
       titleSuccess: "Успешно!",
     });
-    getUser();
-    getComments();
+    UserModel.getUser();
+    CommentsModel.getComments();
   }, []);
 
   return (

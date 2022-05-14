@@ -3,7 +3,7 @@ import classnames from "classnames";
 
 import camera from "shared/images/Camera.svg";
 import "./style.scss";
-import { IAvatar } from "shared/lib/types";
+import { IAvatar } from "shared/constants/types";
 
 export const Avatar: React.FC<IAvatar> = ({ avatar = "None" }) => {
   return (

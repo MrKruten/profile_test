@@ -2,7 +2,8 @@ import { createEffect, createEvent, sample } from "effector";
 
 import { API } from "shared/api";
 import { errorAuth } from "shared/lib/errorAuth";
-import { getComments, Types } from "shared/lib";
+import { CommentsModel } from "entities/Comment";
+import { Types } from "shared/constants";
 
 interface IUpdateStatusComment {
   id: string;
@@ -24,7 +25,7 @@ sample({
 
 sample({
   clock: updateStatusCommentFx.doneData,
-  target: getComments,
+  target: CommentsModel.getComments,
 });
 
 sample({

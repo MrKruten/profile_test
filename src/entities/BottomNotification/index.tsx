@@ -1,2 +1,2 @@
 export { BottomNotification } from "./ui";
-export * from "./model";
+export { BottomNotificationModel } from "./model";

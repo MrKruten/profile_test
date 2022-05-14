@@ -2,7 +2,8 @@ import React from "react";
 import classnames from "classnames";
 
 import { Avatar } from "shared/ui";
-import { Helpers, Types } from "shared/lib";
+import { Helpers } from "shared/lib";
+import { Types } from "shared/constants";
 import { ReactComponent as Cross } from "shared/images/Error_Cross.svg";
 import { ReactComponent as Check } from "shared/images/Check.svg";
 

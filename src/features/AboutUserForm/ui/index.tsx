@@ -5,17 +5,20 @@ import { useStore } from "effector-react";
 import Select from "react-select";
 
 import { Avatar, Button, Input, TextArea } from "shared/ui";
-import { Types, Helpers, $user } from "shared/lib";
+import { Helpers } from "shared/lib";
+import { UserModel } from "entities/Profile";
 import { BottomNotificationModel } from "entities/BottomNotification";
 import { ReactComponent as Edit } from "shared/images/Edit.svg";
+import { Types } from "shared/constants";
 
 import { optionsCity, optionsSex, optionsPet } from "../lib/options";
 import { schema } from "../lib/schema";
 import { updateProfile, uploadPhotoProfile } from "../model";
+
 import "./style.scss";
 
 export const AboutUserForm = () => {
-  const user = useStore($user);
+  const user = useStore(UserModel.$user);
   const inputFileRef = useRef<HTMLInputElement>(null);
   const [isDateError, setIsDateError] = useState(false);
   const [isEdit, setIsEdit] = useState(false);

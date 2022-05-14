@@ -1,14 +1,13 @@
 import { createEffect, createEvent, createStore, sample } from "effector";
 
-import { IAddReview, IReview, TStatus } from "shared/lib/types";
-// eslint-disable-next-line import/no-cycle
+import { Types } from "shared/constants";
 import { API } from "shared/api";
 import { errorAuth } from "shared/lib/errorAuth";
 
-export const addComment = createEvent<IAddReview>();
+const addComment = createEvent<Types.IAddReview>();
 
-export const addCommentFx = createEffect<IAddReview, IReview, Error>(
-  async (comment: IAddReview) => await API.createComment(comment)
+const addCommentFx = createEffect<Types.IAddReview, Types.IReview, Error>(
+  async (comment: Types.IAddReview) => await API.createComment(comment)
 );
 
 sample({
@@ -16,16 +15,16 @@ sample({
   target: addCommentFx,
 });
 
-export const getCommentsFx = createEffect(async () => await API.getComments());
+const getCommentsFx = createEffect(async () => await API.getComments());
 
-export const getComments = createEvent();
+const getComments = createEvent();
 
 sample({
   clock: getComments,
   target: getCommentsFx,
 });
 
-export const $comments = createStore<Array<IReview>>([]);
+const $comments = createStore<Array<Types.IReview>>([]);
 
 sample({
   clock: getCommentsFx.doneData,
@@ -37,9 +36,9 @@ sample({
   target: getComments,
 });
 
-export const resetLastAddedComment = createEvent();
+const resetLastAddedComment = createEvent();
 
-export const $lastAddedCommentID = createStore<string>("-1").reset(
+const $lastAddedCommentID = createStore<string>("-1").reset(
   resetLastAddedComment
 );
 
@@ -49,7 +48,7 @@ sample({
   target: $lastAddedCommentID,
 });
 
-export const addCommentCaptchaError = createEvent();
+const addCommentCaptchaError = createEvent();
 
 sample({
   clock: addCommentFx.failData,
@@ -63,7 +62,7 @@ sample({
   target: errorAuth,
 });
 
-export const $editComment = createStore<IReview>({
+const $editComment = createStore<Types.IReview>({
   status: "onCheck",
   authorName: "",
   id: "-1",
@@ -72,13 +71,22 @@ export const $editComment = createStore<IReview>({
   createdAt: "",
 });
 
-export const setEditComment = createEvent<IReview>();
+const setEditComment = createEvent<Types.IReview>();
 
 sample({
   clock: setEditComment,
   target: $editComment,
 });
 
-export const $publishedComments = $comments.map((comments) =>
-  comments.filter((comment) => comment.status === "approved")
-);
+export const CommentsModel = {
+  setEditComment,
+  $editComment,
+  addCommentCaptchaError,
+  $lastAddedCommentID,
+  resetLastAddedComment,
+  $comments,
+  getComments,
+  getCommentsFx,
+  addCommentFx,
+  addComment,
+};

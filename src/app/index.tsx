@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { Router } from "pages";
 import { Notification } from "entities/Notification";
 import { BottomNotification } from "entities/BottomNotification";
-import { checkAccessToken } from "features/AuthForm/model";
+import { AuthModel } from "features/AuthForm";
 
 import { withProviders } from "./providers";
 
@@ -12,7 +12,7 @@ const App = () => {
     // При обновлении страницы на админке происходит переход на main -_-
     // Думал(ю), что из localStorage не успеваю доставать токен
     // Try to fix
-    checkAccessToken();
+    AuthModel.checkAccessToken();
   }, []);
 
   return (

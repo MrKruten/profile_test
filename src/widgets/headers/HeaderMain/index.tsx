@@ -2,18 +2,20 @@ import React from "react";
 import { useStore } from "effector-react";
 import { useNavigate } from "react-router-dom";
 
-import { Button, Avatar, Logo } from "shared/ui";
+import { Button, Avatar, Logo, Loader } from "shared/ui";
 import profile from "shared/images/Profile.svg";
-import { $isResize, SCREENS, $user, getProfileFx } from "shared/lib";
+import { $isResize } from "shared/lib";
+import { SCREENS } from "shared/constants";
+import { UserModel } from "entities/Profile";
+
+import { resetNotifications } from "../model";
 import "./style.scss";
-import { resetNotifications } from "widgets/headers/resetNotifications";
-import { Loader } from "shared/ui/Loader";
 
 export const HeaderMain = () => {
-  const user = useStore($user);
+  const user = useStore(UserModel.$user);
   const isResize = useStore($isResize);
   const navigate = useNavigate();
-  const isLoading = useStore(getProfileFx.pending);
+  const isLoading = useStore(UserModel.getProfileFx.pending);
 
   const goAdmin = () => {
     resetNotifications();

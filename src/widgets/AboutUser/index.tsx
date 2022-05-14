@@ -1,16 +1,16 @@
 import React, { useEffect } from "react";
 import { useStore } from "effector-react";
 
-import { HeaderContentAdmin } from "shared/ui";
+import { HeaderContentAdmin, Loader } from "shared/ui";
 import { AboutUserForm } from "features/AboutUserForm";
 import { BottomNotificationModel } from "entities/BottomNotification";
 import { NotificationModel } from "entities/Notification";
-import { getProfileFx, getUser } from "shared/lib";
+import { UserModel } from "entities/Profile";
+
 import "./style.scss";
-import { Loader } from "shared/ui/Loader";
 
 export const AboutUser = () => {
-  const isLoading = useStore(getProfileFx.pending);
+  const isLoading = useStore(UserModel.getProfileFx.pending);
 
   useEffect(() => {
     BottomNotificationModel.setBottomNotification(
@@ -21,7 +21,7 @@ export const AboutUser = () => {
       textSuccess: "Данные успешно отредактированы!",
       titleSuccess: "Сохранено",
     });
-    getUser();
+    UserModel.getUser();
   }, []);
 
   return (

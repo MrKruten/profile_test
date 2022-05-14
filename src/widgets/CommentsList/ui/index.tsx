@@ -2,20 +2,19 @@ import React, { useCallback, useRef } from "react";
 import { useList, useStore } from "effector-react";
 import Slider from "react-slick";
 
+import { Comment, CommentsModel } from "entities/Comment";
+import plus from "shared/images/Plus.svg";
+import { ArrowButton, Button, Loader } from "shared/ui";
+import { AddCommentModel } from "features/AddCommentForm";
+import { $isResize } from "shared/lib";
+
 import "./style.scss";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
-import { Comment } from "entities/Comment";
-import plus from "shared/images/Plus.svg";
-import { ArrowButton, Button } from "shared/ui";
-import { AddCommentModel } from "features/AddCommentForm";
-import { $publishedComments, getCommentsFx } from "shared/lib/comments";
-import { $isResize } from "shared/lib";
-import { Loader } from "shared/ui/Loader";
+import { $publishedComments } from "../model";
 
 export const CommentsList = () => {
-  const isLoading = useStore(getCommentsFx.pending);
+  const isLoading = useStore(CommentsModel.getCommentsFx.pending);
   const isResize = useStore($isResize);
   const commentList = useList($publishedComments, (comment) => (
     <Comment

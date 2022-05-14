@@ -1,17 +1,19 @@
 import React from "react";
 import { useStore } from "effector-react";
 
-import { Avatar } from "shared/ui";
+import { Avatar, Loader } from "shared/ui";
 import male from "shared/images/Male.svg";
 import female from "shared/images/Female.svg";
 import food from "shared/images/Dog_Food.svg";
-import { $user, Helpers, getProfileFx } from "shared/lib";
+import { Helpers } from "shared/lib";
+
+import { UserModel } from "../model";
+
 import "./style.scss";
-import { Loader } from "shared/ui/Loader";
 
 export const Profile: React.FC = () => {
-  const user = useStore($user);
-  const isLoading = useStore(getProfileFx.pending);
+  const user = useStore(UserModel.$user);
+  const isLoading = useStore(UserModel.getProfileFx.pending);
 
   if (isLoading) {
     return (

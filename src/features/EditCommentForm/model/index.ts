@@ -1,7 +1,7 @@
 import { createEffect, createEvent, createStore, sample } from "effector";
 
 import { API } from "shared/api";
-import { getComments } from "shared/lib";
+import { CommentsModel } from "entities/Comment";
 import { NotificationModel } from "entities/Notification";
 import { errorAuth } from "shared/lib/errorAuth";
 
@@ -10,18 +10,18 @@ interface IUpdateTextComment {
   text: string;
 }
 
-export const $isShowEditComment = createStore(false);
+const $isShowEditComment = createStore(false);
 
-export const showEditComment = createEvent<boolean>();
+const showEditComment = createEvent<boolean>();
 
 sample({
   clock: showEditComment,
   target: $isShowEditComment,
 });
 
-export const updateTextComment = createEvent<IUpdateTextComment>();
+const updateTextComment = createEvent<IUpdateTextComment>();
 
-export const updateTextCommentFx = createEffect<IUpdateTextComment, any, Error>(
+const updateTextCommentFx = createEffect<IUpdateTextComment, any, Error>(
   async ({ id, text }) => await API.updateTextComment(id, text)
 );
 
@@ -32,7 +32,7 @@ sample({
 
 sample({
   clock: updateTextCommentFx.doneData,
-  target: getComments,
+  target: CommentsModel.getComments,
 });
 
 sample({
@@ -64,3 +64,10 @@ sample({
   fn: (_) => false,
   target: showEditComment,
 });
+
+export const EditCommentModel = {
+  updateTextCommentFx,
+  updateTextComment,
+  showEditComment,
+  $isShowEditComment,
+};

@@ -6,8 +6,7 @@ import { AdminTemplate } from "shared/ui/templates";
 import { HeaderAdmin } from "widgets/headers";
 import { AdminNav } from "features/AdminNav";
 import { EditComment, EditCommentModel } from "features/EditCommentForm";
-import { ModalWrapper } from "shared/ui";
-import { Loader } from "shared/ui/Loader";
+import { ModalWrapper, Loader } from "shared/ui";
 
 const AdminPage = () => {
   const isShowEditComment = useStore(EditCommentModel.$isShowEditComment);

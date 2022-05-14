@@ -1,4 +1,4 @@
-export { CommentsList } from "./CommentsList";
+export { CommentsList } from "widgets/CommentsList/ui";
 export { AddComment } from "./AddComment";
 export { Auth } from "./Auth";
 export { PasswordRecovery } from "./PasswordRecovery";

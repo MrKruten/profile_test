@@ -3,7 +3,8 @@ import { createEffect, createEvent, sample } from "effector";
 import { API } from "shared/api";
 import { NotificationModel } from "entities/Notification";
 import { errorAuth } from "shared/lib/errorAuth";
-import { getUser, Types } from "shared/lib";
+import { UserModel } from "entities/Profile";
+import { Types } from "shared/constants";
 
 export const uploadPhotoProfile = createEvent<FormData>();
 
@@ -18,7 +19,7 @@ sample({
 
 sample({
   clock: uploadPhotoProfileFx.doneData,
-  target: getUser,
+  target: UserModel.getUser,
 });
 
 sample({
@@ -58,7 +59,7 @@ sample({
 
 sample({
   clock: updateProfileFx.doneData,
-  target: getUser,
+  target: UserModel.getUser,
 });
 
 sample({

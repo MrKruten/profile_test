@@ -2,10 +2,10 @@ import React from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
-import { Types } from "shared/lib";
+import { Types } from "shared/constants";
 import { Button, Input } from "shared/ui";
 
-import { submitAuthForm } from "../model";
+import { AuthModel } from "../model";
 import { schema } from "../lib/schema";
 
 import "./style.scss";
@@ -21,7 +21,10 @@ export const AuthForm: React.FC = () => {
   });
 
   const onSubmit: SubmitHandler<Types.IFormInputs> = async (data) => {
-    await submitAuthForm({ email: data.login, password: data.password });
+    await AuthModel.submitAuthForm({
+      email: data.login,
+      password: data.password,
+    });
   };
 
   return (

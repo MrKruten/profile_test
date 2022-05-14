@@ -2,10 +2,12 @@ import React from "react";
 
 import { Button } from "shared/ui";
 import { ReactComponent as Edit } from "shared/images/Edit.svg";
-import { setEditComment, Types } from "shared/lib";
+import { CommentsModel } from "entities/Comment";
+import { Types } from "shared/constants";
+
+import { updateStatusComment } from "../model";
 
 import "./style.scss";
-import { updateStatusComment } from "../model";
 
 interface IButtonsAdminComment {
   comment: Types.IReview;
@@ -25,7 +27,7 @@ export const ButtonsAdminComment: React.FC<IButtonsAdminComment> = ({
   };
 
   const edit = () => {
-    setEditComment(comment);
+    CommentsModel.setEditComment(comment);
     editFunc();
   };
 

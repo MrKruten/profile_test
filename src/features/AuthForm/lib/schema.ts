@@ -1,6 +1,6 @@
 import * as yup from "yup";
 
-import { Regulars } from "shared/lib";
+import { Regulars } from "shared/constants";
 
 // расписывать e-mail 0_0
 export const schema = yup

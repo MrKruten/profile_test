@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Types } from "shared/lib";
+import { Types } from "shared/constants";
 import { Avatar, Status } from "shared/ui";
 import "./style.scss";
 

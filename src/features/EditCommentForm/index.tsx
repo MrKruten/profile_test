@@ -1,2 +1,2 @@
 export { EditComment } from "./ui";
-export * as EditCommentModel from "./model";
+export { EditCommentModel } from "./model";

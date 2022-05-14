@@ -1,33 +1,28 @@
 import { createEffect, createEvent, createStore, sample } from "effector";
 
 import { API } from "shared/api";
-import {
-  $lastAddedCommentID,
-  addCommentCaptchaError,
-  addCommentFx,
-  resetLastAddedComment,
-  Types,
-} from "shared/lib";
+import { CommentsModel } from "entities/Comment";
 import { NotificationModel } from "entities/Notification";
 import { errorAuth } from "shared/lib/errorAuth";
+import { Types } from "shared/constants";
 
-export const $isShowAddComment = createStore(false);
+const $isShowAddComment = createStore(false);
 
-export const showAddComment = createEvent<boolean>();
+const showAddComment = createEvent<boolean>();
 
 sample({
   clock: showAddComment,
   target: $isShowAddComment,
 });
 
-export const getCaptcha = createEvent();
+const getCaptcha = createEvent();
 
-export const $captcha = createStore<Types.ICaptcha>({
+const $captcha = createStore<Types.ICaptcha>({
   base64Image: "",
   key: "",
 });
 
-export const getCaptchaFx = createEffect(async () => await API.getCaptcha());
+const getCaptchaFx = createEffect(async () => await API.getCaptcha());
 
 sample({
   clock: getCaptcha,
@@ -39,25 +34,25 @@ sample({
   target: $captcha,
 });
 
-export const resetIsErrorCaptcha = createEvent();
+const resetIsErrorCaptcha = createEvent();
 
-export const $isErrorCaptcha = createStore(false).reset(resetIsErrorCaptcha);
+const $isErrorCaptcha = createStore(false).reset(resetIsErrorCaptcha);
 
 sample({
-  clock: addCommentCaptchaError,
+  clock: CommentsModel.addCommentCaptchaError,
   fn: (_) => true,
   target: $isErrorCaptcha,
 });
 
-export const updateUploadPhoto = createEvent<string>();
+const updateUploadPhoto = createEvent<string>();
 
-export const resetUploadPhoto = createEvent();
+const resetUploadPhoto = createEvent();
 
-export const $uploadPhotoComment = createStore("None")
+const $uploadPhotoComment = createStore("None")
   .on(updateUploadPhoto, (_, newImg) => newImg)
   .reset(resetUploadPhoto);
 
-export const uploadPhotoComment = createEvent<FormData>();
+const uploadPhotoComment = createEvent<FormData>();
 
 const $uploadPhotoCommentData = createStore<FormData | null>(null);
 
@@ -66,16 +61,14 @@ sample({
   target: $uploadPhotoCommentData,
 });
 
-export const uploadPhotoCommentFx = createEffect<
-  Types.IUploadImage,
-  any,
-  Error
->(async ({ authorImage, id }) => {
-  await API.updatePhotoComment(id, authorImage);
-});
+const uploadPhotoCommentFx = createEffect<Types.IUploadImage, any, Error>(
+  async ({ authorImage, id }) => {
+    await API.updatePhotoComment(id, authorImage);
+  }
+);
 
 sample({
-  clock: $lastAddedCommentID,
+  clock: CommentsModel.$lastAddedCommentID,
   source: $uploadPhotoCommentData,
   filter: (_, clock) => clock !== "-1",
   fn: (source, clock) => {
@@ -90,7 +83,7 @@ sample({
     uploadPhotoCommentFx.failData,
     showAddComment,
   ],
-  target: resetLastAddedComment,
+  target: CommentsModel.resetLastAddedComment,
 });
 
 sample({
@@ -100,19 +93,19 @@ sample({
 });
 
 sample({
-  clock: [uploadPhotoCommentFx.doneData, addCommentFx.doneData],
+  clock: [uploadPhotoCommentFx.doneData, CommentsModel.addCommentFx.doneData],
   fn: () => true,
   target: NotificationModel.successNotification,
 });
 
 sample({
-  clock: [uploadPhotoCommentFx.failData, addCommentFx.failData],
+  clock: [uploadPhotoCommentFx.failData, CommentsModel.addCommentFx.failData],
   fn: () => false,
   target: NotificationModel.successNotification,
 });
 
 sample({
-  clock: addCommentFx.failData,
+  clock: CommentsModel.addCommentFx.failData,
   fn: () => ({
     textError: "Не удеалось добавить отзыв",
     textSuccess: "Спасибо за отзыв о нашей компании :)",
@@ -122,7 +115,7 @@ sample({
 });
 
 sample({
-  clock: addCommentFx.doneData,
+  clock: CommentsModel.addCommentFx.doneData,
   source: $uploadPhotoComment,
   filter: (source, _) => source === "None",
   fn: () => false,
@@ -130,7 +123,7 @@ sample({
 });
 
 sample({
-  clock: addCommentFx.doneData,
+  clock: CommentsModel.addCommentFx.doneData,
   source: $uploadPhotoComment,
   filter: (source, _) => source === "None",
   fn: () => true,
@@ -148,3 +141,18 @@ sample({
   filter: (clock) => clock.message === "Unauthorized",
   target: errorAuth,
 });
+
+export const AddCommentModel = {
+  uploadPhotoCommentFx,
+  uploadPhotoComment,
+  $uploadPhotoComment,
+  resetUploadPhoto,
+  $isErrorCaptcha,
+  resetIsErrorCaptcha,
+  getCaptchaFx,
+  updateUploadPhoto,
+  $captcha,
+  getCaptcha,
+  showAddComment,
+  $isShowAddComment,
+};

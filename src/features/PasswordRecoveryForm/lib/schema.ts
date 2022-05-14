@@ -1,6 +1,6 @@
 import * as yup from "yup";
 
-import { Regulars } from "shared/lib";
+import { Regulars } from "shared/constants";
 
 export const schema = yup
   .object({

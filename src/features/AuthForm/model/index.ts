@@ -6,12 +6,14 @@ import {
   sample,
 } from "effector";
 
-import { getCommentsFx, Types, getProfileFx } from "shared/lib";
+import { CommentsModel } from "entities/Comment";
+import { UserModel } from "entities/Profile";
 import { API } from "shared/api";
 import { BottomNotificationModel } from "entities/BottomNotification";
 import { errorAuth, errorAuthFx } from "shared/lib/errorAuth";
+import { Types } from "shared/constants";
 
-export const submitAuthForm = createEvent<Types.IAuthorization>();
+const submitAuthForm = createEvent<Types.IAuthorization>();
 
 const authFx = createEffect<Types.IAuthorization, string, Error>(
   async (auth) => {
@@ -26,7 +28,7 @@ sample({
   target: authFx,
 });
 
-export const $accessToken = restore(authFx.doneData, "");
+const $accessToken = restore(authFx.doneData, "");
 
 const checkAccessTokenFx = createEffect(() =>
   localStorage.getItem("accessToken") !== null
@@ -34,13 +36,13 @@ const checkAccessTokenFx = createEffect(() =>
     : ""
 );
 
-export const checkAccessToken = createEvent();
+const checkAccessToken = createEvent();
 sample({
   clock: checkAccessToken,
   target: checkAccessTokenFx,
 });
 
-export const $isAuth = createStore<boolean>(false);
+const $isAuth = createStore<boolean>(false);
 
 sample({
   clock: checkAccessTokenFx.doneData,
@@ -79,6 +81,16 @@ sample({
 });
 
 sample({
-  clock: [getProfileFx.failData, getCommentsFx.failData],
+  clock: [
+    UserModel.getProfileFx.failData,
+    CommentsModel.getCommentsFx.failData,
+  ],
   target: errorAuth,
 });
+
+export const AuthModel = {
+  $isAuth,
+  checkAccessToken,
+  $accessToken,
+  submitAuthForm,
+};

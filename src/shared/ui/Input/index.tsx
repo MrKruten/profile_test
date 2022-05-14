@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import classnames from "classnames";
 import { Path, UseFormRegister } from "react-hook-form";
 
-import { Types } from "shared/lib";
+import { Types } from "shared/constants";
 import { ReactComponent as Info } from "shared/images/Info_Square.svg";
 import { ReactComponent as Show } from "shared/images/Show.svg";
 import { ReactComponent as Hide } from "shared/images/Hide.svg";

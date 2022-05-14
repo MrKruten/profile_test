@@ -1,11 +1,16 @@
-// eslint-disable-next-line import/no-cycle
-import { Types } from "shared/lib";
+import {
+  IAuthorization,
+  ICaptcha,
+  IProfile,
+  IUpdateProfile,
+  IAddReview,
+  IReview,
+  TStatus,
+} from "shared/constants/types";
 
 import { BASE_URL } from "./configure";
 
-const authorization = async (
-  loginData: Types.IAuthorization
-): Promise<string> => {
+const authorization = async (loginData: IAuthorization): Promise<string> => {
   const url = `${BASE_URL}user/signIn`;
   try {
     const request = await fetch(url, {
@@ -27,7 +32,7 @@ const authorization = async (
   }
 };
 
-const getCaptcha = async (): Promise<Types.ICaptcha> => {
+const getCaptcha = async (): Promise<ICaptcha> => {
   const url = `${BASE_URL}reviews/getCaptcha`;
   try {
     const request = await fetch(url, {
@@ -45,7 +50,7 @@ const getCaptcha = async (): Promise<Types.ICaptcha> => {
   }
 };
 
-const getProfile = async (): Promise<Types.IProfile> => {
+const getProfile = async (): Promise<IProfile> => {
   const url = `${BASE_URL}user/getUserProfile`;
   try {
     const request = await fetch(url, {
@@ -88,9 +93,7 @@ const updatePhotoProfile = async (profileImage: FormData): Promise<any> => {
   }
 };
 
-const updateProfile = async (
-  updateInfo: Types.IUpdateProfile
-): Promise<any> => {
+const updateProfile = async (updateInfo: IUpdateProfile): Promise<any> => {
   const url = `${BASE_URL}user/updateInfo`;
   try {
     const request = await fetch(url, {
@@ -113,7 +116,7 @@ const updateProfile = async (
   }
 };
 
-const getStudents = async (): Promise<Array<Types.IProfile>> => {
+const getStudents = async (): Promise<Array<IProfile>> => {
   const url = `${BASE_URL}user/getAll`;
   try {
     const request = await fetch(url, {
@@ -134,7 +137,7 @@ const getStudents = async (): Promise<Array<Types.IProfile>> => {
   }
 };
 
-const getComments = async (): Promise<Array<Types.IReview>> => {
+const getComments = async (): Promise<Array<IReview>> => {
   const url = `${BASE_URL}reviews/getAll`;
   try {
     const request = await fetch(url, {
@@ -155,9 +158,7 @@ const getComments = async (): Promise<Array<Types.IReview>> => {
   }
 };
 
-const createComment = async (
-  comment: Types.IAddReview
-): Promise<Types.IReview> => {
+const createComment = async (comment: IAddReview): Promise<IReview> => {
   const url = `${BASE_URL}reviews/create`;
   try {
     const request = await fetch(url, {
@@ -183,7 +184,7 @@ const createComment = async (
 const updateTextComment = async (
   id: string,
   text: string
-): Promise<Types.IReview> => {
+): Promise<IReview> => {
   const url = `${BASE_URL}reviews/updateInfo/${id}`;
   try {
     const request = await fetch(url, {
@@ -208,7 +209,7 @@ const updateTextComment = async (
 
 const updateStatusComment = async (
   id: string,
-  status: Types.TStatus
+  status: TStatus
 ): Promise<any> => {
   const url = `${BASE_URL}reviews/updateStatus/${id}`;
   try {

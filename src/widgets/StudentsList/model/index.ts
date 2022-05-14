@@ -1,19 +1,19 @@
 import { createEffect, createEvent, createStore, sample } from "effector";
 
-import { Types } from "shared/lib";
+import { Types } from "shared/constants";
 import { API } from "shared/api";
 import { errorAuth } from "shared/lib/errorAuth";
 
-export const getStudents = createEvent();
+const getStudents = createEvent();
 
-export const getStudentsFx = createEffect(async () => await API.getStudents());
+const getStudentsFx = createEffect(async () => await API.getStudents());
 
 sample({
   clock: getStudents,
   target: getStudentsFx,
 });
 
-export const $students = createStore<Array<Types.IProfile>>([]);
+const $students = createStore<Array<Types.IProfile>>([]);
 
 sample({
   clock: getStudentsFx.doneData,
@@ -26,14 +26,14 @@ sample({
   target: errorAuth,
 });
 
-export const $sortedStudents = createStore<Array<Types.IProfile>>([]);
+const $sortedStudents = createStore<Array<Types.IProfile>>([]);
 
 sample({
   clock: $students,
   target: $sortedStudents,
 });
 
-export const filterStudents = createEvent<string>();
+const filterStudents = createEvent<string>();
 
 // Какие ещё академ статусы есть???
 sample({
@@ -47,3 +47,11 @@ sample({
   },
   target: $sortedStudents,
 });
+
+export const StudentsModel = {
+  filterStudents,
+  $sortedStudents,
+  $students,
+  getStudentsFx,
+  getStudents,
+};

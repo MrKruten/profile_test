@@ -3,7 +3,7 @@ import React from "react";
 import { BottomNotificationModel } from "entities/BottomNotification";
 import { NotificationModel } from "entities/Notification";
 import { RouterLink } from "shared/ui";
-import { SCREENS } from "shared/lib";
+import { SCREENS } from "shared/constants";
 import { ReactComponent as Users } from "shared/images/Users.svg";
 import { ReactComponent as Comment } from "shared/images/Chat.svg";
 import { ReactComponent as About } from "shared/images/Paper.svg";

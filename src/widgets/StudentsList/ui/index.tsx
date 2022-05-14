@@ -7,16 +7,10 @@ import "react-loading-skeleton/dist/skeleton.css";
 
 import { HeaderContentAdmin, ZeroData } from "shared/ui";
 import { Student } from "entities/Student";
-import { Types } from "shared/lib";
+import { Types } from "shared/constants";
 
+import { StudentsModel } from "../model";
 import { filterOptions } from "../lib/options";
-import {
-  $sortedStudents,
-  $students,
-  filterStudents,
-  getStudents,
-  getStudentsFx,
-} from "../model";
 import "./style.scss";
 
 interface IITems {
@@ -53,9 +47,9 @@ const Items: React.FC<IITems> = ({ currentItems }) => {
 };
 
 export const StudentsList = () => {
-  const students = useStore($students);
-  const sortedStudents = useStore($sortedStudents);
-  const isLoading = useStore(getStudentsFx.pending);
+  const students = useStore(StudentsModel.$students);
+  const sortedStudents = useStore(StudentsModel.$sortedStudents);
+  const isLoading = useStore(StudentsModel.getStudentsFx.pending);
   const itemsPerPage = 6;
   const [currentItems, setCurrentItems] =
     useState<Array<Types.IProfile> | null>(null);
@@ -63,7 +57,7 @@ export const StudentsList = () => {
   const [itemOffset, setItemOffset] = useState(0);
 
   useEffect(() => {
-    getStudents();
+    StudentsModel.getStudents();
   }, []);
 
   useEffect(() => {
@@ -81,7 +75,7 @@ export const StudentsList = () => {
     filter: SingleValue<{ value: string; label: string }>
   ) => {
     if (filter) {
-      filterStudents(filter.value);
+      StudentsModel.filterStudents(filter.value);
     }
   };
 

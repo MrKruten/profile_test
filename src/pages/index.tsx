@@ -2,7 +2,7 @@ import React, { lazy } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { useStore } from "effector-react";
 
-import { SCREENS } from "shared/lib";
+import { SCREENS } from "shared/constants";
 import {
   AboutUser,
   AdminCommentsList,
@@ -10,14 +10,14 @@ import {
   PasswordRecovery,
   StudentsList,
 } from "widgets";
-import { $isAuth } from "features/AuthForm/model";
+import { AuthModel } from "features/AuthForm";
 
 const MainPage = lazy(() => import("./MainPage"));
 const AuthPage = lazy(() => import("./AuthPage"));
 const AdminPage = lazy(() => import("./AdminPage"));
 
 export const Router = () => {
-  const isAuth = useStore($isAuth);
+  const isAuth = useStore(AuthModel.$isAuth);
 
   if (isAuth) {
     return (

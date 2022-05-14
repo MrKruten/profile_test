@@ -1,8 +1,10 @@
 import { createEvent, createStore, sample } from "effector";
 
-import { $comments, Helpers, Types } from "shared/lib";
+import { Helpers } from "shared/lib";
+import { CommentsModel } from "entities/Comment";
 import { NotificationModel } from "entities/Notification";
-import { updateStatusCommentFx } from "features/ButtonsAdminComment/model";
+import { updateStatusCommentFx } from "features/ButtonsAdminComment";
+import { Types } from "shared/constants";
 
 export const filterComments = createEvent<string>();
 
@@ -10,7 +12,7 @@ export const $sortedComments = createStore<Types.IReview[]>([]);
 
 sample({
   clock: filterComments,
-  source: $comments,
+  source: CommentsModel.$comments,
   fn: (source, clock) => {
     return [...Helpers.sortComments(clock, source)];
   },
@@ -18,7 +20,7 @@ sample({
 });
 
 sample({
-  clock: $comments,
+  clock: CommentsModel.$comments,
   source: filterComments,
   fn: (source, clock) => {
     return Helpers.sortComments(source, clock);
