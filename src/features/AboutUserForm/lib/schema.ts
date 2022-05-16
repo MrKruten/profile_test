@@ -1,6 +1,7 @@
 import * as yup from "yup";
 
 import { Regulars } from "shared/constants";
+import { Helpers } from "shared/lib";
 
 export const schema = yup
   .object({
@@ -22,7 +23,11 @@ export const schema = yup
       ),
     dateBirth: yup
       .string()
-      .matches(Regulars.regDate, "Дата должна быть в формате: дд.мм.гггг"),
+      .matches(Regulars.regDate, "Дата должна быть в формате: дд.мм.гггг")
+      .test({
+        message: "Дата должна быть не больше сегодняшней",
+        test: (value) => (value ? Helpers.checkIsDateMoreToday(value) : true),
+      }),
     city: yup.object({
       label: yup.string(),
       value: yup.string(),

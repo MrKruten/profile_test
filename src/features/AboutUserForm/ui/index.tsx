@@ -20,7 +20,6 @@ import "./style.scss";
 export const AboutUserForm = () => {
   const user = useStore(UserModel.$user);
   const inputFileRef = useRef<HTMLInputElement>(null);
-  const [isDateError, setIsDateError] = useState(false);
   const [isEdit, setIsEdit] = useState(false);
   const {
     control,
@@ -65,22 +64,15 @@ export const AboutUserForm = () => {
   };
 
   const onSubmit: SubmitHandler<Types.IFormInputs> = (data) => {
-    let newAgeUser: Date;
-    if (data.dateBirth) {
-      if (!Helpers.checkIsDateMoreToday(data.dateBirth)) {
-        setIsDateError(true);
-        setTimeout(() => {
-          setIsDateError(false);
-        }, 3000);
-        return;
-      }
-      newAgeUser = Helpers.stringToDate(data.dateBirth);
-    }
+    const dateUser: Date | null =
+      data.dateBirth !== undefined
+        ? Helpers.stringToDate(data.dateBirth)
+        : null;
 
     updateProfile({
       firstName: data.firstName || user.firstName,
       lastName: data.lastName || user.lastName,
-      birthDate: newAgeUser! || user.birthDate,
+      birthDate: dateUser! || user.birthDate,
       gender: (data.sex.value as "male" | "female") || user.gender!,
       cityOfResidence: data.city.value || user.cityOfResidence!,
       hasPet: data.pet.value !== "false",
@@ -157,12 +149,8 @@ export const AboutUserForm = () => {
           label="Дата рождения"
           register={register}
           id="dateBirth"
-          error={!!errors.dateBirth || isDateError}
-          errorMessage={
-            isDateError
-              ? "Дата должна быть не больше сегодняшней"
-              : errors.dateBirth?.message
-          }
+          error={!!errors.dateBirth}
+          errorMessage={errors.dateBirth?.message}
         />
       </div>
       <div className="about-form__fields">

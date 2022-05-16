@@ -27,7 +27,6 @@ export const AddCommentForm = () => {
     AddCommentModel.uploadPhotoCommentFx.pending
   );
   const [fileName, setFileName] = useState("");
-  const [isFileError, setIsFileError] = useState(false);
   const captcha = useStore(AddCommentModel.$captcha);
   const isErrorCaptcha = useStore(AddCommentModel.$isErrorCaptcha);
   const {
@@ -57,6 +56,7 @@ export const AddCommentForm = () => {
       setTimeout(() => {
         AddCommentModel.resetIsErrorCaptcha();
         NotificationModel.showNotification(false);
+        NotificationModel.successNotification(true);
       }, 4000);
     }
   }, [isErrorCaptcha]);
@@ -68,16 +68,6 @@ export const AddCommentForm = () => {
   const readFile = (input: FileList | null) => {
     if (!input) return;
     const file = input[0];
-
-    if (!/\.(jpg|jpeg|png)$/i.test(file?.name)) {
-      setIsFileError(true);
-      return;
-    }
-
-    if (file.size / 1024 / 1024 > 5) {
-      setIsFileError(true);
-      return;
-    }
 
     setFileName(file.name);
     const readerURL = new FileReader();
@@ -92,7 +82,7 @@ export const AddCommentForm = () => {
   const deleteFile = () => {
     AddCommentModel.resetUploadPhoto();
     setFileName("");
-    setIsFileError(false);
+    reset({ file: null });
   };
 
   const closeWindow = () => {
@@ -155,7 +145,7 @@ export const AddCommentForm = () => {
                 id="file"
                 accept="image/*"
                 onInput={onChangeFile}
-                {...register("file")}
+                {...register("file", { required: false })}
               />
               <span className="input__file-icon-wrapper">
                 <img
@@ -172,19 +162,19 @@ export const AddCommentForm = () => {
           <div className="add-comment__file">
             <img src={fileImg} alt="Файл" />
             <div className="add-comment__name-load">
-              <p className={isFileError ? "add-comment__name-load_error" : ""}>
-                {isFileError ? "Your file is too big!" : fileName}
+              <p className={errors.file ? "add-comment__name-load_error" : ""}>
+                {errors.file ? errors.file.message : fileName}
               </p>
               <div className="add-comment__stripe">
                 <div className="add-comment__bar" />
                 <div
                   className={classnames("add-comment__load", {
-                    "add-comment__load_error": isFileError,
+                    "add-comment__load_error": errors.file,
                   })}
                 />
               </div>
             </div>
-            <button onClick={deleteFile}>
+            <button onClick={deleteFile} type="button">
               <DeleteImg />
             </button>
           </div>
@@ -238,7 +228,7 @@ export const AddCommentForm = () => {
         <div className="add-comment__submit">
           <Button
             type="submit"
-            disabled={isFileError || !!(errors.text || errors.name)}
+            disabled={!!errors.text || !!errors.name || !!errors.captcha}
           >
             Отправить отзыв
           </Button>

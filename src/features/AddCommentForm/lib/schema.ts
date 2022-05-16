@@ -14,9 +14,30 @@ export const schema = yup
       .required("Это обязательное поле"),
     captcha: yup
       .string()
-      .min(5, "Поле должно содержать 4 символа")
-      .max(5, "Поле должно содержать 4 символа")
+      .min(5, "Поле должно содержать 5 символа")
+      .max(5, "Поле должно содержать 5 символа")
       .required("Это обязательное поле"),
-    file: yup.mixed(),
+    file: yup
+      .mixed()
+      .test({
+        name: "size-file",
+        message: "Файл должен быть не больше 5 мб",
+        test: (value: FileList) => {
+          if (value && value.length > 0) {
+            return value[0]?.size < 1024 * 1024 * 5;
+          }
+          return true;
+        },
+      })
+      .test({
+        name: "format-file",
+        message: "Допустимые форматы jpg, jpeg или png",
+        test: (value: FileList) => {
+          if (value && value.length > 0) {
+            return /\.(jpg|jpeg|png)$/i.test(value![0]?.name);
+          }
+          return true;
+        },
+      }),
   })
   .required();

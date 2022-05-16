@@ -17,8 +17,12 @@ export const dateToString = (dateString: Date): string => {
 
 export const checkIsDateMoreToday = (dateCheck: string): boolean => {
   const today = new Date();
-  const dateUser = stringToDate(dateCheck);
-  return dateUser <= today;
+  try {
+    const dateUser = stringToDate(dateCheck);
+    return dateUser <= today;
+  } catch (e) {
+    return false;
+  }
 };
 
 export const compareDates = (prev: string, next: string) => {

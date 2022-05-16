@@ -52,7 +52,9 @@ const addCommentCaptchaError = createEvent();
 
 sample({
   clock: addCommentFx.failData,
-  filter: (clock) => clock.message.indexOf("invalid captcha") !== -1,
+  filter: (clock) =>
+    clock.message.indexOf("invalid captcha") !== -1 ||
+    clock.message.indexOf("wrong captcha") !== -1,
   target: addCommentCaptchaError,
 });
 
