@@ -57,5 +57,11 @@ export const sortComments = (filter: string, comments: Array<IReview>) => {
 export const calculateAge = (dateBirth: string): number => {
   const today = new Date();
   const birth = new Date(dateBirth);
+  if (
+    birth.getMonth() > today.getMonth() ||
+    (birth.getMonth() === today.getMonth() && birth.getDay() > today.getDate())
+  ) {
+    return today.getFullYear() - birth.getFullYear() - 1;
+  }
   return today.getFullYear() - birth.getFullYear();
 };
