@@ -97,51 +97,55 @@ export const StudentsList = () => {
           />
         }
       />
-      <div className="students__table">
-        <div className="students__table-head">
-          <p>ИФ УЧЕНИКА</p>
-          <p>КРАТКАЯ ИНФОРМАЦИЯ</p>
-          <p>СТАТУС</p>
-        </div>
-        {isLoading ? (
-          [...new Array(6)].map((_, index) => (
-            <div className="students__skeleton" key={`skeleton-${index + 1}`}>
-              <SkeletonLoading
-                count={1}
-                width="100%"
-                height="41px"
-                baseColor="#E0E0E0"
+      {sortedStudents.length === 0 ? (
+        <ZeroData text="Список участников пуст" />
+      ) : (
+        <div className="students__table">
+          <div className="students__table-head">
+            <p>ИФ УЧЕНИКА</p>
+            <p>КРАТКАЯ ИНФОРМАЦИЯ</p>
+            <p>СТАТУС</p>
+          </div>
+          {isLoading ? (
+            [...new Array(6)].map((_, index) => (
+              <div className="students__skeleton" key={`skeleton-${index + 1}`}>
+                <SkeletonLoading
+                  count={1}
+                  width="100%"
+                  height="41px"
+                  baseColor="#E0E0E0"
+                />
+              </div>
+            ))
+          ) : (
+            <Items currentItems={currentItems} />
+          )}
+          {!isLoading && (
+            <div className="students__pagination-dots">
+              <ReactPaginate
+                breakLabel="..."
+                nextLabel=">"
+                onPageChange={handlePageClick}
+                pageRangeDisplayed={1}
+                marginPagesDisplayed={1}
+                pageCount={pageCount}
+                previousLabel="<"
+                pageClassName="page-item"
+                pageLinkClassName="page-link"
+                previousClassName="page-item"
+                previousLinkClassName="page-link"
+                nextClassName="page-item"
+                nextLinkClassName="page-link"
+                breakClassName="page-item"
+                breakLinkClassName="page-link"
+                containerClassName="pagination"
+                activeClassName="page-item_active"
+                disabledClassName="page-item_disabled"
               />
             </div>
-          ))
-        ) : (
-          <Items currentItems={currentItems} />
-        )}
-        {!isLoading && (
-          <div className="students__pagination-dots">
-            <ReactPaginate
-              breakLabel="..."
-              nextLabel=">"
-              onPageChange={handlePageClick}
-              pageRangeDisplayed={1}
-              marginPagesDisplayed={1}
-              pageCount={pageCount}
-              previousLabel="<"
-              pageClassName="page-item"
-              pageLinkClassName="page-link"
-              previousClassName="page-item"
-              previousLinkClassName="page-link"
-              nextClassName="page-item"
-              nextLinkClassName="page-link"
-              breakClassName="page-item"
-              breakLinkClassName="page-link"
-              containerClassName="pagination"
-              activeClassName="page-item_active"
-              disabledClassName="page-item_disabled"
-            />
-          </div>
-        )}
-      </div>
+          )}
+        </div>
+      )}
     </div>
   );
 };
