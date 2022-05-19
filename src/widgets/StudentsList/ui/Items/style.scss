@@ -1,0 +1,7 @@
+.students__list{
+  & li:last-child{
+    .student{
+      border-bottom: none;
+    }
+  }
+}

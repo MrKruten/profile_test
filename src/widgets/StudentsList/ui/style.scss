@@ -52,14 +52,6 @@
     }
   }
 
-  &__list{
-    & li:last-child{
-      .student{
-        border-bottom: none;
-      }
-    }
-  }
-
   &__pagination-dots{
     display: flex;
     justify-content: center;
