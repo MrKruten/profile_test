@@ -1,0 +1,40 @@
+@import 'src/app/styles/variables';
+
+.add-comment{
+  &__submit {
+    margin-top: 40px;
+    align-items: center;
+
+    @media (max-width: $md3) {
+      flex-direction: column;
+      align-items: flex-start;
+
+      button{
+        order: 2;
+      }
+    }
+  }
+
+  &__info {
+    margin-left: 16px;
+    align-items: center;
+
+    span {
+      margin-left: 8px;
+      color: #8A8A8A;
+    }
+
+    @media (max-width: $md3) {
+      order: 1;
+      margin-left: 0;
+      margin-bottom: 12px;
+      font-size: 10px;
+      line-height: 12px;
+
+      img{
+        width: 8px;
+        height: 8px;
+      }
+    }
+  }
+}

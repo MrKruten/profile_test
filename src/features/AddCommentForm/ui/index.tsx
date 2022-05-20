@@ -1,27 +1,25 @@
 import React, { useEffect, useState } from "react";
-import classnames from "classnames";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useStore } from "effector-react";
 
-import infoImg from "shared/images/Info_Square.svg";
-import plusImg from "shared/images/Plus.svg";
-import fileImg from "shared/images/File.svg";
-import { ReactComponent as DeleteImg } from "shared/images/Delete.svg";
-import { ReactComponent as ReloadCaptcha } from "shared/images/Reload.svg";
-import { Button, Input, TextArea, Loader } from "shared/ui";
+import { Input, TextArea, Loader } from "shared/ui";
 import { CommentsModel } from "entities/Comment";
 import { Types } from "shared/constants";
 import { NotificationModel } from "entities/Notification";
-import crossImg from "shared/images/Cross.svg";
 
 import { AddCommentModel } from "../model";
 import { schema } from "../lib/schema";
 
+import { SubmitBlock } from "./SubmitBlock";
+import { LoadFile } from "./LoadFile";
+import { HeaderAddCommentForm } from "./HeaderAddCommentForm";
+import { FileBar } from "./FileBar";
+import { Captcha } from "./Captcha";
+
 import "./style.scss";
 
 export const AddCommentForm = () => {
-  const isLoadingCaptcha = useStore(AddCommentModel.getCaptchaFx.pending);
   const isLoadingRequestComment = useStore(CommentsModel.addCommentFx.pending);
   const isLoadingRequestPhoto = useStore(
     AddCommentModel.uploadPhotoCommentFx.pending
@@ -119,12 +117,7 @@ export const AddCommentForm = () => {
 
   return (
     <div className="add-comment__content">
-      <div className="add-comment__header">
-        <h4>Отзыв</h4>
-        <button onClick={closeWindow}>
-          <img src={crossImg} alt="Закрыть" />
-        </button>
-      </div>
+      <HeaderAddCommentForm closeWindow={closeWindow} />
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="add-comment__name-file">
           <Input
@@ -137,47 +130,15 @@ export const AddCommentForm = () => {
             error={!!errors.name}
             errorMessage={errors.name?.message}
           />
-          <div className="name-file input__wrapper">
-            <label htmlFor="file" className="input__file-button btn">
-              <input
-                type="file"
-                className="input input__file"
-                id="file"
-                accept="image/*"
-                onInput={onChangeFile}
-                {...register("file", { required: false })}
-              />
-              <span className="input__file-icon-wrapper">
-                <img
-                  className="input__file-icon"
-                  src={plusImg}
-                  alt="Выбрать файл"
-                />
-              </span>
-              <span className="input__file-button-text">Загрузить фото</span>
-            </label>
-          </div>
+          <LoadFile register={register} onChangeFile={onChangeFile} />
         </div>
         {fileName === "" ? null : (
-          <div className="add-comment__file">
-            <img src={fileImg} alt="Файл" />
-            <div className="add-comment__name-load">
-              <p className={errors.file ? "add-comment__name-load_error" : ""}>
-                {errors.file ? errors.file.message : fileName}
-              </p>
-              <div className="add-comment__stripe">
-                <div className="add-comment__bar" />
-                <div
-                  className={classnames("add-comment__load", {
-                    "add-comment__load_error": errors.file,
-                  })}
-                />
-              </div>
-            </div>
-            <button onClick={deleteFile} type="button">
-              <DeleteImg />
-            </button>
-          </div>
+          <FileBar
+            fileName={fileName}
+            deleteFile={deleteFile}
+            errorMessage={errors.file?.message}
+            isError={!!errors.file}
+          />
         )}
         <TextArea
           placeholder="Напишите пару слов о вашем опыте..."
@@ -190,53 +151,14 @@ export const AddCommentForm = () => {
           error={!!errors.text}
           errorMessage={errors.text?.message}
         />
-        <div className="add-comment__captcha">
-          <Input
-            placeholder="00000"
-            name="captcha"
-            label="Введите код с картинки:"
-            id="captcha"
-            register={register}
-            required
-            error={!!errors.captcha || isErrorCaptcha}
-            maxlength={5}
-            errorMessage={
-              isErrorCaptcha
-                ? "Введите код с картинки"
-                : errors.captcha?.message
-            }
-          />
-          <div className="add-comment__captcha-right">
-            {isLoadingCaptcha ? (
-              <Loader />
-            ) : (
-              <img
-                src={captcha.base64Image}
-                alt="Captcha"
-                className="add-comment__captcha-img"
-              />
-            )}
-            <button
-              type="button"
-              className="add-comment__reload-captcha"
-              onClick={reloadCaptcha}
-            >
-              <ReloadCaptcha />
-            </button>
-          </div>
-        </div>
-        <div className="add-comment__submit">
-          <Button
-            type="submit"
-            disabled={!!errors.text || !!errors.name || !!errors.captcha}
-          >
-            Отправить отзыв
-          </Button>
-          <div className="add-comment__info">
-            <img src={infoImg} alt="Информация" />
-            <span>Все отзывы проходят модерацию в течение 2 часов</span>
-          </div>
-        </div>
+        <Captcha
+          register={register}
+          errors={errors}
+          isError={isErrorCaptcha}
+          captchaImg={captcha.base64Image}
+          reloadCaptcha={reloadCaptcha}
+        />
+        <SubmitBlock errors={errors} />
       </form>
     </div>
   );
