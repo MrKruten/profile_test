@@ -1,0 +1,12 @@
+@import'src/app/styles/variables';
+
+.about-form{
+  &__select:last-child{
+    .react-select-container{
+      width: 209px;
+      @media (max-width: $maxWidth) {
+        width: 100%;
+      }
+    }
+  }
+}

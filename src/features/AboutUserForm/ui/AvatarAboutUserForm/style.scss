@@ -1,0 +1,122 @@
+@import'src/app/styles/variables';
+
+.about-form{
+  &__avatar{
+    display: flex;
+    position: relative;
+
+    .avatar{
+      &_default{
+        height: 64px;
+        background: #F5F5F5;
+        border: none;
+        border-radius: 2px;
+        padding: 19px;
+      }
+    }
+  }
+
+  &__photo{
+    .avatar-big{
+      position: absolute;
+      display: none;
+      text-align: center;
+      background: #FFFFFF;
+      left: -75px;
+      top: 80px;
+      padding: 12px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+      @media (max-width: $maxWidth) {
+        left: 0;
+        top:50px;
+      }
+      &::after {
+        content: '';
+        position: absolute;
+        left: 80px;
+        top: -35px;
+        border: 20px solid transparent;
+        border-bottom: 20px solid white;
+        @media (max-width: $maxWidth) {
+          content: none;
+        }
+      }
+      img{
+        width: 180px;
+        height: 180px;
+      }
+    }
+
+    &:hover{
+      .avatar-big{
+        display: block;
+        z-index: 10;
+      }
+    }
+  }
+
+  &__avatar-info{
+    align-self: center;
+    margin-left: 16px;
+  }
+
+  &__photo-text{
+    font-family: 'Factor A TRIAL', sans-serif;
+    font-weight: 500;
+    line-height: 143%;
+    letter-spacing: -0.0124em;
+    color: #8A8A8A;
+    margin-bottom: 12px;
+  }
+
+  .input__file-button{
+    display: flex;
+    align-items: center;
+
+    &:hover{
+      span{
+        color: #797DDF;
+      }
+
+      svg path{
+        stroke: #797DDF;
+      }
+    }
+  }
+
+  .input__file-button_disabled{
+    span{
+      color: #8A8A8A;
+    }
+
+    svg path{
+      stroke: #8A8A8A;
+    }
+
+    &:hover{
+      &:hover{
+        span{
+          color: #8A8A8A;
+        }
+
+        svg path{
+          stroke: #8A8A8A;
+        }
+      }
+    }
+  }
+
+  .input__file-button-text{
+    font-family: 'Gilroy', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 18px;
+    letter-spacing: 0.01em;
+    color: #585CC6;
+  }
+
+  .input__file-icon-wrapper{
+    margin-right: 10px;
+    display: flex;
+  }
+}
