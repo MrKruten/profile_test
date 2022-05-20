@@ -24,6 +24,20 @@
       height: max-content;
       align-items: center;
     }
+
+    &::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    &::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+      background: #FFFFFF;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #585CC6;
+      border-radius: 2px;
+    }
   }
 
   li:nth-child(odd){
