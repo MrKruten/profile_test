@@ -18,6 +18,11 @@
     margin-bottom: 60px;
   }
 
+  @media (max-width: 1085px) {
+    flex-direction: column;
+    height: 100%;
+  }
+
   .avatar {
     margin-top: 37px;
 

@@ -7,18 +7,31 @@
       margin-top: 60px;
   }
 
-  &__arrow-buttons{
+  @media (max-width: $maxWidth) {
+    flex-direction: column;
+  }
+
+  &__container-arrow-buttons{
     margin-left: 34px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
 
-    div{
-      flex-direction: row;
+    @media (max-width: $maxWidth) {
+      margin-left: 0;
+      margin-top: 24px;
+    }
+  }
 
-      button:first-child{
-        margin-right: 16px;
-      }
+  &__arrow-buttons{
+    flex-direction: row;
+
+    @media (max-width: $maxWidth) {
+      align-self: center;
+    }
+
+    button:first-child{
+      margin-right: 16px;
     }
   }
 
@@ -43,6 +56,10 @@
 
   &__swiper{
     margin-top: 38px;
+
+    .comment{
+      width: 95%;
+    }
   }
 }
 

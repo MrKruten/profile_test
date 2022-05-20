@@ -38,7 +38,7 @@ export const CommentsList = () => {
 
   const settings = {
     arrows: false,
-    dots: false,
+    dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 2,
@@ -52,7 +52,7 @@ export const CommentsList = () => {
           slidesToShow: 1,
           slidesToScroll: 1,
           infinite: true,
-          dots: false,
+          dots: true,
         },
       },
     ],
@@ -93,8 +93,8 @@ export const CommentsList = () => {
         </div>
       </div>
       {isResize && (
-        <div className="comment-list__arrow-buttons">
-          <div>
+        <div className="comment-list__container-arrow-buttons">
+          <div className="comment-list__arrow-buttons">
             <ArrowButton onClick={onPrevious} rotated />
             <ArrowButton onClick={onNext} />
           </div>

@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 import { useGate } from "effector-react";
 
-import { Profile, UserModel } from "entities/Profile";
 import { CommentsList, AddComment } from "widgets";
 import { ResizeGate } from "shared/lib";
-import { CommentsModel } from "entities/Comment";
 import { Footer } from "shared/ui";
 import { HeaderMain } from "widgets/headers";
 import { NotificationModel } from "entities/Notification";
+import { Profile, UserModel } from "entities/Profile";
+import { CommentsModel } from "entities/Comment";
 
 import "./style.scss";
 
