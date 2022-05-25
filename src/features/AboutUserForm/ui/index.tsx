@@ -40,6 +40,7 @@ export const AboutUserForm = () => {
       data.dateBirth !== undefined
         ? Helpers.stringToDate(data.dateBirth)
         : null;
+    console.log(data.text);
 
     updateProfile({
       firstName: data.firstName || user.firstName,
@@ -48,8 +49,9 @@ export const AboutUserForm = () => {
       gender: (data.sex.value as "male" | "female") || user.gender!,
       cityOfResidence: data.city.value || user.cityOfResidence!,
       hasPet: data.pet.value !== "false",
-      aboutMe: data.text || user.aboutMe!,
-      smallAboutMe: data.shortInfo || user.smallAboutMe!,
+      aboutMe: data.text !== undefined ? data.text : user.aboutMe!,
+      smallAboutMe:
+        data.shortInfo !== undefined ? data.shortInfo : user.smallAboutMe!,
     });
 
     setIsEdit(false);

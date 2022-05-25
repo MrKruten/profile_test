@@ -9,4 +9,9 @@
       }
     }
   }
+  @media (max-width: $maxWidth) {
+      &__select:not(:first-child){
+        margin-top: 20px;
+      }
+  }
 }
