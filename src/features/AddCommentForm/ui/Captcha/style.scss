@@ -4,7 +4,7 @@
   &__captcha{
     margin-top: 32px;
     display: flex;
-    align-items: end;
+    align-items: flex-end;
 
     @media (max-width: $md3) {
       flex-direction: column;

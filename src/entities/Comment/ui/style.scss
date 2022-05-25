@@ -29,51 +29,6 @@
     }
   }
 
-  &__admin-block{
-    display: flex;
-    align-items: center;
-    font-family: 'Gilroy', sans-serif;
-    font-weight: 600;
-    font-size: 18px;
-    line-height: 100%;
-    letter-spacing: 0.01em;
-    color: #61BF4A;
-
-    &_rejected{
-      color: #EB5757;
-    }
-  }
-
-  &__icon{
-    padding: 7px 6px;
-    margin-right: 14px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #61BF4A;
-    opacity: 0.4;
-    border-radius: 4px;
-
-    svg{
-      width: 10px;
-      height: 10px;
-      mix-blend-mode: color-burn;
-      path{
-        fill: #61BF4A;
-      }
-    }
-
-    &_rejected{
-      background: #EB5757;
-
-      svg{
-        path{
-          fill: #EB5757;
-        }
-      }
-    }
-  }
-
   &_published{
     background: rgba(181, 255, 162, 0.1);
   }

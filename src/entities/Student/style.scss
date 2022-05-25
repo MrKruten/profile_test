@@ -15,6 +15,7 @@
     display: flex;
     align-items: center;
     flex-basis: 30%;
+    margin-right: 5px;
   }
 
   &__name{
@@ -36,6 +37,7 @@
     line-height: 17px;
     color: #464E5F;
     flex-basis: 60%;
+    margin-right: 5px;
 
     @media (max-width: $md3) {
       font-size: 12px;

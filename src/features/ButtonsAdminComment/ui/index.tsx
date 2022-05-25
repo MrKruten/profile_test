@@ -18,11 +18,11 @@ export const ButtonsAdminComment: React.FC<IButtonsAdminComment> = ({
   comment,
   editFunc,
 }) => {
-  const publish = () => {
+  const handleCommentApproveClick = () => {
     updateStatusComment({ id: comment.id!, status: "approved" });
   };
 
-  const reject = () => {
+  const handleCommentRejectClick = () => {
     updateStatusComment({ id: comment.id!, status: "declined" });
   };
 
@@ -34,8 +34,8 @@ export const ButtonsAdminComment: React.FC<IButtonsAdminComment> = ({
   return (
     <div className="comment__admin-buttons">
       <div className="comment__left-buttons">
-        <Button onClick={publish}>Опубликовать</Button>
-        <Button color="red" onClick={reject}>
+        <Button onClick={handleCommentApproveClick}>Опубликовать</Button>
+        <Button color="red" onClick={handleCommentRejectClick}>
           Отклонить
         </Button>
       </div>

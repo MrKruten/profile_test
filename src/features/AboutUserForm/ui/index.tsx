@@ -40,7 +40,6 @@ export const AboutUserForm = () => {
       data.dateBirth !== undefined
         ? Helpers.stringToDate(data.dateBirth)
         : null;
-    console.log(data.text);
 
     updateProfile({
       firstName: data.firstName || user.firstName,

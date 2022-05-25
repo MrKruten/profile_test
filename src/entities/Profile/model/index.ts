@@ -23,22 +23,22 @@ const $user = createStore<Types.IProfile>({
 
 const getUser = createEvent();
 
-const getProfileFx = createEffect(async () => {
+const getUserFx = createEffect(async () => {
   return await API.getProfile();
 });
 
 sample({
   clock: getUser,
-  target: getProfileFx,
+  target: getUserFx,
 });
 
 sample({
-  clock: getProfileFx.doneData,
+  clock: getUserFx.doneData,
   target: $user,
 });
 
 export const UserModel = {
-  getProfileFx,
+  getProfileFx: getUserFx,
   getUser,
   $user,
   updatePhotoUser,
