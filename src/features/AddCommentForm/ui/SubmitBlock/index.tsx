@@ -9,14 +9,17 @@ import "./style.scss";
 
 interface ISubmitBlock {
   errors: FieldErrors<Types.IFormInputs>;
+  isValid: boolean;
 }
 
-export const SubmitBlock: React.FC<ISubmitBlock> = ({ errors }) => {
+export const SubmitBlock: React.FC<ISubmitBlock> = ({ errors, isValid }) => {
   return (
     <div className="add-comment__submit">
       <Button
         type="submit"
-        disabled={!!errors.text || !!errors.name || !!errors.captcha}
+        disabled={
+          !isValid || !!errors.text || !!errors.name || !!errors.captcha
+        }
       >
         Отправить отзыв
       </Button>

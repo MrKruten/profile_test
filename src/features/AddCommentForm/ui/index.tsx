@@ -31,7 +31,7 @@ export const AddCommentForm = () => {
     register,
     handleSubmit,
     reset,
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm<Types.IFormInputs>({
     resolver: yupResolver(schema),
     mode: "onChange",
@@ -109,6 +109,7 @@ export const AddCommentForm = () => {
       form.append("authorImage", data.file[0]);
       AddCommentModel.uploadPhotoComment(form);
     }
+    reset();
   };
 
   if (isLoadingRequestComment || isLoadingRequestPhoto) {
@@ -158,7 +159,7 @@ export const AddCommentForm = () => {
           captchaImg={captcha.base64Image}
           reloadCaptcha={reloadCaptcha}
         />
-        <SubmitBlock errors={errors} />
+        <SubmitBlock errors={errors} isValid={isValid} />
       </form>
     </div>
   );
