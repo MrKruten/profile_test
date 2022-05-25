@@ -1,6 +1,7 @@
 @import'src/app/styles/variables';
 
 .btn{
+  user-select: none;
   position: relative;
   background-color: #585CC6;
   color: #FFFFFF;

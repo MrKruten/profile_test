@@ -142,10 +142,12 @@ body {
 }
 
 .input__file-button {
+  user-select: none;
   cursor: pointer;
 }
 
 .react-select-container{
+  user-select: none;
   z-index: 5;
   color: $textColor;
   width: 403px;

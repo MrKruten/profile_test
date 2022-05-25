@@ -1,6 +1,7 @@
 .input-block{
   width: 395px;
   position: relative;
+  user-select: none;
   &__label{
     font-family: 'Factor A TRIAL', sans-serif;
     font-weight: 500;
